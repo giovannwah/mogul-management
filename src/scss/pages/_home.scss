@@ -19,16 +19,30 @@
 
 .intro-container {
   display: flex;
+  flex-direction: row;
+  justify-content: center;
+  padding-right: 40px;
+  padding-left: 40px;
   width: 100%;
+  @media (max-width: 776px) {
+    flex-direction: column;
+  }
 }
 
 .intro-big {
+  width: 100%;
+}
 
+.services-home {
+  padding-top: 10px !important;
 }
 
 .intro-half {
+  justify-content: center;
 }
 
 #mogul-logo {
-  width: 500px;
+  width: 550px;
+  min-width: 500px;
+  max-width: 600px;
 }

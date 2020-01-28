@@ -29,14 +29,16 @@ const Home = (props) => {
         />
       </Helmet>
       <div className="intro-big">
+        <div className="intro-container">
           <div className="intro pb-4 intro-half">
             <h1>{`Welcome to ${props.data.site.siteMetadata.title}`}</h1>
           </div>
           <div className="intro-half">
             <img id="mogul-logo" src="../marathon-logo.png" alt="Mogul Management Logo"/>
           </div>
+        </div>
       </div>
-      <div className="container pt-8 pt-md-10">
+      <div className="services-home container pt-8 pt-md-10">
         <div className="row justify-content-start">
           <div className="col-12">
             <h2 className="title-3 text-dark mb-3">Our Services</h2>
