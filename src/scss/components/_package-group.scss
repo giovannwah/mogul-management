@@ -18,6 +18,14 @@
   background-color: white;
 }
 
+.package-group-container {
+  display: flex;
+  flex-direction: row;
+  @media (max-width: 776px) {
+    flex-direction: column;
+  }
+}
+
 .package-button:focus {
   outline: none;
 }

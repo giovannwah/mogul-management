@@ -30,7 +30,7 @@ const Home = (props) => {
       </Helmet>
       <div className="intro-big">
         <div className="intro-container">
-          <div className="intro pb-4 intro-half">
+          <div className="intro intro-half">
             <h1>{`Welcome to ${props.data.site.siteMetadata.title}`}</h1>
           </div>
           <div className="intro-half">

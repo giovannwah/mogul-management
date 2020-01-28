@@ -23,8 +23,7 @@ Package.propTypes = {
 }
 
 const PackageGroup = props => (
-  <div>
-    <ButtonGroup>
+  <div className="package-group-container">
     {
       props.packages.map((pkg, i) => (
         <Package key={pkg.name}
@@ -38,7 +37,6 @@ const PackageGroup = props => (
       (props.packages.length <= 1) &&
       <div className="pkg-mcs"><i>More packages coming soon.</i></div>
     }
-    </ButtonGroup>
   </div>
 );
 
