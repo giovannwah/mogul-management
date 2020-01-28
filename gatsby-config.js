@@ -1,10 +1,3 @@
-// Initialize dotenv
-require('dotenv').config({
-  path: '.env', // or '.env'
-});
-
-const config = require('gatsby-plugin-config');
-
 const guid = process.env.NETLIFY_GOOGLE_ANALYTICS_ID;
 
 module.exports = {

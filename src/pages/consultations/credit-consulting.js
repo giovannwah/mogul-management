@@ -2,8 +2,8 @@ import React from 'react';
 import {
   Stepper, Step, StepContent, StepLabel, Button,
 } from '@material-ui/core';
-import config from 'gatsby-plugin-config';
-import ReCAPTCHA from "react-google-recaptcha";
+// import config from 'gatsby-plugin-config';
+// import ReCAPTCHA from "react-google-recaptcha";
 import Layout from '../../layouts/index';
 import SEO from '../../components/SEO';
 import PackageGroup from '../../components/PackageGroup';
@@ -27,6 +27,13 @@ const bold = {
   fontWeight: 'bold',
 }
 
+const sumSpace = {
+  marginBottom: '4px',
+}
+
+const MIN_HOUR = 7;
+const MAX_HOUR = 17;
+
 class CreditConsulting extends React.Component {
   constructor(props) {
     super(props);
@@ -41,7 +48,7 @@ class CreditConsulting extends React.Component {
         step0: false,
         step1: false,
         step2: false,
-        step3: false,
+        step3: true, //TODO: recaptcha on last step
       },
     };
     this.getFormValue = this.getFormValue.bind(this);
@@ -79,23 +86,45 @@ class CreditConsulting extends React.Component {
     return ret;
   }
 
+  validateSelectedDate(date) {
+    // make sure that the selected date is a valid one for an appointment
+    const today = new Date();
+    if (date > today) {
+      const hours = date.getHours();
+      const mins = date.getMinutes();
+      if (hours >= MIN_HOUR && hours <= MAX_HOUR && mins == 0) {
+        return true;
+      }
+    }
+    return false;
+  }
+
+  formatDateString(date) {
+    var options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric'};
+    return `${date.toLocaleDateString("en-US", options)} at ${date.toLocaleTimeString('en-US')}`;
+  }
+
   onDateTimeChange(date) {
-    this.setState({dateTime: date}, () => {
-      const { dateTime, activeStep } = this.state;
-      this.setState((prevState) => {
-        return {
-          completedSteps: {
-            ...prevState.completedSteps,
-            [`step${activeStep}`]: true,
-          },
-        }
+    if (this.validateSelectedDate(date)) {
+      this.setState({ dateTime: date }, () => {
+        const { activeStep } = this.state;
+        this.setState((prevState) => {
+          return {
+            completedSteps: {
+              ...prevState.completedSteps,
+              [`step${activeStep}`]: true,
+            },
+          }
+        });
       });
-    });
+    }
+    else {
+      this.setState({ dateTime: date})
+    }
   }
 
   onCaptchaComplete() {
     const { activeStep } = this.state;
-    console.log('Form Complete.')
     this.setState((prevState) => {
       return {
         completedSteps: {
@@ -134,7 +163,9 @@ class CreditConsulting extends React.Component {
       case 2:
         // Select a date/time
         return <SimpleCalendar onChange={ this.onDateTimeChange }
-                               selectedTime={ dateTime }/>;
+                               selectedTime={ dateTime }
+                               minTime={ MIN_HOUR }
+                               maxTime={ MAX_HOUR }/>;
       case 3:
         // confirm info
         return (
@@ -163,7 +194,7 @@ class CreditConsulting extends React.Component {
     };
     const disp = []
     disp.push({id: 'package', label: "Selected package", value: credit_consulting[0].name})
-    disp.push({id: 'time', label: "Selected appointment time", value: (dateTime ? dateTime.toString() : null)})
+    disp.push({id: 'time', label: "Selected appointment time", value: (dateTime ? this.formatDateString(dateTime) : null)})
     ids.map(id => {
       disp.push({
         id: id,
@@ -177,7 +208,7 @@ class CreditConsulting extends React.Component {
         {
           disp.map(ans => {
               return (
-                <div key={ans.id}>
+                <div style={sumSpace} key={ans.id}>
                   <span style={bold}>{ `${ ans.label }: ` }</span>
                   <span>{ ans.value }</span>
                 </div>
@@ -414,16 +445,24 @@ class CreditConsulting extends React.Component {
   }
 
   handleNextStep = () => {
-    this.setState((lastState) => {
-      return { activeStep: lastState.activeStep + 1 };
-    });
+    const { activeStep, completedSteps } = this.state
+    if (activeStep == Object.keys(completedSteps).length-1) {
+      this.submitForm();
+    }
+    else {
+      this.setState((lastState) => {
+        return { activeStep: lastState.activeStep + 1 };
+      });
+    }
+  }
+
+  submitForm = () => {
+    console.log('Submitting form...')
   }
 
   render() {
     const steps = this.getSteps();
     const { activeStep, completedSteps } = this.state;
-    console.log('Config Values:')
-    console.log(config.GATSBY_GOOGLE_RECAPTCHA_SECRET);
     return (
       <Layout>
         <SEO title="Credit Consultation" />

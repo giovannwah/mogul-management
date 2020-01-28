@@ -28,17 +28,20 @@ class SimpleCalendar extends React.Component {
   }
 
   render() {
-    const customInput = ({ value, click }) => (
+    const ExampleCustomInput = ({ value, onClick }) => (
       <Button
-        variant="outlined"
+        className="custom-input"
+        onClick={onClick}
         color="primary"
-        onClick={click}>
-        { value }
+        variant="outlined">
+        {value}
       </Button>
     );
+    const { minTime, maxTime } = this.props;
     const { currentDate } = this.state;
     return (
       <DatePicker
+        placeholderText="Click to select date/time"
         selected={ currentDate }
         onChange={ date => this.changeDate(date) }
         showTimeSelect
@@ -46,25 +49,21 @@ class SimpleCalendar extends React.Component {
         timeIntervals={60}
         timeCaption="Time"
         dateFormat="MMMM d, yyyy h:mm aa"
-        shouldCloseOnSelect={false}
-        customInput={customInput}
-        // customInput={({ value, click }) => (
-        //                 <Button
-        //                   variant="outlined"
-        //                   color="primary"
-        //                   onClick={click}>
-        //                   { value }
-        //                 </Button>
-        //               )}
+        // shouldCloseOnSelect={false}
+        // customInput={<ExampleCustomInput />}
+        // customInputRef="custom-input"
         minDate={new Date()}
-        minTime={new Date().setHours(7)}
-        maxTime={new Date().setHours(17)}/>
+        minTime={new Date().setHours(minTime)}
+        maxTime={new Date().setHours(maxTime)}/>
     );
   }
 }
 
 SimpleCalendar.propTypes = {
   onChange: PropTypes.func.isRequired,
+  selectedTime: PropTypes.object,
+  minTime: PropTypes.number,
+  maxTime: PropTypes.number,
 }
 
 export default SimpleCalendar;

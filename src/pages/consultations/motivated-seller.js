@@ -23,6 +23,14 @@ const navButtonsGroupStyle = {
   marginTop: '20px',
 }
 
+const bold = {
+  fontWeight: 'bold',
+}
+
+const sumSpace = {
+  marginBottom: '4px',
+}
+
 class MotivatedSeller extends React.Component {
   constructor(props) {
     super(props);
@@ -33,7 +41,7 @@ class MotivatedSeller extends React.Component {
       userInfoMeta: {},
       completedSteps: {
         step0: false,
-        step1: false,
+        step1: true,
       },
     };
     this.getFormValue = this.getFormValue.bind(this);
@@ -91,7 +99,9 @@ class MotivatedSeller extends React.Component {
       case 1:
         return (
           <div>
-            <h3>Please confirm that your information is correct before submitting.</h3>
+            {
+              this.summary()
+            }
           </div>
         );
       default:
@@ -312,9 +322,53 @@ class MotivatedSeller extends React.Component {
   }
 
   handleNextStep = () => {
-    this.setState((lastState) => {
-      return { activeStep: lastState.activeStep + 1 };
+    const { activeStep, completedSteps } = this.state
+    if (activeStep == Object.keys(completedSteps).length-1) {
+      this.submitForm();
+    }
+    else {
+      this.setState((lastState) => {
+        return { activeStep: lastState.activeStep + 1 };
+      });
+    }
+  }
+
+  submitForm = () => {
+    console.log('Submitting form...')
+  }
+
+  summary = () => {
+    const { userInfo, formData } = this.state;
+    const fFormData = this.flattenFormData(formData);
+    const ids = fFormData.map(f => f.id);
+    const getById = (formData, id) => {
+      return formData.filter(f => f.id === id)[0]
+    };
+    const disp = []
+
+    ids.map(id => {
+      disp.push({
+        id: id,
+        label: getById(fFormData, id).label,
+        value: userInfo[id] || 'N/A',
+      });
     });
+
+    return (
+      <div>
+        {
+          disp.map(ans => {
+              return (
+                <div style={sumSpace} key={ans.id}>
+                  <span style={bold}>{ `${ ans.label }: ` }</span>
+                  <span>{ ans.value }</span>
+                </div>
+              );
+            }
+          )
+        }
+      </div>
+    );
   }
 
   render() {
