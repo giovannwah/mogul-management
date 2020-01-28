@@ -1,0 +1,13 @@
+{
+  "content": {
+    "Tell us about your situation": [
+      {
+        "id": "description",
+        "label": "Describe your situation (1000 characters max)",
+        "required": true,
+        "fullWidth": true,
+        "rows": 3
+      }
+    ]
+  }
+}

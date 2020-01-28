@@ -1,0 +1,62 @@
+{
+  "content": {
+    "Full Name": [
+      {
+        "id": "firstName",
+        "label": "First Name",
+        "required": true
+      },
+      {
+        "id": "middleInitial",
+        "label": "Middle Initial",
+        "required": false
+      },
+      {
+        "id": "lastName",
+        "label": "Last Name",
+        "required": true
+      }
+    ],
+    "Contact Information": [
+      {
+        "id": "phoneNumber",
+        "label": "Phone Number",
+        "required": true
+      },
+      {
+        "id": "email",
+        "label": "Email",
+        "required": true
+      }
+    ],
+    "Mailing Address": [
+      {
+        "id": "addressStreet1",
+        "label": "Street 1",
+        "required": false,
+        "fullWidth": true
+      },
+      {
+        "id": "addressStreet2",
+        "label": "Street 2",
+        "required": false,
+        "fullWidth": true
+      },
+      {
+        "id": "addressCity",
+        "label": "City",
+        "required": false
+      },
+      {
+        "id": "addressState",
+        "label": "State",
+        "required": false
+      },
+      {
+        "id": "addressZip",
+        "label": "Zip Code",
+        "required": false
+      }
+    ]
+  }
+}

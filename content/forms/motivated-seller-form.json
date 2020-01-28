@@ -1,0 +1,27 @@
+{
+  "content": {
+    "Questions": [
+      {
+        "id": "question1",
+        "label": "Why are you selling this property? (500 characters max)",
+        "required": true,
+        "fullWidth": true,
+        "rows": 3
+      },
+      {
+        "id": "question2",
+        "label": "Are there any liens on property?",
+        "required": true,
+        "fullWidth": true,
+        "select": ["Yes", "No"]
+      },
+      {
+        "id": "question3",
+        "label": "Are you willing to list on MLS?",
+        "required": true,
+        "fullWidth": true,
+        "select": ["Yes", "No"]
+      }
+    ]
+  }
+}
