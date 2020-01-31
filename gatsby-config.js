@@ -22,6 +22,7 @@ module.exports = {
         link: '/join',
       },
     ],
+    businessEmail: 'giovann.wah92@gmail.com'
   },
   plugins: [
     'gatsby-plugin-sass',

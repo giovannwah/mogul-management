@@ -4,7 +4,6 @@ import DatePicker from 'react-datepicker';
 import {
   Button
 } from '@material-ui/core';
-
 import 'react-datepicker/dist/react-datepicker.css';
 
 class SimpleCalendar extends React.Component {

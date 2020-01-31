@@ -2,13 +2,16 @@ import React from 'react';
 import {
   Stepper, Step, StepContent, StepLabel, Button,
 } from '@material-ui/core';
-import ReCAPTCHA from "react-google-recaptcha";
+import CheckCircleOutlineIcon from '@material-ui/icons/CheckCircleOutline';
+import { Link, graphql } from 'gatsby';
+// import ReCAPTCHA from "react-google-recaptcha";
 import Layout from '../../layouts/index';
 import SEO from '../../components/SEO';
 import Forms from '../../components/Forms';
 import JSONBasicForm from '../../../content/forms/basic-form';
 import JSONInvestorForm from '../../../content/forms/investor-form';
 import JSONInvestorPageContent from '../../../content/pages/consultations/investor-consulting';
+import { test, sendConfirmations } from '../../utils/api';
 
 const pStyle = {
   width: '66%',
@@ -43,6 +46,7 @@ class InvestorConsulting extends React.Component {
         step0: false,
         step1: true,
       },
+      done: false,
     };
     this.getFormValue = this.getFormValue.bind(this);
   }
@@ -335,6 +339,7 @@ class InvestorConsulting extends React.Component {
 
   submitForm = () => {
     console.log('Submitting form...')
+    this.setState({ done: true })
   }
 
   summary = () => {
@@ -373,65 +378,89 @@ class InvestorConsulting extends React.Component {
 
   render() {
     const steps = this.getSteps();
-    const { activeStep, completedSteps } = this.state;
-
+    const { activeStep, completedSteps, done } = this.state;
+    console.log('Done???');
+    console.log(done);
     return (
       <Layout>
         <SEO title="Investor Consulting" />
-        <div className="intro intro-small">
-          <div className="container">
-            <div className="row">
-              <div className="col-12">
-                <h1>{ JSONInvestorPageContent.content.title }</h1>
-              </div>
+        {done ?
+          <div style={{paddingTop: '100px', display: 'flex', flexDirection: 'column', width: '100%', height: 'auto', justifyContent: 'center', alignItems: 'center'}}>
+            <div style={{display: 'flex', flexDirection: 'row', alignItems: 'center'}}>
+              <h2>Thank you!</h2>
+              <CheckCircleOutlineIcon style={{paddingLeft: '10px', width: '55px', height: '55px', color: 'green'}} fontSize="large"/>
             </div>
+            <p style={{maxWidth: '500px', textAlign: 'center'}}>You should receive an email confirmation shortly. We look forward to doing business with you.</p>
+            <Link to="/">Go to Home</Link>
           </div>
-        </div>
-        <div className="container">
-          <div className="row">
-            <div className="col-12">
-              <div>
-                <p className="page-paragraph">{ JSONInvestorPageContent.content.paragraph }</p>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div className="container">
-          <Stepper activeStep={ activeStep } orientation="vertical">
-            {steps.map((label, index) => (
-              <Step key={label}>
-                <StepLabel>{label}</StepLabel>
-                <StepContent>
-                  { this.getStepContent(index) }
-                  <div style={navButtonsGroupStyle}>
-                    { activeStep > 0 &&
-                    <Button
-                      variant="contained"
-                      color="secondary"
-                      onClick={this.handleLastStep}
-                      style={fieldStyle}
-                    >
-                      Back
-                    </Button>
-                    }
-                    <Button
-                      disabled={ !completedSteps[`step${activeStep}`] }
-                      variant="contained"
-                      color="primary"
-                      onClick={this.handleNextStep}
-                      style={fieldStyle}
-                    >
-                      {activeStep === steps.length - 1 ? 'Submit' : 'Next'}
-                    </Button>
+          :
+          <div>
+            <div className="intro intro-small">
+              <div className="container">
+                <div className="row">
+                  <div className="col-12">
+                    <h1>{ JSONInvestorPageContent.content.title }</h1>
                   </div>
-                </StepContent>
-              </Step>
-            ))}
-          </Stepper>
-        </div>
+                </div>
+              </div>
+            </div>
+            <div className="container">
+              <div className="row">
+                <div className="col-12">
+                  <div>
+                    <p className="page-paragraph">{ JSONInvestorPageContent.content.paragraph }</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div className="container">
+              <Stepper activeStep={ activeStep } orientation="vertical">
+                {steps.map((label, index) => (
+                  <Step key={label}>
+                    <StepLabel>{label}</StepLabel>
+                    <StepContent>
+                      { this.getStepContent(index) }
+                      <div style={navButtonsGroupStyle}>
+                        { activeStep > 0 &&
+                        <Button
+                          variant="contained"
+                          color="secondary"
+                          onClick={this.handleLastStep}
+                          style={fieldStyle}
+                        >
+                          Back
+                        </Button>
+                        }
+                        <Button
+                          disabled={ !completedSteps[`step${activeStep}`] }
+                          variant="contained"
+                          color="primary"
+                          onClick={this.handleNextStep}
+                          style={fieldStyle}
+                        >
+                          {activeStep === steps.length - 1 ? 'Submit' : 'Next'}
+                        </Button>
+                      </div>
+                    </StepContent>
+                  </Step>
+                ))}
+              </Stepper>
+            </div>
+          </div>
+          }
       </Layout>
     );
   }
 }
+
+export const query = graphql`
+  query {
+    site {
+      siteMetadata {
+        businessEmail
+      }
+    }
+  }
+`;
 
 export default InvestorConsulting;
