@@ -11,6 +11,7 @@ import Forms from '../../components/Forms';
 import JSONBasicForm from '../../../content/forms/basic-form';
 import JSONMotivatedSellerForm from '../../../content/forms/motivated-seller-form';
 import JSONMotivatedSellerPageContent from '../../../content/pages/consultations/motivated-seller'
+import JSONContact from '../../../content/pages/contact/index';
 import { test, sendConfirmations } from '../../utils/api';
 
 const pStyle = {
@@ -46,7 +47,6 @@ class MotivatedSeller extends React.Component {
         step0: false,
         step1: true,
       },
-      submitData: [],
       done: false,
     };
     this.getFormValue = this.getFormValue.bind(this);
@@ -56,6 +56,14 @@ class MotivatedSeller extends React.Component {
   componentDidMount() {
     const formData = this.mergeFormData([JSONBasicForm.content, JSONMotivatedSellerForm.content]);
     this.setState({ formData: formData });
+  }
+
+  getBusinessPhone() {
+    return JSONContact.content.phone;
+  }
+
+  getBusinessEmail() {
+    return this.props.data.site.siteMetadata.businessEmail;
   }
 
   // eslint-disable-next-line react/sort-comp
@@ -86,7 +94,7 @@ class MotivatedSeller extends React.Component {
 
   // eslint-disable-next-line class-methods-use-this
   getStepContent = (step) => {
-    const { formData, userInfoMeta } = this.state;
+    const { formData, userInfoMeta, activeStep } = this.state;
     const errors = {};
     Object.keys(userInfoMeta).map((key) => {
       if (userInfoMeta[key] && userInfoMeta[key].error) {
@@ -106,7 +114,7 @@ class MotivatedSeller extends React.Component {
         return (
           <div>
             {
-              this.summary()
+             this.summary()
             }
           </div>
         );
@@ -340,24 +348,46 @@ class MotivatedSeller extends React.Component {
   }
 
   submitForm = () => {
-    console.log('Submitting form...');
+    const submitData = this.generateSubmitData(JSONMotivatedSellerPageContent.content.title)
+    test(submitData, this.callback);
     this.setState({ done: true });
-    test({field1: "True", field2: "False"}, this.callback);
   }
 
   callback = (response) => {
-    console.log(response)
+    let x = 10;
   }
 
-  summary = () => {
+  generateSubmitData = (confirmationSubject) => {
+    const { userInfo } = this.state;
+    const userSubmittedData = this.consolidateUserInfo()
+    const userEmail = userInfo['email']
+    const userName = userInfo['firstName']
+    const userSubject = `Mogul Management - ${ confirmationSubject } Confirmation`
+    const businessPhone = this.getBusinessPhone()
+    const businessEmail = this.getBusinessEmail()
+
+    return {
+      // ex [{id: 'firstName', label: 'First Name', value: 'Giovann'}...]
+      userSubmittedData: userSubmittedData,
+      userEmail: userEmail,
+      userName: userName,
+      userSubject: userSubject,
+      businessPhone: businessPhone,
+      businessEmail: businessEmail,
+    }
+  }
+
+  consolidateUserInfo = (extraInfo) => {
     const { userInfo, formData } = this.state;
     const fFormData = this.flattenFormData(formData);
     const ids = fFormData.map(f => f.id);
     const getById = (formData, id) => {
       return formData.filter(f => f.id === id)[0]
     };
-    const disp = []
-
+    let disp = []
+    if (extraInfo) {
+      disp = [...extraInfo]
+    }
     ids.map(id => {
       disp.push({
         id: id,
@@ -365,11 +395,12 @@ class MotivatedSeller extends React.Component {
         value: userInfo[id] || 'N/A',
       });
     });
-    // set up data to be submitted to api
-    const email = userInfo['email']
-    this.setState({
-      submitData: []
-    })
+
+    return disp
+  }
+
+  summary = () => {
+    const disp = this.consolidateUserInfo()
     return (
       <div>
         {

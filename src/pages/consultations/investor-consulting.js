@@ -3,6 +3,7 @@ import {
   Stepper, Step, StepContent, StepLabel, Button,
 } from '@material-ui/core';
 import CheckCircleOutlineIcon from '@material-ui/icons/CheckCircleOutline';
+import JSONContact from '../../../content/pages/contact/index';
 import { Link, graphql } from 'gatsby';
 // import ReCAPTCHA from "react-google-recaptcha";
 import Layout from '../../layouts/index';
@@ -49,11 +50,20 @@ class InvestorConsulting extends React.Component {
       done: false,
     };
     this.getFormValue = this.getFormValue.bind(this);
+    this.callback = this.callback.bind(this);
   }
 
   componentDidMount() {
     const formData = this.mergeFormData([JSONBasicForm.content, JSONInvestorForm.content]);
     this.setState({ formData: formData });
+  }
+
+  getBusinessPhone() {
+    return JSONContact.content.phone;
+  }
+
+  getBusinessEmail() {
+    return this.props.data.site.siteMetadata.businessEmail;
   }
 
   // eslint-disable-next-line react/sort-comp
@@ -338,19 +348,48 @@ class InvestorConsulting extends React.Component {
   }
 
   submitForm = () => {
-    console.log('Submitting form...')
-    this.setState({ done: true })
+    const submitData = this.generateSubmitData(JSONInvestorPageContent.content.title)
+    test(submitData, this.callback);
+    this.setState({ done: true });
   }
 
-  summary = () => {
+  callback = (response) => {
+    let x = 10;
+  }
+
+  generateSubmitData = (confirmationSubject) => {
+    const { userInfo } = this.state;
+    const userSubmittedData = this.consolidateUserInfo()
+    const userEmail = userInfo['email']
+    const userName = userInfo['firstName']
+    const userSubject = `Mogul Management - ${ confirmationSubject } Confirmation`
+    const businessPhone = this.getBusinessPhone()
+    const businessEmail = this.getBusinessEmail()
+    const businessSubject = `Mogul Management - New ${ confirmationSubject } Request`
+
+    return {
+      // {id: 'firstName', label: 'First Name', value: 'Giovann'}
+      userSubmittedData: userSubmittedData,
+      userEmail: userEmail,
+      userName: userName,
+      userSubject: userSubject,
+      businessPhone: businessPhone,
+      businessEmail: businessEmail,
+      businessSubject: businessSubject,
+    }
+  }
+
+  consolidateUserInfo = (extraInfo) => {
     const { userInfo, formData } = this.state;
     const fFormData = this.flattenFormData(formData);
     const ids = fFormData.map(f => f.id);
     const getById = (formData, id) => {
       return formData.filter(f => f.id === id)[0]
     };
-    const disp = []
-
+    let disp = []
+    if (extraInfo) {
+      disp = [...extraInfo]
+    }
     ids.map(id => {
       disp.push({
         id: id,
@@ -359,6 +398,11 @@ class InvestorConsulting extends React.Component {
       });
     });
 
+    return disp
+  }
+
+  summary = () => {
+    const disp = this.consolidateUserInfo()
     return (
       <div>
         {
@@ -379,8 +423,6 @@ class InvestorConsulting extends React.Component {
   render() {
     const steps = this.getSteps();
     const { activeStep, completedSteps, done } = this.state;
-    console.log('Done???');
-    console.log(done);
     return (
       <Layout>
         <SEO title="Investor Consulting" />

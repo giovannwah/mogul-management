@@ -16,6 +16,7 @@ import JSONCreditForm from '../../../content/forms/credit-consultation-form';
 import JSONCreditPageContent from '../../../content/pages/consultations/credit-consulting';
 import PackageJSON from '../../../content/pages/consultations/packages';
 import { test, sendConfirmations } from '../../utils/api';
+import JSONContact from '../../../content/pages/contact/index';
 
 const fieldStyle = {
   marginRight: '5px',
@@ -57,11 +58,20 @@ class CreditConsulting extends React.Component {
     };
     this.getFormValue = this.getFormValue.bind(this);
     this.onDateTimeChange = this.onDateTimeChange.bind(this);
+    this.callback = this.callback.bind(this);
   }
 
   componentDidMount() {
     const formData = this.mergeFormData([JSONBasicForm.content, JSONCreditForm.content]);
     this.setState({ formData: formData });
+  }
+
+  getBusinessPhone() {
+    return JSONContact.content.phone;
+  }
+
+  getBusinessEmail() {
+    return this.props.data.site.siteMetadata.businessEmail;
   }
 
   // eslint-disable-next-line class-methods-use-this
@@ -188,17 +198,39 @@ class CreditConsulting extends React.Component {
     }
   }
 
-  summary = () => {
-    const { dateTime, userInfo, formData, selectedPackage } = this.state;
-    const { credit_consulting } = PackageJSON.content.packages;
+  generateSubmitData = (confirmationSubject) => {
+    const { userInfo } = this.state;
+    const userSubmittedData = this.consolidateUserInfo()
+    const userEmail = userInfo['email']
+    const userName = userInfo['firstName']
+    const userSubject = `Mogul Management - ${ confirmationSubject } Confirmation`;
+    const businessPhone = this.getBusinessPhone()
+    const businessEmail = this.getBusinessEmail();
+    const businessSubject = `Mogul Management - New ${ confirmationSubject } Request`;
+
+    return {
+      // format: {id: 'firstName', label: 'First Name', value: 'Kevin'}
+      userSubmittedData: userSubmittedData,
+      userEmail: userEmail,
+      userName: userName,
+      userSubject: userSubject,
+      businessPhone: businessPhone,
+      businessEmail: businessEmail,
+      businessSubject: businessSubject,
+    }
+  }
+
+  consolidateUserInfo = (extraInfo) => {
+    const { userInfo, formData } = this.state;
     const fFormData = this.flattenFormData(formData);
     const ids = fFormData.map(f => f.id);
     const getById = (formData, id) => {
       return formData.filter(f => f.id === id)[0]
     };
-    const disp = []
-    disp.push({id: 'package', label: "Selected package", value: credit_consulting[0].name})
-    disp.push({id: 'time', label: "Selected appointment time", value: (dateTime ? this.formatDateString(dateTime) : null)})
+    let disp = []
+    if (extraInfo) {
+      disp = [...extraInfo]
+    }
     ids.map(id => {
       disp.push({
         id: id,
@@ -206,6 +238,17 @@ class CreditConsulting extends React.Component {
         value: userInfo[id] || 'N/A',
       });
     });
+
+    return disp
+  }
+
+  summary = () => {
+    const { dateTime } = this.state;
+    const { credit_consulting } = PackageJSON.content.packages;
+    const ex = []
+    ex.push({id: 'package', label: "Selected package", value: credit_consulting[0].name})
+    ex.push({id: 'time', label: "Selected appointment time", value: (dateTime ? this.formatDateString(dateTime) : null)})
+    const disp = this.consolidateUserInfo(ex)
 
     return (
       <div>
@@ -461,8 +504,13 @@ class CreditConsulting extends React.Component {
   }
 
   submitForm = () => {
-    console.log('Submitting form...')
-    this.setState({ done: true })
+    const submitData = this.generateSubmitData(JSONCreditPageContent.content.title)
+    test(submitData, this.callback);
+    this.setState({ done: true });
+  }
+
+  callback = (response) => {
+    let x = 10;
   }
 
   render() {
@@ -540,6 +588,7 @@ class CreditConsulting extends React.Component {
     );
   }
 }
+
 
 export const query = graphql`
   query {
