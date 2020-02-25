@@ -1,0 +1,32 @@
+<svg id="e9a1c0dc-3171-4d2a-83a0-0020609869aa" data-name="Base" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 263 263">
+  <defs>
+    <style>
+      .b38dae4d-0659-4fd7-8299-0079bf048d73, .e4ab5474-c5bf-4ce3-859a-fd1d5ca27e96 {
+        fill: none;
+        stroke: #000;
+        stroke-miterlimit: 10;
+      }
+
+      .e4ab5474-c5bf-4ce3-859a-fd1d5ca27e96 {
+        stroke-width: 13px;
+      }
+
+      .b38dae4d-0659-4fd7-8299-0079bf048d73 {
+        stroke-width: 9px;
+      }
+    </style>
+  </defs>
+  <title>Mogul-Management-Logo</title>
+  <g>
+    <g>
+      <circle class="e4ab5474-c5bf-4ce3-859a-fd1d5ca27e96" cx="131.5" cy="131.5" r="125"/>
+      <rect class="b38dae4d-0659-4fd7-8299-0079bf048d73" x="49.5" y="87.5" width="103" height="84"/>
+      <polygon class="b38dae4d-0659-4fd7-8299-0079bf048d73" points="174 171.5 224.5 171.5 224.5 141.5 197.5 104.5 174.5 104.5 174 171.5"/>
+      <circle cx="86.5" cy="181.5" r="14.5"/>
+      <circle cx="192.5" cy="181.5" r="14.5"/>
+      <polygon points="186.5 121.5 187 137 205.5 137 194 121.5 186.5 121.5"/>
+    </g>
+    <polygon points="131.1 131.77 100.92 149.19 100.92 114.35 131.1 131.77"/>
+    <line class="e4ab5474-c5bf-4ce3-859a-fd1d5ca27e96" x1="101" y1="132" x2="72" y2="132"/>
+  </g>
+</svg>

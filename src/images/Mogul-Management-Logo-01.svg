@@ -1,0 +1,135 @@
+<svg id="b9be594c-3711-4ec8-a472-4336551b315e" data-name="Base" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1025.45 668.5">
+  <defs>
+    <style>
+      .a33d074d-8276-4628-a7fd-3cfcf7d0600e, .b5b15c0e-71fa-407f-81cd-518c1395fa9c, .e7846ec4-ac36-41a7-afd2-4a8dbe72943a, .f94d6f19-306d-46c9-a77a-e1206690f6d1 {
+        fill: none;
+      }
+
+      .acff4b60-e679-40f0-acdb-3a02b501033e {
+        fill: none;
+      }
+
+      .a33d074d-8276-4628-a7fd-3cfcf7d0600e, .acff4b60-e679-40f0-acdb-3a02b501033e, .b53e0e8e-4830-4a0a-ba88-fcde9f87fc5e, .b5b15c0e-71fa-407f-81cd-518c1395fa9c, .f94d6f19-306d-46c9-a77a-e1206690f6d1 {
+        stroke: #000;
+        stroke-miterlimit: 10;
+      }
+
+      .a33d074d-8276-4628-a7fd-3cfcf7d0600e, .acff4b60-e679-40f0-acdb-3a02b501033e, .b53e0e8e-4830-4a0a-ba88-fcde9f87fc5e {
+        stroke-linecap: round;
+      }
+
+      .a33d074d-8276-4628-a7fd-3cfcf7d0600e, .acff4b60-e679-40f0-acdb-3a02b501033e, .f94d6f19-306d-46c9-a77a-e1206690f6d1 {
+        stroke-width: 13px;
+      }
+
+      .ad519ebb-47d4-4846-9c6a-4547b443cd69 {
+        clip-path: url(#e521b4cb-bc1b-417d-aebe-1aff53449f2a);
+      }
+
+      .ecbf7f0f-7590-4bfe-94b7-f330efb9325f {
+        clip-path: url(#f2a0e636-2473-4604-afd5-5ba6c377e827);
+      }
+
+      .b5b15c0e-71fa-407f-81cd-518c1395fa9c {
+        stroke-width: 10px;
+      }
+
+      .a3ed4dbd-fec9-4741-a7e8-b43fc59d1459 {
+        clip-path: url(#bc1a5e3a-14ff-4f18-a152-09d66a456df0);
+      }
+
+      .bea882fb-b82e-428d-925a-0e602c53cb4b {
+        clip-path: url(#e7085e5a-99ac-49a1-93f6-89dc7fa7e588);
+      }
+
+      .ea8c367d-1227-4d95-a44c-2e3b3e4b82e4 {
+        font-size: 42px;
+        font-family: LemonMilk, "Lemon/Milk";
+        letter-spacing: 0.3em;
+      }
+
+      .b5aa7a77-33c5-482e-8ad6-0c1c620a39bc {
+        letter-spacing: 0.23em;
+      }
+    </style>
+    <clipPath id="e521b4cb-bc1b-417d-aebe-1aff53449f2a">
+      <polygon class="e7846ec4-ac36-41a7-afd2-4a8dbe72943a" points="0 541.5 154 541.5 154 607.5 221 607.5 238.45 607.5 238 688.5 0 688.5 0 541.5"/>
+    </clipPath>
+    <clipPath id="f2a0e636-2473-4604-afd5-5ba6c377e827">
+      <polygon class="e7846ec4-ac36-41a7-afd2-4a8dbe72943a" points="1025.45 541.5 871.45 541.5 871.45 607.5 804.45 607.5 787 607.5 787.45 688.5 1025.45 688.5 1025.45 541.5"/>
+    </clipPath>
+    <clipPath id="bc1a5e3a-14ff-4f18-a152-09d66a456df0">
+      <polygon class="e7846ec4-ac36-41a7-afd2-4a8dbe72943a" points="656 152.5 511 257 368 152.5 319.5 114 513.5 -18 680.5 128 656 152.5"/>
+    </clipPath>
+    <clipPath id="e7085e5a-99ac-49a1-93f6-89dc7fa7e588">
+      <rect class="e7846ec4-ac36-41a7-afd2-4a8dbe72943a" x="154" y="-17.5" width="714" height="509"/>
+    </clipPath>
+  </defs>
+  <title>Mogul-Management-Logo</title>
+  <g>
+    <rect class="acff4b60-e679-40f0-acdb-3a02b501033e" x="154" y="511.5" width="714" height="96"/>
+    <g class="ad519ebb-47d4-4846-9c6a-4547b443cd69">
+      <polygon class="a33d074d-8276-4628-a7fd-3cfcf7d0600e" points="220.5 655.5 30.5 655.5 96.83 607.75 30.5 560 148.27 560 220.5 560 220.5 602.62 220.5 655.5"/>
+    </g>
+    <g class="ecbf7f0f-7590-4bfe-94b7-f330efb9325f">
+      <polygon class="a33d074d-8276-4628-a7fd-3cfcf7d0600e" points="804.95 655.5 994.95 655.5 928.62 607.75 994.95 560 877.18 560 804.95 560 804.95 602.62 804.95 655.5"/>
+    </g>
+    <g>
+      <g>
+        <line class="f94d6f19-306d-46c9-a77a-e1206690f6d1" x1="368" y1="176.5" x2="215" y2="290.5"/>
+        <g>
+          <line class="b5b15c0e-71fa-407f-81cd-518c1395fa9c" x1="812" y1="293.5" x2="655" y2="176.5"/>
+          <line class="f94d6f19-306d-46c9-a77a-e1206690f6d1" x1="812" y1="293.5" x2="655" y2="176.5"/>
+        </g>
+      </g>
+      <g class="a3ed4dbd-fec9-4741-a7e8-b43fc59d1459">
+        <g>
+          <line class="f94d6f19-306d-46c9-a77a-e1206690f6d1" x1="355" y1="138.5" x2="512.5" y2="19.5"/>
+          <polyline class="f94d6f19-306d-46c9-a77a-e1206690f6d1" points="483.81 41.18 510.5 19.5 534 37.37 667 138.5"/>
+          <line class="a33d074d-8276-4628-a7fd-3cfcf7d0600e" x1="390.5" y1="114" x2="391" y2="174.5"/>
+          <line class="a33d074d-8276-4628-a7fd-3cfcf7d0600e" x1="632.5" y1="114" x2="632.5" y2="178"/>
+        </g>
+      </g>
+      <polyline class="f94d6f19-306d-46c9-a77a-e1206690f6d1" points="488.5 267 511 284.5 534.5 267 656 176.5 627.65 197.61"/>
+      <g>
+        <polyline class="b5b15c0e-71fa-407f-81cd-518c1395fa9c" points="337.58 199.16 368 176.5 398 199.16 511 284.5"/>
+        <polyline class="a33d074d-8276-4628-a7fd-3cfcf7d0600e" points="337.58 199.16 368 176.5 398 199.16 511 284.5"/>
+      </g>
+      <polyline class="f94d6f19-306d-46c9-a77a-e1206690f6d1" points="685 199.5 656 176.5 613.24 208.35"/>
+      <g class="bea882fb-b82e-428d-925a-0e602c53cb4b">
+        <g>
+          <line class="a33d074d-8276-4628-a7fd-3cfcf7d0600e" x1="367.5" y1="321.5" x2="511.5" y2="429.5"/>
+          <line class="a33d074d-8276-4628-a7fd-3cfcf7d0600e" x1="246.5" y1="267" x2="246.5" y2="502"/>
+          <line class="a33d074d-8276-4628-a7fd-3cfcf7d0600e" x1="776.5" y1="267" x2="776.5" y2="502"/>
+          <line class="a33d074d-8276-4628-a7fd-3cfcf7d0600e" x1="655.5" y1="321.5" x2="655.5" y2="501.5"/>
+          <polyline class="a33d074d-8276-4628-a7fd-3cfcf7d0600e" points="385.73 335.45 367.5 321 367.5 352.51 367.5 501"/>
+          <g>
+            <polyline class="b5b15c0e-71fa-407f-81cd-518c1395fa9c" points="656 356.3 656 321.5 628.99 341.62 535.84 411 511 429.5 488.5 412"/>
+            <polyline class="a33d074d-8276-4628-a7fd-3cfcf7d0600e" points="656 356.3 656 321.5 628.99 341.62 535.84 411 511 429.5 488.5 412"/>
+          </g>
+        </g>
+      </g>
+      <g>
+        <rect class="b53e0e8e-4830-4a0a-ba88-fcde9f87fc5e" x="489" y="97.5" width="18" height="18"/>
+        <rect class="b53e0e8e-4830-4a0a-ba88-fcde9f87fc5e" x="516" y="97.5" width="18" height="18"/>
+        <rect class="b53e0e8e-4830-4a0a-ba88-fcde9f87fc5e" x="489" y="123.5" width="18" height="18"/>
+        <rect class="b53e0e8e-4830-4a0a-ba88-fcde9f87fc5e" x="516" y="123.5" width="18" height="18"/>
+      </g>
+      <g>
+        <rect class="b53e0e8e-4830-4a0a-ba88-fcde9f87fc5e" x="346" y="246.5" width="18" height="18"/>
+        <rect class="b53e0e8e-4830-4a0a-ba88-fcde9f87fc5e" x="373" y="246.5" width="18" height="18"/>
+        <rect class="b53e0e8e-4830-4a0a-ba88-fcde9f87fc5e" x="346" y="272.5" width="18" height="18"/>
+        <rect class="b53e0e8e-4830-4a0a-ba88-fcde9f87fc5e" x="373" y="272.5" width="18" height="18"/>
+      </g>
+      <g>
+        <rect class="b53e0e8e-4830-4a0a-ba88-fcde9f87fc5e" x="633" y="249.5" width="18" height="18"/>
+        <rect class="b53e0e8e-4830-4a0a-ba88-fcde9f87fc5e" x="660" y="249.5" width="18" height="18"/>
+        <rect class="b53e0e8e-4830-4a0a-ba88-fcde9f87fc5e" x="633" y="275.5" width="18" height="18"/>
+        <rect class="b53e0e8e-4830-4a0a-ba88-fcde9f87fc5e" x="660" y="275.5" width="18" height="18"/>
+      </g>
+    </g>
+    <text class="ea8c367d-1227-4d95-a44c-2e3b3e4b82e4" transform="translate(177.83 575.98)">MOGUL MAN<tspan class="b5aa7a77-33c5-482e-8ad6-0c1c620a39bc" x="385.11" y="0">A</tspan><tspan x="426.44" y="0">GEMENT</tspan></text>
+    <line class="f94d6f19-306d-46c9-a77a-e1206690f6d1" x1="151.5" y1="609" x2="218.5" y2="657"/>
+    <line class="f94d6f19-306d-46c9-a77a-e1206690f6d1" x1="871" y1="607.5" x2="808" y2="655.5"/>
+  </g>
+</svg>
