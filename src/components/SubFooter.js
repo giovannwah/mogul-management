@@ -15,8 +15,15 @@ const SubFooter = props => (
               <li>
                 <strong>Email: </strong>
 {' '}
-                <a href={`mailto:${ ContentJSON.content.email }`}>
+                <a href={`mailto:${ ContentJSON.content.email }`} target="_blank">
                   { ContentJSON.content.email }
+                </a>
+              </li>
+              <li>
+                <strong>LinkedIn: </strong>
+                {' '}
+                <a href={`${ContentJSON.content.social.linkedin}`} target="_blank">
+                  {ContentJSON.content.social.linkedin}
                 </a>
               </li>
             </ul>

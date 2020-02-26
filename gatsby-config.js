@@ -6,10 +6,6 @@ module.exports = {
     description: 'Mogul Management Website',
     menuLinks: [
       {
-        name: 'About',
-        link: '/about',
-      },
-      {
         name: 'Consultations',
         link: '/consultations',
       },
@@ -22,7 +18,7 @@ module.exports = {
         link: '/join',
       },
     ],
-    businessEmail: 'mogulmanagementus@gmail.com',
+    businessEmail: 'darkyodd@gmail.com',
   },
   plugins: [
     'gatsby-plugin-sass',

@@ -76,7 +76,10 @@ class CreditConsulting extends React.Component {
 
   // eslint-disable-next-line class-methods-use-this
   getSteps = () => {
-    return ['Select your package', 'Tell us about yourself', 'Choose a date and time', 'Confirm'];
+    return ['Select your package',
+            'Tell us about yourself',
+            'Schedule your call to get started!',
+            'Confirm'];
   }
 
   // eslint-disable-next-line react/sort-comp
