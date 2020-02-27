@@ -43,22 +43,22 @@ class MogulManagementNavigator extends React.Component {
               </div>
               <div id="secondary-container">
                 <div id="top-container">
-                  <div>
-                    <IconTooltip arrow title="Investor Consulting" placement="left-end">
+                  <div className="top-column">
+                    <IconTooltip className="tooltip-div-bottom" arrow title="Investor Consulting" placement="top">
                       <IconButton onClick={() => this.handleClick("consultations/investor-consulting")}>
                         <img className="mogul-icon" id="mogul-logo-investor" src="../assets/Mogul-Management-Investor.svg" alt="Mogul Mangagement Investor Consulting"/>
                       </IconButton>
                     </IconTooltip>
                   </div>
-                  <div>
-                    <IconTooltip arrow title="Credit Repair" placement="top">
+                  <div className="top-column">
+                    <IconTooltip className="tooltip-div-top" arrow title="Credit Repair" placement="top">
                       <IconButton onClick={() => this.handleClick("consultations/credit-consulting")}>
                         <img className="mogul-icon" id="mogul-logo-credit" src="../assets/Mogul-Management-Credit.svg" alt="Mogul Mangagement Credit Repair"/>
                       </IconButton>
                     </IconTooltip>
                   </div>
-                  <div>
-                    <IconTooltip arrow title="Motivated Seller" placement="right-end">
+                  <div className="top-column">
+                    <IconTooltip className="tooltip-div-bottom" arrow title="Motivated Seller" placement="top">
                       <IconButton onClick={() => this.handleClick("consultations/motivated-seller")}>
                         <img className="mogul-icon" id="mogul-logo-seller" src="../assets/Mogul-Management-Seller.svg" alt="Mogul Mangagement Motivated Seller"/>
                       </IconButton>

@@ -49,10 +49,11 @@
 
 #top-container {
   width: auto;
-  height: auto;
+  height: 200px;
   display: flex;
   justify-content: center;
   align-items: center;
+  margin-bottom: -40px;
 }
 
 #bottom-container {
@@ -62,16 +63,30 @@
   justify-content: center;
 }
 
+.top-column {
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.tooltip-div-top {
+  align-self: flex-start;
+}
+
+.tooltip-div-bottom {
+  align-self: flex-end;
+}
 #mogul-logo-investor {
-  margin-bottom: -100px;
+  // margin-bottom: -100px;
 }
 
 #mogul-logo-seller {
-  margin-bottom: -100px;
+  // margin-bottom: -100px;
 }
 
 #mogul-logo-credit {
-  margin-bottom: 40px;
+  // margin-bottom: 40px;
 }
 .quote {
   color: #A4B0B9;
