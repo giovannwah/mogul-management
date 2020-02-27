@@ -39,7 +39,7 @@ class MogulManagementNavigator extends React.Component {
   render() {
     return (<div id="main-container">
               <div id="quote-container">
-                <p className="quote"><span className="parens">"</span>I believe <span className="text-highlight">everyone</span> in the world is born with genius-level <span className="text-highlight">talent</span>. Apply yourself to whatever you’re genius at, and you can do anything in the <span className="text-highlight">world</span>.<span className="parens">"</span></p>
+                <p className="quote"><span className="parens">"</span>I believe <span className="text-highlight">everyone</span> in the world is born with genius-level <span className="text-highlight">talent</span>. Apply yourself to whatever you’re genius at, and you can <span className="text-highlight">do anything</span> in the <span className="text-highlight">world</span>.<span className="parens">"</span></p>
               </div>
               <div id="secondary-container">
                 <div id="top-container">

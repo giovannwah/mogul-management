@@ -45,10 +45,10 @@ class Menu extends React.Component {
               {
                 link.name === 'Consultations'
                   ? <div>
-                      <Button
+                      <a
                         onClick={this.handleClick}>
                         Consultations
-                      </Button>
+                      </a>
                       <MaterialMenu
                         id="consultations-menu"
                         open={consultationsOpen}

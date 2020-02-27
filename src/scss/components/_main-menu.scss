@@ -20,6 +20,24 @@
       &:last-of-type {
         margin: 0;
       }
+      > div > a {
+        height: inherit;
+        display: inline-block;
+        padding: 0;
+        cursor: pointer;
+        font-size: 0.9rem;
+        font-weight: 400;
+        text-transform: uppercase;
+        color: inherit;
+        padding: 10px 14px 10px 14px;
+        text-decoration: none;
+        &:hover {
+          cursor: pointer;
+          background: $primary;
+          color: #fff !important;
+          text-decoration: none;
+        }
+      }
       > a {
         height: inherit;
         display: inline-block;
@@ -38,6 +56,20 @@
       }
     }
     > li.active {
+      > div > a {
+        background: $primary;
+        text-decoration: none;
+        color: #fff;
+        &:hover {
+          text-decoration: none;
+          background: $primary;
+          transition: all 225ms ease-in 0s;
+          color: #fff;
+        }
+        span {
+          display: block;
+        }
+      }
       > a {
         background: $primary;
         text-decoration: none;

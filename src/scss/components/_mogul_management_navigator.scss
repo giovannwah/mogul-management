@@ -3,6 +3,13 @@
   //display: flex;
   //flex-direction: column;
   //justify-content: center;
+  @include media-breakpoint-up(lg) {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    width: 100%;
+  }
 }
 
 #main-container {
@@ -104,9 +111,12 @@
 }
 
 .mogul-icon {
-  width: 100px;
+  width: 90px;
   @include media-breakpoint-up(lg) {
     width: 115px;
+  }
+  &:hover {
+    cursor: pointer;
   }
 }
 

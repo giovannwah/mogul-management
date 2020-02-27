@@ -1,4 +1,6 @@
 const guid = process.env.NETLIFY_GOOGLE_ANALYTICS_ID;
+const testing = false;
+const test_email = 'no-reply@mogulmanagement.net'
 
 module.exports = {
   siteMetadata: {
@@ -18,7 +20,7 @@ module.exports = {
         link: '/join',
       },
     ],
-    businessEmail: 'darkyodd@gmail.com',
+    businessEmail: testing ? test_email : 'mogulmanagementus@gmail.com',
   },
   plugins: [
     'gatsby-plugin-sass',
