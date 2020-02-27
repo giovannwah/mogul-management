@@ -1,11 +1,12 @@
 import React from 'react';
-import { graphql, StaticQuery, Link } from 'gatsby';
+import { graphql, StaticQuery, Link, navigate } from 'gatsby';
 import MaterialMenu from '@material-ui/core/Menu';
 import Button from '@material-ui/core/Button';
 import MenuItem from '@material-ui/core/MenuItem';
 import JSONCreditContent from '../../content/pages/consultations/credit-consulting';
 import JSONInvestorContent from '../../content/pages/consultations/investor-consulting';
 import JSONSellerContent from '../../content/pages/consultations/motivated-seller';
+
 
 class Menu extends React.Component {
   constructor(props) {
@@ -28,6 +29,11 @@ class Menu extends React.Component {
     this.setState({consultationsOpen: false});
   }
 
+  handleLink = (path) => {
+    this.handleClose();
+    navigate(path);
+  }
+
   render() {
     const { menuLinks } = this.props.data.site.siteMetadata;
     const { consultationsOpen, anchorEl } = this.state;
@@ -38,40 +44,38 @@ class Menu extends React.Component {
             <li key={link.name}>
               {
                 link.name === 'Consultations'
-                  ?
-                  <div>
-                    <Button
-                      onClick={this.handleClick}>
-                      Consultations
-                    </Button>
-                    <MaterialMenu
-                      id="consultations-menu"
-                      open={consultationsOpen}
-                      onClose={this.handleClose}
-                      anchorEl={anchorEl}
-                      getContentAnchorEl={null}
-                      anchorOrigin={{ vertical: "bottom", horizontal: "center" }}
-                      transformOrigin={{ vertical: "top", horizontal: "center" }}
-                    >
-                      <MenuItem onClick={this.handleClose}>
-                        <Link to="consultations/credit-consulting">
-                          {JSONCreditContent.content.title}
-                        </Link>
-                      </MenuItem>
-                      <MenuItem onClick={this.handleClose}>
-                        <Link to="consultations/investor-consulting">
-                          {JSONInvestorContent.content.title}
-                        </Link>
-                      </MenuItem>
-                      <MenuItem onClick={this.handleClose}>
-                        <Link to="consultations/motivated-seller">
-                          {JSONSellerContent.content.title}
-                        </Link>
-                      </MenuItem>
-                    </MaterialMenu>
-                  </div>
-                  :
-                  <Link to={link.link}>{link.name}</Link>
+                  ? <div>
+                      <Button
+                        onClick={this.handleClick}>
+                        Consultations
+                      </Button>
+                      <MaterialMenu
+                        id="consultations-menu"
+                        open={consultationsOpen}
+                        onClose={this.handleClose}
+                        anchorEl={anchorEl}
+                        getContentAnchorEl={null}
+                        anchorOrigin={{ vertical: "bottom", horizontal: "center" }}
+                        transformOrigin={{ vertical: "top", horizontal: "center" }}
+                      >
+                        <MenuItem onClick={() => {
+                          this.handleLink('consultations/credit-consulting');
+                        }}>
+                            {JSONCreditContent.content.title}
+                        </MenuItem>
+                        <MenuItem onClick={() => {
+                          this.handleLink('consultations/investor-consulting');
+                        }}>
+                            {JSONInvestorContent.content.title}
+                        </MenuItem>
+                        <MenuItem onClick={() => {
+                          this.handleLink('consultations/motivated-seller');
+                        }}>
+                            {JSONSellerContent.content.title}
+                        </MenuItem>
+                      </MaterialMenu>
+                    </div>
+                  : <Link to={link.link}>{link.name}</Link>
               }
             </li>
           ))}

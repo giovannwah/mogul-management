@@ -1,9 +1,13 @@
 // material-ui
 .MuiButton-containedPrimary {
-  background-color: $money !important;
+  background-color: $primary !important;
+  border-radius: 0;
+  box-shadow: none;
 }
 .MuiButton-containedSecondary {
-  background-color: $money-compl2 !important;
+  background-color: $secondary !important;
+  border-radius: 0;
+  box-shadow: none;
 }
 .MuiButton-root.Mui-disabled {
   background-color: #ccc !important;

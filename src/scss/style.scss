@@ -1,6 +1,6 @@
 // Font
 @import url('https://fonts.googleapis.com/css?family=Lora:400|Open+Sans:400,700');
-
+@import url('https://fonts.googleapis.com/css?family=Passion+One|Prata|Spartan&display=swap');
 // Bootstrap
 @import 'bootstrap/functions';
 @import 'bootstrap-variables';
@@ -64,6 +64,7 @@
 @import 'components/card-two';
 @import 'components/package-group';
 @import 'components/material_ui_overrides';
+@import 'components/mogul_management_navigator';
 
 // Pages
 @import 'pages/styles';
