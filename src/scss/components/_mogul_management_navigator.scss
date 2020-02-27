@@ -50,11 +50,14 @@
 
 #top-container {
   width: auto;
-  height: 200px;
+  height: 160px;
   display: flex;
   justify-content: center;
   align-items: center;
   margin-bottom: -40px;
+  @include media-breakpoint-up(lg) {
+    height: 200px;
+  }
 }
 
 #bottom-container {
@@ -102,11 +105,13 @@
   text-align: left;
   padding-left: 10px;
   padding-right: 10px;
+  padding-top: 30px;
   order: 1;
   @include media-breakpoint-up(lg) {
     width: 33%;
     padding-left: 30px;
     padding-right: 50px;
+    padding-top: 0px;
   }
 }
 

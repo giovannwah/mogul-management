@@ -17,53 +17,53 @@
   }
 }
 
-.intro-container {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  padding-right: 40px;
-  padding-left: 40px;
-  width: 100%;
-  @media (max-width: 776px) {
-    flex-direction: column;
-  }
-}
+//.intro-container {
+//  display: flex;
+//  flex-direction: row;
+//  justify-content: center;
+//  align-items: center;
+//  padding-right: 40px;
+//  padding-left: 40px;
+//  width: 100%;
+//  @media (max-width: 776px) {
+//    flex-direction: column;
+//  }
+//}
+//
+//.intro-big {
+//  width: 100%;
+//}
+//
+//.intro {
+//  @media (max-width: 776px) {
+//    padding-top: 50px;
+//    padding-bottom: 50px;
+//  }
+//}
+//
+//#mogul-logo {
+//  width: 100%;
+//  max-width: 550px;
+//  height: auto;
+//}
+//
+//.services-home {
+//  padding-top: 10px !important;
+//}
 
-.intro-big {
-  width: 100%;
-}
-
-.intro {
-  @media (max-width: 776px) {
-    padding-top: 50px;
-    padding-bottom: 50px;
-  }
-}
-
-#mogul-logo {
-  width: 100%;
-  max-width: 550px;
-  height: auto;
-}
-
-.services-home {
-  padding-top: 10px !important;
-}
-
-.intro-half {
-  justify-content: center;
-  max-width: 480px;
-}
-
-.intro-half > h1 {
-  width: 85% !important;
-  text-align: center;
-}
-
-.intro-half > img {
-  @media (max-width: 776px) {
-    padding-bottom: 40px;
-  }
-}
+//.intro-half {
+//  justify-content: center;
+//  max-width: 480px;
+//}
+//
+//.intro-half > h1 {
+//  width: 85% !important;
+//  text-align: center;
+//}
+//
+//.intro-half > img {
+//  @media (max-width: 776px) {
+//    padding-bottom: 40px;
+//  }
+// }
 

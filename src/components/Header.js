@@ -30,11 +30,11 @@ class Header extends React.Component {
               <h1 className="banner">{ title }</h1>
             </Link>
           </div>
-          <div className="logo-mobile">
-            <Link to="/">
-              <img alt="Homepage" src={logoMobile} />
-            </Link>
-          </div>
+          {/*<div className="logo-mobile">*/}
+          {/*  <Link to="/">*/}
+          {/*    <img alt="Homepage" src={logoMobile} />*/}
+          {/*  </Link>*/}
+          {/*</div>*/}
           <MenuMobile active={this.state.menuActive} />
           <Menu />
           <Hamburger toggleMenu={this.toggleMenu} />
