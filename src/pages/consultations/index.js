@@ -3,7 +3,7 @@ import SEO from '../../components/SEO';
 import Layout from '../../layouts/index';
 import { Link } from 'gatsby';
 import JSONCreditContent from '../../../content/pages/consultations/credit-consulting';
-import JSONInvestorContent from '../../../content/pages/consultations/investor-consulting';
+import JSONInvestorContent from '../../../content/pages/consultations/investor-criteria';
 import JSONSellerContent from '../../../content/pages/consultations/motivated-seller';
 
 const Consultations = props => (

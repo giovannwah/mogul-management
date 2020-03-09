@@ -4,7 +4,7 @@ import MaterialMenu from '@material-ui/core/Menu';
 import Button from '@material-ui/core/Button';
 import MenuItem from '@material-ui/core/MenuItem';
 import JSONCreditContent from '../../content/pages/consultations/credit-consulting';
-import JSONInvestorContent from '../../content/pages/consultations/investor-consulting';
+import JSONInvestorContent from '../../content/pages/consultations/investor-criteria';
 import JSONSellerContent from '../../content/pages/consultations/motivated-seller';
 
 

@@ -1,0 +1,42 @@
+<svg id="b5c16e0a-fc15-478f-a1cc-b0cdb0effe92" data-name="Base" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 263 263">
+  <defs>
+    <style>
+      .a649679d-fba8-4705-897a-da7b012021c1, .ad2d9a3a-255a-4d40-8053-67da3d9fbd18, .ec526f27-387a-4830-a638-0c8bb93c0b27 {
+        fill: none;
+      }
+
+      .a649679d-fba8-4705-897a-da7b012021c1, .ad2d9a3a-255a-4d40-8053-67da3d9fbd18, .bfa10ab5-b982-4c37-ba94-81abbc798f1c, .ec526f27-387a-4830-a638-0c8bb93c0b27 {
+        stroke: #000;
+      }
+
+      .ad2d9a3a-255a-4d40-8053-67da3d9fbd18 {
+        stroke-miterlimit: 10;
+      }
+
+      .a649679d-fba8-4705-897a-da7b012021c1, .ad2d9a3a-255a-4d40-8053-67da3d9fbd18 {
+        stroke-width: 13px;
+      }
+
+      .a649679d-fba8-4705-897a-da7b012021c1, .bfa10ab5-b982-4c37-ba94-81abbc798f1c, .ec526f27-387a-4830-a638-0c8bb93c0b27 {
+        stroke-linejoin: round;
+      }
+
+      .ec526f27-387a-4830-a638-0c8bb93c0b27 {
+        stroke-width: 24px;
+      }
+
+      .bfa10ab5-b982-4c37-ba94-81abbc798f1c {
+        stroke-width: 8px;
+      }
+    </style>
+  </defs>
+  <title>Mogul-Management-Logo</title>
+  <g>
+    <circle class="ad2d9a3a-255a-4d40-8053-67da3d9fbd18" cx="131.5" cy="131.5" r="125"/>
+    <path d="M203,86.5a4.05,4.05,0,0,1,4,4V179a4.05,4.05,0,0,1-4,4H59a4.05,4.05,0,0,1-4-4V90.5a4.05,4.05,0,0,1,4-4H203m0-9H59a13,13,0,0,0-13,13V179a13,13,0,0,0,13,13H203a13,13,0,0,0,13-13V90.5a13,13,0,0,0-13-13Z"/>
+    <line class="ec526f27-387a-4830-a638-0c8bb93c0b27" x1="49" y1="113" x2="207" y2="113"/>
+    <line class="a649679d-fba8-4705-897a-da7b012021c1" x1="162.5" y1="150.5" x2="189.5" y2="150.5"/>
+    <circle class="bfa10ab5-b982-4c37-ba94-81abbc798f1c" cx="99" cy="156" r="10"/>
+    <circle class="bfa10ab5-b982-4c37-ba94-81abbc798f1c" cx="79" cy="156" r="10"/>
+  </g>
+</svg>

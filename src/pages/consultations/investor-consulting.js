@@ -11,7 +11,7 @@ import SEO from '../../components/SEO';
 import Forms from '../../components/Forms';
 import JSONBasicForm from '../../../content/forms/basic-form';
 import JSONInvestorForm from '../../../content/forms/investor-form';
-import JSONInvestorPageContent from '../../../content/pages/consultations/investor-consulting';
+import JSONInvestorPageContent from '../../../content/pages/consultations/investor-criteria';
 import { test, sendConfirmations } from '../../utils/api';
 
 const pStyle = {

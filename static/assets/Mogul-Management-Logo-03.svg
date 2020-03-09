@@ -1,0 +1,46 @@
+<svg id="f71b09f6-8935-4265-93a7-0cdbb64201ec" data-name="Base" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 263 268">
+  <defs>
+    <style>
+      .a5a435b2-6064-4874-ac7b-5db177775a16, .b0c66788-6e5f-4800-ae4b-1fae82be4bf9, .b833c0cb-dcb0-45a0-985c-1380636be6f9 {
+        fill: none;
+        stroke: #000;
+        stroke-miterlimit: 10;
+      }
+
+      .b0c66788-6e5f-4800-ae4b-1fae82be4bf9 {
+        stroke-width: 13px;
+      }
+
+      .b833c0cb-dcb0-45a0-985c-1380636be6f9 {
+        stroke-width: 9px;
+      }
+
+      .a5a435b2-6064-4874-ac7b-5db177775a16 {
+        stroke-width: 10px;
+      }
+    </style>
+  </defs>
+  <title>Mogul-Management-Logo</title>
+  <g>
+    <ellipse class="b0c66788-6e5f-4800-ae4b-1fae82be4bf9" cx="131.5" cy="134" rx="125" ry="127.5"/>
+    <g>
+      <rect x="69.5" y="86.57" width="36" height="69.36"/>
+      <line class="b0c66788-6e5f-4800-ae4b-1fae82be4bf9" x1="76" y1="207.95" x2="76" y2="153.89"/>
+      <line class="b0c66788-6e5f-4800-ae4b-1fae82be4bf9" x1="99" y1="207.95" x2="99" y2="153.89"/>
+      <line class="b0c66788-6e5f-4800-ae4b-1fae82be4bf9" x1="54.5" y1="93.2" x2="120.5" y2="93.2"/>
+      <line class="b0c66788-6e5f-4800-ae4b-1fae82be4bf9" x1="59.5" y1="141.65" x2="59.5" y2="87.59"/>
+      <line class="b0c66788-6e5f-4800-ae4b-1fae82be4bf9" x1="115.5" y1="141.65" x2="115.5" y2="87.59"/>
+      <ellipse cx="87" cy="66.17" rx="16" ry="16.32"/>
+    </g>
+    <g>
+      <rect class="b833c0cb-dcb0-45a0-985c-1380636be6f9" x="135.5" y="122.78" width="70" height="71.4" rx="13"/>
+      <line class="b833c0cb-dcb0-45a0-985c-1380636be6f9" x1="159.5" y1="124.82" x2="159.5" y2="105.44"/>
+      <line class="b833c0cb-dcb0-45a0-985c-1380636be6f9" x1="180.5" y1="123.8" x2="180.5" y2="104.42"/>
+      <line class="a5a435b2-6064-4874-ac7b-5db177775a16" x1="153" y1="102.38" x2="187" y2="102.38"/>
+      <ellipse cx="152.5" cy="204.38" rx="7.5" ry="7.65"/>
+      <ellipse cx="189.5" cy="204.38" rx="7.5" ry="7.65"/>
+    </g>
+    <line class="b833c0cb-dcb0-45a0-985c-1380636be6f9" x1="158.5" y1="139.1" x2="158.5" y2="173.78"/>
+    <line class="b833c0cb-dcb0-45a0-985c-1380636be6f9" x1="182.5" y1="139.1" x2="182.5" y2="173.78"/>
+  </g>
+</svg>

@@ -1,0 +1,37 @@
+<svg id="e46907b1-5503-4ff5-a520-4748dc470147" data-name="Base" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 263 270.66">
+  <defs>
+    <style>
+      .a7637678-9f3e-4e1b-9466-0e9421d03d88, .bf0fda99-c3cb-4617-86bc-eca5dabad9a2 {
+        fill: none;
+      }
+
+      .a7637678-9f3e-4e1b-9466-0e9421d03d88, .bf0fda99-c3cb-4617-86bc-eca5dabad9a2, .ee00f281-cbb6-4b18-917e-c1e1eca8416b {
+        stroke: #000;
+        stroke-miterlimit: 10;
+      }
+
+      .a7637678-9f3e-4e1b-9466-0e9421d03d88, .ee00f281-cbb6-4b18-917e-c1e1eca8416b {
+        stroke-width: 13px;
+      }
+
+      .ee00f281-cbb6-4b18-917e-c1e1eca8416b {
+        font-size: 72px;
+        font-family: LemonMilkbold, "Lemon/Milk";
+        letter-spacing: 0.3em;
+      }
+
+      .bf0fda99-c3cb-4617-86bc-eca5dabad9a2 {
+        stroke-width: 9px;
+        fill-rule: evenodd;
+      }
+    </style>
+  </defs>
+  <title>Mogul-Management-Logo</title>
+  <g>
+    <circle class="a7637678-9f3e-4e1b-9466-0e9421d03d88" cx="131.5" cy="139.16" r="125"/>
+    <text class="ee00f281-cbb6-4b18-917e-c1e1eca8416b" transform="translate(94.2 70.84)"> </text>
+    <path class="bf0fda99-c3cb-4617-86bc-eca5dabad9a2" d="M102,98.66c-191.5,177.5,250.5,172.5,56,0Z"/>
+    <polygon class="bf0fda99-c3cb-4617-86bc-eca5dabad9a2" points="108.5 81.16 153.5 81.16 167.5 49.16 93.5 49.16 108.5 81.16"/>
+    <path d="M132.49,173.63l-.07,0a17.11,17.11,0,0,1-17.13-17.09A17.2,17.2,0,0,1,128.2,140v-5.87h8.54V140a17.14,17.14,0,0,1,12.73,16.48H138.11a5.71,5.71,0,1,0-11.42,0,5.88,5.88,0,0,0,5.73,5.77,17.05,17.05,0,0,1,17.05,17A17.18,17.18,0,0,1,136.74,196v5.8H128.2V196a17.15,17.15,0,0,1-12.83-16.63h11.39a5.71,5.71,0,1,0,5.73-5.69Z"/>
+  </g>
+</svg>

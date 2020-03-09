@@ -43,6 +43,26 @@
         "required": true,
         "fullWidth": true,
         "select": ["Yes", "No"]
+      },
+      {
+        "id": "question8",
+        "label": "How much are you willing to spend on rehab?",
+        "required": true,
+        "fullWidth": true
+      },
+      {
+        "id": "question9",
+        "label": "Are tear-downs ok?",
+        "required": true,
+        "fullWidth": true,
+        "select": ["Yes", "No"]
+      },
+      {
+        "id": "question10",
+        "label": "Will you accept deals from the MLS?",
+        "required": true,
+        "fullWidth": true,
+        "select": ["Yes", "No"]
       }
     ]
   }
