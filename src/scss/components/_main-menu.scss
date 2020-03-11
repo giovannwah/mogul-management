@@ -17,6 +17,7 @@
       margin: 0;
       padding: 0;
       list-style: none;
+      letter-spacing: 1.5px;
       &:last-of-type {
         margin: 0;
       }
@@ -31,6 +32,7 @@
         color: inherit;
         padding: 10px 14px 10px 14px;
         text-decoration: none;
+
         &:hover {
           cursor: pointer;
           background: $primary;

@@ -12,7 +12,7 @@ import Forms from '../../components/Forms';
 import JSONBasicForm from '../../../content/forms/basic-form';
 import JSONInvestorForm from '../../../content/forms/investor-form';
 import JSONInvestorPageContent from '../../../content/pages/consultations/investor-criteria';
-import { test, sendConfirmations } from '../../utils/api';
+import { test, submitUserData } from '../../utils/api';
 
 const pStyle = {
   width: '66%',

@@ -15,7 +15,7 @@ import JSONBasicForm from '../../../content/forms/basic-form';
 import JSONCreditForm from '../../../content/forms/credit-consultation-form';
 import JSONCreditPageContent from '../../../content/pages/consultations/credit-consulting';
 import PackageJSON from '../../../content/pages/consultations/packages';
-import { test, sendConfirmations } from '../../utils/api';
+import { test, submitUserData } from '../../utils/api';
 import JSONContact from '../../../content/pages/contact/index';
 
 const fieldStyle = {

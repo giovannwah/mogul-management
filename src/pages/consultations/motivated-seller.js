@@ -12,7 +12,8 @@ import JSONBasicForm from '../../../content/forms/basic-form';
 import JSONMotivatedSellerForm from '../../../content/forms/motivated-seller-form';
 import JSONMotivatedSellerPageContent from '../../../content/pages/consultations/motivated-seller'
 import JSONContact from '../../../content/pages/contact/index';
-import { test, sendConfirmations } from '../../utils/api';
+import { test, submitUserData } from '../../utils/api';
+import FormTemplate from '../../components/FormTemplate';
 
 const pStyle = {
   width: '66%',
