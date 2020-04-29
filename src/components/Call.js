@@ -34,12 +34,12 @@ const Call = props => (
           { content.email }
         </a>
       </div>
-      <div style={header} className="call-email">
-        <strong style={header}>Mailing Address</strong>
-        <br/>
-        <p style={address}>{ content.address.street }</p>
-        <p style={address}>{ content.address.city_state_zip }</p>
-      </div>
+      {/*<div style={header} className="call-email">*/}
+      {/*  <strong style={header}>Mailing Address</strong>*/}
+      {/*  <br/>*/}
+      {/*  <p style={address}>{ content.address.street }</p>*/}
+      {/*  <p style={address}>{ content.address.city_state_zip }</p>*/}
+      {/*</div>*/}
       <div style={header} className="call-email">
         <strong style={header}>Follow us</strong>
         <br/>

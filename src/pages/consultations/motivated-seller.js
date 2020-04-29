@@ -4,7 +4,6 @@ import {
 } from '@material-ui/core';
 import CheckCircleOutlineIcon from '@material-ui/icons/CheckCircleOutline';
 import { Link, graphql } from 'gatsby';
-import ReCAPTCHA from "react-google-recaptcha";
 import Layout from '../../layouts/index';
 import SEO from '../../components/SEO';
 import Forms from '../../components/Forms';
@@ -122,6 +121,10 @@ class MotivatedSeller extends React.Component {
       default:
         return 'Unknown Step';
     }
+  }
+
+  stepContent = () => {
+
   }
 
   validateForm = () => {
@@ -261,7 +264,7 @@ class MotivatedSeller extends React.Component {
   }
 
   handleFormBlur = (e) => {
-    const { userInfoMeta } = this.state
+    const { userInfoMeta } = this.state;
     const { id, value, name } = e.target;
     const formID = id || name;
 

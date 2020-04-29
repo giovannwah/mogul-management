@@ -1,6 +1,6 @@
 import React from 'react';
 import posed from 'react-pose';
-import { navigate } from 'gatsby';
+import { navigate, Link } from 'gatsby';
 import { withStyles } from '@material-ui/core/styles';
 import Tooltip from '@material-ui/core/Tooltip';
 import Quote from './Quote';
@@ -17,7 +17,7 @@ const IconButton = posed.div({
     scale: 1,
   },
   hover: {
-    scale: 1.15,
+    scale: 1.05,
   },
   press: {
     scale: 1.1,
@@ -73,6 +73,7 @@ const MogulManagementNavigator = props => (
       <div id="bottom-container">
         <div>
           <img id="mogul-logo-main" src="../assets/Mogul-Management-Logo-01.svg" alt="Mogul Mangagement Main"/>
+          <div><Link to="/about">Learn About Us</Link></div>
         </div>
       </div>
     </div>

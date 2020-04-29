@@ -4,11 +4,10 @@ import PropTypes from 'prop-types';
 import {
   Stepper, Step, StepContent, StepLabel, Button,
 } from '@material-ui/core';
-import SEO from './SEO';
 import CheckCircleOutlineIcon from '@material-ui/core/SvgIcon/SvgIcon';
 import { Link } from 'gatsby';
+import SEO from './SEO';
 import Layout from '../layouts';
-import JSONCreditPageContent from '../../content/pages/consultations/credit-consulting';
 import { submitUserData } from '../utils/api';
 
 const fieldStyle = {
@@ -30,6 +29,11 @@ const sumSpace = {
 
 class FormTemplate extends React.Component {
   // need step numbers, names, and content
+  // Forms that use this should only have to provide the components for each
+  // step, how to validate each step, whether to use recapcha, how to generate summary
+  //
+  // This obj should automatically create completed steps, handle back/forth navigation, handle form
+  // submission, etc
   /*
     steps object,
     {
@@ -43,33 +47,30 @@ class FormTemplate extends React.Component {
   constructor(props) {
     super(props);
     this.state = this.setupState();
-    this.state = {
-      activeStep: 0,
-      userInfo: {},
-      userInfoMeta: {},
-      completedSteps: this.getCompletedSteps(),
-      done: false,
-    }
   }
 
   setupState = () => {
-
-  }
+    return {
+      activeStep: 0,
+      completedSteps: this.getCompletedSteps(),
+      done: false,
+    };
+  };
 
   getCompletedSteps = () => {
-    const { stepsObject, autoConfirmation } = this.props
-    let completedSteps = {}
-    for (let i = 0; i < stepsObject.length + (autoConfirmation ? 1 : 0); i++) {
-      completedSteps[`${i}`] = false
+    const { stepsContent, autoConfirmation } = this.props;
+    let completedSteps = [];
+    for (let i = 0; i < stepsContent.length + (autoConfirmation ? 1 : 0); i++) {
+      completedSteps.push(false);
     }
     return completedSteps;
   }
 
   getStepContentObject = () => {
-    const { stepContentObject, autoConfirmation } = this.props;
+    const { stepsContent, autoConfirmation } = this.props;
     if (autoConfirmation) {
       return [
-        ...stepContentObject,
+        ...stepsContent,
         {
           label: 'Confirm',
           content: (<div>{ this.summary() }</div>),
@@ -77,12 +78,13 @@ class FormTemplate extends React.Component {
       ]
     }
     else {
-      return stepContentObject;
+      return stepsContent;
     }
   }
 
   summary = () => {
-     return (<div></div>)
+    const { getSummary } = this.props;
+    return getSummary();
   }
 
   handleLastStep = () => {
@@ -92,8 +94,8 @@ class FormTemplate extends React.Component {
   }
 
   handleNextStep = () => {
-    const { activeStep, stepNum } = this.state
-    if (activeStep == Object.keys(completedSteps).length-1) {
+    const { activeStep, completedSteps } = this.state;
+    if (activeStep === completedSteps.length - 1) {
       this.submitForm();
     }
     else {
@@ -104,8 +106,8 @@ class FormTemplate extends React.Component {
   }
 
   submitForm = () => {
-    const submitData = this.generateSubmitData(JSONCreditPageContent.content.title)
-    submitUserData(submitData, this.callback);
+    const { onSubmitClicked } = this.props;
+    submitUserData(onSubmitClicked, this.callback);
   }
 
   callback = (response) => {
@@ -114,8 +116,10 @@ class FormTemplate extends React.Component {
   }
 
   render() {
-    const { stepsContent, title, jsonContent } = this.props;
+    const { title, paragraph } = this.props;
     const { activeStep, completedSteps, done } = this.state;
+
+    const stepsContent = this.getStepContentObject();
 
     return (
       <Layout>
@@ -136,7 +140,7 @@ class FormTemplate extends React.Component {
               <div className="container">
                 <div className="row">
                   <div className="col-12">
-                    <h1>{jsonContent.title}</h1>
+                    <h1>{ title }</h1>
                   </div>
                 </div>
               </div>
@@ -145,13 +149,13 @@ class FormTemplate extends React.Component {
               <div className="row">
                 <div className="col-12">
                   <div>
-                    <p className="page-paragraph">{jsonContent.paragraph}</p>
+                    <p className="page-paragraph">{ paragraph }</p>
                   </div>
                 </div>
               </div>
             </div>
             <div className="container">
-              <Stepper activeStep={activeStep} orientation="vertical">
+              <Stepper activeStep={ activeStep } orientation="vertical">
                 {stepsContent.map((step) => (
                   <Step key={step.label}>
                     <StepLabel>{step.label}</StepLabel>
@@ -169,7 +173,7 @@ class FormTemplate extends React.Component {
                         </Button>
                         }
                         <Button
-                          disabled={!completedSteps[`${activeStep}`]}
+                          disabled={!completedSteps[activeStep]}
                           variant="contained"
                           color="primary"
                           onClick={this.handleNextStep}
@@ -193,7 +197,12 @@ class FormTemplate extends React.Component {
 FormTemplate.propTypes = {
   stepsContent: PropTypes.array.isRequired,
   autoConfirmation: PropTypes.bool.isRequired,
+  getSummary: PropTypes.func.isRequired,
+  generateSubmitData: PropTypes.func.isRequired,
+  validator: PropTypes.func.isRequired,
+  title: PropTypes.string.isRequired,
+  paragraph: PropTypes.string.isRequired,
   onSubmitClicked: PropTypes.func,
-}
+};
 
 export default FormTemplate;

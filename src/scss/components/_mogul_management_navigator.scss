@@ -41,22 +41,22 @@
 
 #mogul-logo-main {
   width: 100%;
-  min-width: 350px;
-  max-width: 450px;
+  min-width: 250px;
+  max-width: 350px;
   @include media-breakpoint-up(lg) {
-    width: 450px;
+    width: 350px;
   }
 }
 
 #top-container {
   width: auto;
-  height: 160px;
+  height: 110px;
   display: flex;
   justify-content: center;
   align-items: center;
   margin-bottom: -40px;
   @include media-breakpoint-up(lg) {
-    height: 200px;
+    height: 150px;
   }
 }
 
@@ -94,9 +94,9 @@
 }
 
 .mogul-icon {
-  width: 90px;
+  width: 65px;
   @include media-breakpoint-up(lg) {
-    width: 115px;
+    width: 85px;
   }
   &:hover {
     cursor: pointer;

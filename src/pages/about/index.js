@@ -1,15 +1,11 @@
 import React from 'react';
 import SEO from '../../components/SEO';
 import Layout from '../../layouts/index';
-import ContentJSON from '../../../content/pages/join/index'
+import ContentJSON from '../../../content/pages/about/index'
 
-const pStyle = {
-  width: '66%',
-}
-
-const Join = props => (
+const About = props => (
   <Layout bodyClass="page-contact">
-    <SEO title="Join" />
+    <SEO title="About" />
     <div className="intro intro-small">
       <div className="container">
         <div className="row">
@@ -31,4 +27,4 @@ const Join = props => (
   </Layout>
 );
 
-export default Join;
+export default About;

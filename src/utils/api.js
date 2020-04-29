@@ -9,12 +9,14 @@ export const submitUserData = function(data, callback) {
       'Accept': 'application/json',
       'Content-Type': 'application/json'
     },
-    body: JSON.stringify({data: data})
+    body: JSON.stringify({ data: data }),
   }
 
   fetch(confirmationEndpoint, options)
     .then(res => res.json())
-    .then(res => callback(res))
+    .then(res => {
+      if (callback) callback(res);
+    });
 }
 
 export const test = function(data, callback) {
@@ -29,5 +31,7 @@ export const test = function(data, callback) {
 
   fetch(confirmationEndpoint, options)
     .then(res => res.json())
-    .then(res => callback(res))
+    .then(res => {
+      if (callback) callback(res)
+    })
 }
