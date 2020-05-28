@@ -8,7 +8,10 @@ const Package = props => (
       <div className="package-content">
         <h2 className="package-name">{ props.package.name }</h2>
         {/*<p className="package-description">{ props.package.description }</p>*/}
-        <p className="package-price">{props.package.price}</p>
+        <p className="package-price">
+          <span className="package-price-dollar">${props.package.price.split('.')[0]}</span>
+          <span className="package-price-cents">.{props.package.price.split('.')[1]}</span>
+        </p>
         <p className="package-rate">{props.package.rate}</p>
       </div>
     </button>

@@ -1,10 +1,10 @@
 const guid = process.env.NETLIFY_GOOGLE_ANALYTICS_ID;
 const TESTING = true;
-// const TEST_EMAIL = 'no-reply@mogulmanagement.net'
 const TEST_EMAIL = 'darkyodd@gmail.com';
-
+// export const TEST_EMAIL = 'no-reply@mogulmanagement.net'
 module.exports = {
   siteMetadata: {
+    testing: TESTING,
     title: 'Mogul Management, LLC',
     description: 'Mogul Management Website',
     menuLinks: [
@@ -24,6 +24,17 @@ module.exports = {
     'gatsby-transformer-json',
     'gatsby-transformer-remark',
     'gatsby-plugin-react-helmet',
+    {
+      resolve: 'gatsby-plugin-env-variables',
+      options: {
+        whitelist: ['PAYPAL_SANDBOX_CLIENT_ID',
+          'PAYPAL_SANDBOX_CLIENT_SECRET',
+          'PAYPAL_LIVE_CLIENT_ID',
+          'PAYPAL_LIVE_CLIENT_SECRET',
+          'RECAPTCHA_SITE_KEY',
+          'RECAPTCHA_SITE_SECRET'],
+      },
+    },
     {
       resolve: 'gatsby-source-filesystem',
       options: {

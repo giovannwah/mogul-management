@@ -3,9 +3,9 @@ import { Link, graphql } from 'gatsby';
 import {
   Stepper, Step, StepContent, StepLabel, Button,
 } from '@material-ui/core';
-import CheckCircleOutlineIcon from '@material-ui/icons/CheckCircleOutline';
-// import config from 'gatsby-plugin-config';
 // import ReCAPTCHA from "react-google-recaptcha";
+import CheckCircleOutlineIcon from '@material-ui/icons/CheckCircleOutline';
+import { PayPalButton } from "react-paypal-button-v2";
 import Layout from '../../layouts/index';
 import SEO from '../../components/SEO';
 import PackageGroup from '../../components/PackageGroup';
@@ -17,6 +17,12 @@ import JSONCreditPageContent from '../../../content/pages/consultations/credit-c
 import PackageJSON from '../../../content/pages/consultations/packages';
 import { test, submitUserData } from '../../utils/api';
 import JSONContact from '../../../content/pages/contact/index';
+import {
+  PAYPAL_LIVE_CLIENT_SECRET,
+  PAYPAL_LIVE_CLIENT_ID,
+  PAYPAL_SANDBOX_CLIENT_SECRET,
+  PAYPAL_SANDBOX_CLIENT_ID
+} from '../../utils/constants';
 
 const fieldStyle = {
   marginRight: '5px',
@@ -63,6 +69,8 @@ class CreditConsulting extends React.Component {
 
   componentDidMount() {
     const formData = this.mergeFormData([JSONBasicForm.content, JSONCreditForm.content]);
+    console.log('Testing: ');
+    console.log(this.getTesting());
     this.setState({ formData: formData });
   }
 
@@ -74,12 +82,24 @@ class CreditConsulting extends React.Component {
     return this.props.data.site.siteMetadata.businessEmail;
   }
 
+  getTesting() {
+    return this.props.data.site.siteMetadata.testing;
+  }
+
+  getPaypalClientId() {
+    return this.getTesting() ? PAYPAL_SANDBOX_CLIENT_ID : PAYPAL_LIVE_CLIENT_ID;
+  }
+
+  getPaypalClientSecret() {
+    return this.getTesting() ? PAYPAL_SANDBOX_CLIENT_SECRET : PAYPAL_LIVE_CLIENT_SECRET;
+  }
+
   // eslint-disable-next-line class-methods-use-this
   getSteps = () => {
     return ['Select your package',
             'Tell us about yourself',
             'Schedule your call to get started!',
-            'Confirm'];
+            'Confirm and checkout'];
   }
 
   // eslint-disable-next-line react/sort-comp
@@ -109,7 +129,7 @@ class CreditConsulting extends React.Component {
     if (date > today) {
       const hours = date.getHours();
       const mins = date.getMinutes();
-      if (hours >= MIN_HOUR && hours <= MAX_HOUR && mins == 0) {
+      if (hours >= MIN_HOUR && hours <= MAX_HOUR && mins === 0) {
         return true;
       }
     }
@@ -117,8 +137,12 @@ class CreditConsulting extends React.Component {
   }
 
   formatDateString(date) {
-    var options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric'};
-    return `${date.toLocaleDateString("en-US", options)} at ${date.toLocaleTimeString('en-US')}`;
+    let options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric'};
+    let t = date.toLocaleTimeString('en-US');
+    let time_spl = t.split(':');
+    let ampm = time_spl[time_spl.length-1].split(' ')[1];
+    let time = `${time_spl[0]}:${time_spl[1]}`;
+    return `${date.toLocaleDateString("en-US", options)} at ${time} ${ampm}`;
   }
 
   onDateTimeChange(date) {
@@ -131,12 +155,12 @@ class CreditConsulting extends React.Component {
               ...prevState.completedSteps,
               [`step${activeStep}`]: true,
             },
-          }
+          };
         });
       });
     }
     else {
-      this.setState({ dateTime: date})
+      this.setState({ dateTime: date});
     }
   }
 
@@ -190,10 +214,38 @@ class CreditConsulting extends React.Component {
             {
               this.summary()
             }
-            {/*<br/>*/}
-            {/*<ReCAPTCHA*/}
-            {/*  onChange={this.onCaptchaComplete}*/}
-            {/*/>*/}
+            <hr />
+            <div id="payment-buttons">
+              <PayPalButton
+                amount={ this.getTesting() ? '0.01' : credit_consulting[selectedPackage].price }
+                currency="USD"
+                shippingPreference="NO_SHIPPING"
+                onSuccess={(details, data) => {
+                  console.log('onSuccess....');
+                  console.log(data);
+                  console.log(data.orderID);
+                  this.onPaymentSuccess(data);
+                }}
+                onError={(err) => {
+                  // catch-all for generic errors
+                  console.log('onError....');
+                  console.log(err);
+                }}
+                catchError={(err) => {
+                  // transaction errors
+                  console.log('catchError....');
+                  console.log(err);
+                }}
+                onCancel={(data) => {
+                  console.log('onCancel....');
+                  console.log(data);
+                }}
+                options={{
+                  clientId: this.getPaypalClientId(),
+                  debug: this.getTesting(),
+                }}
+              />
+            </div>
           </div>
         );
       default:
@@ -202,24 +254,31 @@ class CreditConsulting extends React.Component {
   }
 
   generateSubmitData = (confirmationSubject) => {
-    const { userInfo } = this.state;
-    const userSubmittedData = this.consolidateUserInfo()
-    const userEmail = userInfo['email']
-    const userName = userInfo['firstName']
-    const userSubject = `Mogul Management - ${ confirmationSubject } Confirmation`;
-    const businessPhone = this.getBusinessPhone()
+    const { userInfo, dateTime } = this.state;
+    const { credit_consulting } = PackageJSON.content.packages;
+    const ex = [];
+    ex.push({ id: 'package', label: "Selected package", value: `${credit_consulting[0].name} ($${credit_consulting[0].price} fee)` });
+    ex.push({ id: 'orderID', label: "Transaction ID", value: userInfo.orderID });
+    ex.push({ id: 'time', label: "Selected appointment time", value: (dateTime ? this.formatDateString(dateTime) : null) });
+    // consolidateUserInfo only joins together form elements from form data. If any data is in state thats needs to be consolidated, it
+    // should go in the "extraInfo" object.
+    // userSubmittedData format: [{id: 'firstName', label: 'First Name', value: 'Kevin'}, ...]
+    const userSubmittedData = this.consolidateUserInfo(ex);
+    const userEmail = userInfo['email'];
+    const userName = userInfo['firstName'];
+    const userSubject = `Mogul Management - ${confirmationSubject} Confirmation`;
+    const businessPhone = this.getBusinessPhone();
     const businessEmail = this.getBusinessEmail();
-    const businessSubject = `Mogul Management - New ${ confirmationSubject } Request`;
+    const businessSubject = `Mogul Management - New ${confirmationSubject} Request`;
 
     return {
-      // format: {id: 'firstName', label: 'First Name', value: 'Kevin'}
-      userSubmittedData: userSubmittedData,
-      userEmail: userEmail,
-      userName: userName,
-      userSubject: userSubject,
-      businessPhone: businessPhone,
-      businessEmail: businessEmail,
-      businessSubject: businessSubject,
+      userSubmittedData,
+      userEmail,
+      userName,
+      userSubject,
+      businessPhone,
+      businessEmail,
+      businessSubject,
     }
   }
 
@@ -228,35 +287,39 @@ class CreditConsulting extends React.Component {
     const fFormData = this.flattenFormData(formData);
     const ids = fFormData.map(f => f.id);
     const getById = (formData, id) => {
-      return formData.filter(f => f.id === id)[0]
+      let fd = formData.filter(f => f.id === id)
+      if (fd.length) {
+        return fd[0];
+      }
+      return null;
     };
     let disp = []
     if (extraInfo) {
-      disp = [...extraInfo]
+      disp = [...extraInfo];
     }
     ids.map(id => {
       disp.push({
         id: id,
-        label: getById(fFormData, id).label,
+        label: getById(fFormData, id).label || id,
         value: userInfo[id] || 'N/A',
       });
     });
 
-    return disp
+    return disp;
   }
 
   summary = () => {
     const { dateTime } = this.state;
     const { credit_consulting } = PackageJSON.content.packages;
     const ex = []
-    ex.push({id: 'package', label: "Selected package", value: credit_consulting[0].name})
+    ex.push({id: 'package', label: "Selected package", value: `${credit_consulting[0].name} ($${credit_consulting[0].price} fee)`})
     ex.push({id: 'time', label: "Selected appointment time", value: (dateTime ? this.formatDateString(dateTime) : null)})
     const disp = this.consolidateUserInfo(ex)
 
     return (
       <div>
         {
-          disp.map(ans => {
+          disp.map((ans) => {
               return (
                 <div style={sumSpace} key={ans.id}>
                   <span style={bold}>{ `${ ans.label }: ` }</span>
@@ -270,6 +333,20 @@ class CreditConsulting extends React.Component {
     );
   }
 
+  onPaymentSuccess = (data) => {
+    /**
+     * Submit order ID and submit form
+     */
+    this.setState((prevState) => {
+      return {
+        userInfo: {
+          ...prevState.userInfo,
+          orderID: data.orderID,
+        },
+      };
+    }, this.submitForm);
+  };
+
   onPackageSelect = (index) => {
     this.setState((prevState) => {
       return {
@@ -280,7 +357,7 @@ class CreditConsulting extends React.Component {
         },
       };
     });
-  }
+  };
 
   // eslint-disable-next-line react/sort-comp
   handleFormChange = (e) => {
@@ -316,7 +393,7 @@ class CreditConsulting extends React.Component {
         }, this.validateFormFields);
       }
     }
-  }
+  };
 
   getFormValue(id) {
     // get form value by id from state
@@ -357,7 +434,7 @@ class CreditConsulting extends React.Component {
         };
       });
     }
-  }
+  };
 
   validateFormFields = () => {
     const { userInfo, userInfoMeta, formData } = this.state;
@@ -452,9 +529,13 @@ class CreditConsulting extends React.Component {
         }
       }
     });
-  }
+  };
 
   handleFormBlur = (e) => {
+    /**
+     * TODO: Validate form on form blur
+     */
+    console.log('handleFormBlur...')
     const { userInfoMeta } = this.state
     const { id, value, name } = e.target;
     const formID = id || name;
@@ -486,13 +567,13 @@ class CreditConsulting extends React.Component {
         };
       }, this.validateFormFields);
     }
-  }
+  };
 
   handleLastStep = () => {
     this.setState((lastState) => {
       return { activeStep: lastState.activeStep - 1 };
     });
-  }
+  };
 
   handleNextStep = () => {
     const { activeStep, completedSteps } = this.state
@@ -504,17 +585,33 @@ class CreditConsulting extends React.Component {
         return { activeStep: lastState.activeStep + 1 };
       });
     }
-  }
+  };
 
   submitForm = () => {
-    const submitData = this.generateSubmitData(JSONCreditPageContent.content.title)
-    test(submitData, this.callback);
-    this.setState({ done: true });
-  }
+    /**
+     * Submit form for processing
+     * TODO: Call submitUserData instead
+     * @type {{businessEmail: *, businessSubject: *, userSubmittedData: *, userEmail: *, businessPhone: *, userName: *, userSubject: *}}
+     */
+    const submitData = this.generateSubmitData(JSONCreditPageContent.content.title);
+    if (this.getTesting()) {
+      test(submitData, this.callback);
+    }
+    else {
+      submitUserData(submitData, this.callback);
+    }
+  };
 
   callback = (response) => {
-    let x = 10;
-  }
+    /**
+     * Called after form submission
+     * TODO: Write an actual callback for the form submission
+     * @type {number}
+     */
+    console.log('Callback *****');
+    console.log(response);
+    this.setState({ done: true });
+  };
 
   render() {
     const steps = this.getSteps();
@@ -560,25 +657,29 @@ class CreditConsulting extends React.Component {
                     <StepContent>
                       {this.getStepContent(index)}
                       <div style={navButtonsGroupStyle}>
-                        {activeStep > 0 &&
-                        <Button
-                          variant="contained"
-                          color="secondary"
-                          onClick={this.handleLastStep}
-                          style={fieldStyle}
-                        >
-                          Back
-                        </Button>
+                        {
+                          activeStep > 0 &&
+                            <Button
+                              variant="contained"
+                              color="secondary"
+                              onClick={this.handleLastStep}
+                              style={fieldStyle}
+                            >
+                              Back
+                            </Button>
                         }
-                        <Button
-                          disabled={!completedSteps[`step${activeStep}`]}
-                          variant="contained"
-                          color="primary"
-                          onClick={this.handleNextStep}
-                          style={fieldStyle}
-                        >
-                          {activeStep === steps.length - 1 ? 'Submit' : 'Next'}
-                        </Button>
+                        {
+                         activeStep < steps.length - 1 &&
+                          <Button
+                            disabled={!completedSteps[`step${activeStep}`]}
+                            variant="contained"
+                            color="primary"
+                            onClick={this.handleNextStep}
+                            style={fieldStyle}
+                          >
+                            {activeStep === steps.length - 1 ? 'Submit' : 'Next'}
+                          </Button>
+                        }
                       </div>
                     </StepContent>
                   </Step>
@@ -597,6 +698,7 @@ export const query = graphql`
   query {
     site {
       siteMetadata {
+        testing      
         businessEmail
       }
     }
