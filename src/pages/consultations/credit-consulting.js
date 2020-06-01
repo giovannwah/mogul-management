@@ -6,6 +6,7 @@ import {
 // import ReCAPTCHA from "react-google-recaptcha";
 import CheckCircleOutlineIcon from '@material-ui/icons/CheckCircleOutline';
 import { PayPalButton } from "react-paypal-button-v2";
+import Loader from 'react-loader-spinner';
 import Layout from '../../layouts/index';
 import SEO from '../../components/SEO';
 import PackageGroup from '../../components/PackageGroup';
@@ -48,6 +49,7 @@ class CreditConsulting extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
+      loading: false,
       activeStep: 0,
       selectedPackage: -1,
       formData: {},
@@ -339,6 +341,7 @@ class CreditConsulting extends React.Component {
      */
     this.setState((prevState) => {
       return {
+        loading: true,
         userInfo: {
           ...prevState.userInfo,
           orderID: data.orderID,
@@ -594,8 +597,9 @@ class CreditConsulting extends React.Component {
      * @type {{businessEmail: *, businessSubject: *, userSubmittedData: *, userEmail: *, businessPhone: *, userName: *, userSubject: *}}
      */
     const submitData = this.generateSubmitData(JSONCreditPageContent.content.title);
-    if (this.getTesting()) {
-      test(submitData, this.callback);
+
+    if (this.getTesting()){
+       test(submitData, this.callback);
     }
     else {
       submitUserData(submitData, this.callback);
@@ -610,83 +614,119 @@ class CreditConsulting extends React.Component {
      */
     console.log('Callback *****');
     console.log(response);
-    this.setState({ done: true });
+    this.setState({ done: true, loading: false });
   };
 
-  render() {
-    const steps = this.getSteps();
+  creditConsultingContent = () => {
     const { activeStep, completedSteps, done } = this.state;
+    const steps = this.getSteps();
+    if (done) {
+      return (
+        <div style={{paddingTop: '100px', display: 'flex', flexDirection: 'column', width: '100%', height: 'auto', justifyContent: 'center', alignItems: 'center'}}>
+          <div style={{display: 'flex', flexDirection: 'row', alignItems: 'center'}}>
+            <h2>Thank you!</h2>
+            <CheckCircleOutlineIcon style={{paddingLeft: '10px', width: '55px', height: '55px', color: 'green'}} fontSize="large"/>
+          </div>
+          <p style={{maxWidth: '500px', textAlign: 'center'}}>You should receive an email confirmation shortly. We look forward to doing business with you.</p>
+          <Link to="/">Go to Home</Link>
+
+        </div>);
+    }
+    return (
+      <div>
+        <div className="intro intro-small">
+          <div className="container">
+            <div className="row">
+              <div className="col-12">
+                <h1>{JSONCreditPageContent.content.title}</h1>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div className="container">
+          <div className="row">
+            <div className="col-12">
+              <div>
+                <p className="page-paragraph">{JSONCreditPageContent.content.paragraph}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div className="container">
+          <Stepper activeStep={activeStep} orientation="vertical">
+            {steps.map((label, index) => (
+              <Step key={label}>
+                <StepLabel>{label}</StepLabel>
+                <StepContent>
+                  {this.getStepContent(index)}
+                  <div style={navButtonsGroupStyle}>
+                    {
+                      activeStep > 0 &&
+                      <Button
+                        variant="contained"
+                        color="secondary"
+                        onClick={this.handleLastStep}
+                        style={fieldStyle}
+                      >
+                        Back
+                      </Button>
+                    }
+                    {
+                      activeStep < steps.length - 1 &&
+                      <Button
+                        disabled={!completedSteps[`step${activeStep}`]}
+                        variant="contained"
+                        color="primary"
+                        onClick={this.handleNextStep}
+                        style={fieldStyle}
+                      >
+                        {activeStep === steps.length - 1 ? 'Submit' : 'Next'}
+                      </Button>
+                    }
+                  </div>
+                </StepContent>
+              </Step>
+            ))}
+          </Stepper>
+        </div>
+      </div>
+    );
+  }
+
+  getLoader = () => {
+    const { loading } = this.state;
+    return (
+      <div style={{
+        width: "100%",
+        height: "100",
+        paddingTop: "100",
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center"
+      }}>
+        <Loader type="ThreeDots"
+                color="#000"
+                visible={ loading }
+                height="100"
+                width="100"/>
+      </div>
+       );
+  }
+
+  contentWithLoader = () => {
+    const { loading } = this.state;
+    if (loading) {
+      return this.getLoader();
+    }
+    return this.creditConsultingContent();
+  }
+
+  render() {
     return (
       <Layout>
         <SEO title="Credit Consultation" />
-        {done ?
-          <div style={{paddingTop: '100px', display: 'flex', flexDirection: 'column', width: '100%', height: 'auto', justifyContent: 'center', alignItems: 'center'}}>
-            <div style={{display: 'flex', flexDirection: 'row', alignItems: 'center'}}>
-              <h2>Thank you!</h2>
-              <CheckCircleOutlineIcon style={{paddingLeft: '10px', width: '55px', height: '55px', color: 'green'}} fontSize="large"/>
-            </div>
-            <p style={{maxWidth: '500px', textAlign: 'center'}}>You should receive an email confirmation shortly. We look forward to doing business with you.</p>
-            <Link to="/">Go to Home</Link>
-
-          </div>
-          :
-          <div>
-            <div className="intro intro-small">
-              <div className="container">
-                <div className="row">
-                  <div className="col-12">
-                    <h1>{JSONCreditPageContent.content.title}</h1>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div className="container">
-              <div className="row">
-                <div className="col-12">
-                  <div>
-                    <p className="page-paragraph">{JSONCreditPageContent.content.paragraph}</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div className="container">
-              <Stepper activeStep={activeStep} orientation="vertical">
-                {steps.map((label, index) => (
-                  <Step key={label}>
-                    <StepLabel>{label}</StepLabel>
-                    <StepContent>
-                      {this.getStepContent(index)}
-                      <div style={navButtonsGroupStyle}>
-                        {
-                          activeStep > 0 &&
-                            <Button
-                              variant="contained"
-                              color="secondary"
-                              onClick={this.handleLastStep}
-                              style={fieldStyle}
-                            >
-                              Back
-                            </Button>
-                        }
-                        {
-                         activeStep < steps.length - 1 &&
-                          <Button
-                            disabled={!completedSteps[`step${activeStep}`]}
-                            variant="contained"
-                            color="primary"
-                            onClick={this.handleNextStep}
-                            style={fieldStyle}
-                          >
-                            {activeStep === steps.length - 1 ? 'Submit' : 'Next'}
-                          </Button>
-                        }
-                      </div>
-                    </StepContent>
-                  </Step>
-                ))}
-              </Stepper>
-            </div>
-          </div>
+        {
+          this.contentWithLoader()
         }
       </Layout>
     );
