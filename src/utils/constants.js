@@ -5,4 +5,4 @@ export const PAYPAL_SANDBOX_CLIENT_SECRET = process.env.PAYPAL_SANDBOX_CLIENT_SE
 export const PAYPAL_SANDBOX_CLIENT_ID = process.env.PAYPAL_SANDBOX_CLIENT_ID;
 export const RECAPTCHA_SITE_KEY = process.env.RECAPTCHA_SITE_KEY;
 export const RECAPTCHA_SITE_SECRET = process.env.RECAPTCHA_SITE_SECRET;
-
+export const EMAIL_API_KEY = process.env.EMAIL_API_KEY;

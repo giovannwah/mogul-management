@@ -71,8 +71,6 @@ class CreditConsulting extends React.Component {
 
   componentDidMount() {
     const formData = this.mergeFormData([JSONBasicForm.content, JSONCreditForm.content]);
-    console.log('Testing: ');
-    console.log(this.getTesting());
     this.setState({ formData: formData });
   }
 
@@ -223,9 +221,6 @@ class CreditConsulting extends React.Component {
                 currency="USD"
                 shippingPreference="NO_SHIPPING"
                 onSuccess={(details, data) => {
-                  console.log('onSuccess....');
-                  console.log(data);
-                  console.log(data.orderID);
                   this.onPaymentSuccess(data);
                 }}
                 onError={(err) => {
@@ -538,7 +533,6 @@ class CreditConsulting extends React.Component {
     /**
      * TODO: Validate form on form blur
      */
-    console.log('handleFormBlur...')
     const { userInfoMeta } = this.state
     const { id, value, name } = e.target;
     const formID = id || name;
@@ -612,8 +606,6 @@ class CreditConsulting extends React.Component {
      * TODO: Write an actual callback for the form submission
      * @type {number}
      */
-    console.log('Callback *****');
-    console.log(response);
     this.setState({ done: true, loading: false });
   };
 
@@ -697,12 +689,12 @@ class CreditConsulting extends React.Component {
     const { loading } = this.state;
     return (
       <div style={{
-        width: "100%",
-        height: "100",
-        paddingTop: "100",
-        display: "flex",
-        justifyContent: "center",
-        alignItems: "center"
+        width: '100%',
+        height: '300',
+        paddingTop: '200',
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center',
       }}>
         <Loader type="ThreeDots"
                 color="#000"

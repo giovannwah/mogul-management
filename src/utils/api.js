@@ -1,3 +1,5 @@
+import { EMAIL_API_KEY } from './constants';
+
 const confirmationEndpoint = 'https://p7t9ebdddb.execute-api.us-east-1.amazonaws.com/test/confirmation-email';
 const testEndpoint = 'https://p7t9ebdddb.execute-api.us-east-1.amazonaws.com/test/confirmation-email';
 
@@ -7,6 +9,7 @@ export const submitUserData = (data, callback) => {
     headers: {
       Accept: 'application/json',
       'Content-Type': 'application/json',
+      'x-api-key': EMAIL_API_KEY,
     },
     body: JSON.stringify({ data }),
   };
@@ -24,6 +27,7 @@ export const test = (data, callback) => {
     headers: {
       Accept: 'application/json',
       'Content-Type': 'application/json',
+      'x-api-key': EMAIL_API_KEY,
     },
     body: JSON.stringify({ data }),
   };
