@@ -18,6 +18,7 @@ module.exports = {
       },
     ],
     businessEmail: TESTING ? TEST_EMAIL : 'mogulmanagementus@gmail.com',
+    // businessEmail:
   },
   plugins: [
     'gatsby-plugin-sass',
@@ -32,7 +33,8 @@ module.exports = {
           'PAYPAL_LIVE_CLIENT_ID',
           'PAYPAL_LIVE_CLIENT_SECRET',
           'RECAPTCHA_SITE_KEY',
-          'RECAPTCHA_SITE_SECRET'],
+          'RECAPTCHA_SITE_SECRET',
+          'EMAIL_API_KEY'],
       },
     },
     {
