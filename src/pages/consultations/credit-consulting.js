@@ -87,7 +87,8 @@ class CreditConsulting extends React.Component {
   }
 
   getPaypalClientId() {
-    return this.getTesting() ? PAYPAL_SANDBOX_CLIENT_ID : PAYPAL_LIVE_CLIENT_ID;
+    // return this.getTesting() ? PAYPAL_SANDBOX_CLIENT_ID : PAYPAL_LIVE_CLIENT_ID;
+    return PAYPAL_LIVE_CLIENT_ID;
   }
 
   getPaypalClientSecret() {

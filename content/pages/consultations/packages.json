@@ -5,10 +5,40 @@
       "motivated_seller": [],
       "credit_consulting": [
         {
-          "name": "Credit Repair",
+          "name": "Beginner's Package",
           "description": "Refer a friend and get $50 off your credit repair, and your friend only pays $75!",
-          "price": "0.05",
-          "rate": "Flat fee. Refer a friend and get $50 off your credit repair, and your friend only pays $75!"
+          "price": "0.01",
+          "rate": "Flat fee. Refer a friend and get $50 off your credit repair, and your friend only pays $75!",
+          "list": [
+            "Access to list of potential credit cards you can get approved for",
+            "Coaching on how to maintain and build credit",
+            "Money back with every referral (Get $25 back for everyone that signs up and uses your name as a referral)"
+          ]
+        },
+        {
+          "name": "Package 2",
+          "description": "Refer a friend and get $50 off your credit repair, and your friend only pays $75!",
+          "price": "300.00",
+          "rate": "Flat fee. Refer a friend and get $50 off your credit repair, and your friend only pays $75!",
+          "list": [
+            "Removal of derogatory remarks on your credit report",
+            "Access to list of potential credit cards you can get approved for",
+            "Coaching on how to maintain and build credit",
+            "Money back with every referral (Get $50 back for everyone that signs up and uses your name as a referral)"
+          ]
+        },
+        {
+          "name": "Package 3",
+          "description": "Refer a friend and get $50 off your credit repair, and your friend only pays $75!",
+          "price": "400.00",
+          "rate": "Flat fee. Refer a friend and get $50 off your credit repair, and your friend only pays $75!",
+          "list": [
+            "Learning business credit",
+            "Removal of derogatory remarks on your credit report",
+            "Access to list of potential credit cards you can get approved for",
+            "Coaching on how to maintain and build credit",
+            "Money back with every referral (Get $50 back for everyone that signs up and uses your name as a referral)"
+          ]
         }
       ]
     }

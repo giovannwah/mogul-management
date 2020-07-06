@@ -7,12 +7,19 @@ const Package = props => (
     <button className={`package-button ${props.selected ? 'package-selected' : ''}`} onClick={() => props.handleClick(props.index)} >
       <div className="package-content">
         <h2 className="package-name">{ props.package.name }</h2>
-        {/*<p className="package-description">{ props.package.description }</p>*/}
         <p className="package-price">
           <span className="package-price-dollar">${props.package.price.split('.')[0]}</span>
           <span className="package-price-cents">.{props.package.price.split('.')[1]}</span>
+          <span className="package-flat-fee"> flat fee</span>
         </p>
-        <p className="package-rate">{props.package.rate}</p>
+        <p style={{ textAlign: 'left', color: '#333', paddingLeft: '15px' }}>Includes:</p>
+        <ul style={{ textAlign: 'left', fontSize: '13px', color: '#333' }}>
+          {
+            props.package.list.map(item => (
+              <li>{item}</li>
+            ))
+          }
+        </ul>
       </div>
     </button>
   </div>
