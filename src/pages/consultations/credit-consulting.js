@@ -218,7 +218,7 @@ class CreditConsulting extends React.Component {
             <hr />
             <div id="payment-buttons">
               <PayPalButton
-                amount={ this.getTesting() ? '0.01' : credit_consulting[selectedPackage].price }
+                amount={ this.getTesting() ? '0.05' : credit_consulting[selectedPackage].price }
                 currency="USD"
                 shippingPreference="NO_SHIPPING"
                 onSuccess={(details, data) => {

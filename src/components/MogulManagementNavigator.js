@@ -73,7 +73,7 @@ const MogulManagementNavigator = props => (
       <div id="bottom-container">
         <div>
           <img id="mogul-logo-main" src="../assets/Mogul-Management-Logo-01.svg" alt="Mogul Mangagement Main"/>
-          <div id="learn-about-us"><Link to="/about">Learn About Us</Link></div>
+          <div id="learn-about-us"><Link to="/about">LEARN ABOUT US</Link></div>
         </div>
       </div>
     </div>

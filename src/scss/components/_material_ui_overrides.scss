@@ -23,6 +23,12 @@
   font-weight: bolder !important;
   color: $money !important;
 }
+.MuiMenuItem-root {
+  font-family: 'Darker Grotesque', 'serif' !important;
+  text-transform: uppercase !important;
+  letter-spacing: 1.4px !important;
+  font-size: 16px !important;
+}
 
 // react-scheduler
 .Cell-today-2363 {
