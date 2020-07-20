@@ -1,27 +1,30 @@
 .quote {
   // color: #A4B0B9;
-  color: #aaa;
-  font-size: 24px;
+  color: #ccc;
+  font-size: 42px;
+  line-height: 85%;
   font-family: 'Abril Fatface', 'Helvetica Neue', serif;
   // font-family: 'Prata', 'Helvetica Neue', serif;
   // font-family: 'Lemon/Milk', 'Helvetica Neue', serif;
   // font-style: italic;
   letter-spacing: 1px;
+  text-transform: uppercase;
+  width: 565px;
+  margin-right: 0px;
 }
 
 #quote-container {
-  width: 80%;
-  text-align: justify;
-  text-justify: inter-word;
+  // width: 100%;
+  text-align: right;
   padding-left: 10px;
   padding-right: 10px;
   padding-top: 30px;
   // order: 1;
   @include media-breakpoint-up(lg) {
-    width: 33%;
     padding-left: 60px;
-    padding-right: 50px;
     padding-top: 0px;
+    padding-right: 45px;
+    align-self: flex-end;
   }
 }
 
@@ -35,7 +38,7 @@
 }
 
 #quotee {
-  font-size: 28px;
+  font-size: 42px;
   font-weight: bolder;
   color: #333;
   text-align: right;
@@ -48,6 +51,6 @@
 }
 
 .parens {
-  font-size: 32px;
+  font-size: 42px;
   font-family: 'Abril Fatface', 'Helvetica Neue', serif;
 }
