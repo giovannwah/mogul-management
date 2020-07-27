@@ -31,7 +31,7 @@
     li {
       display: block;
       margin-right: 10px;
-      font-size: 0.8rem;
+      font-size: 1.0rem;
       color: #ffffff;
       &:last-of-type {
         margin-right: 0;
@@ -68,7 +68,7 @@
     }
     @include media-breakpoint-up(md) {
       li {
-        font-size: 0.9rem;
+        font-size: 1.0rem;
       }
     }
   }

@@ -9,8 +9,12 @@
   // font-style: italic;
   letter-spacing: 1px;
   text-transform: uppercase;
-  width: 565px;
+  width: 95%;
+  max-width: 480px;
   margin-right: 0px;
+  @include media-breakpoint-up(lg) {
+    width: 480px;
+  }
 }
 
 #quote-container {

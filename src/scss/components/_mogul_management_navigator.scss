@@ -27,21 +27,29 @@
 }
 
 #mc-left-half {
-  width: 50%;
+  width: 100%;
   height: 100%;
   display: flex;
   flex-direction: column;
   text-align: right;
-  align-items: flex-end;
+  align-items: center;
+  @include media-breakpoint-up(lg) {
+    align-items: flex-end;
+    width: 50%;
+  }
 }
 
 #mc-right-half {
-  width: 50%;
+  width: 100%;
   height: 100%;
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   justify-content: flex-start;
   align-items: center;
+  @include media-breakpoint-up(lg) {
+    width: 50%;
+    flex-direction: row;
+  }
 }
 
 #logo-container {
@@ -67,9 +75,9 @@
 
 #learn-about-us {
   text-align: center;
-  font-size: 1rem;
+  font-size: 1.1rem;
   letter-spacing: 1.2px;
-  margin-top: 60px;
+  margin-top: 50px;
   font-weight: 300;
   font-family: 'Darker Grotesque', 'Helvetica Neue', serif;
 }
@@ -79,14 +87,25 @@
   max-width: 500px;
 }
 #home-sep {
-  height: 275px;
-  width: 1px;
-  background-color: #ccc;
-  align-items: center;
+  display: none;
+  @include media-breakpoint-up(lg) {
+    display: block;
+    height: 275px;
+    width: 1px;
+    background-color: #ccc;
+    align-items: center;
+  }
+
 }
 
 #secondary-container {
-  padding-left: 40px;
+  padding-top: 40px;
+  padding-bottom: 40px;
+  @include media-breakpoint-up(lg) {
+    padding-left: 40px;
+    padding-top: 0px;
+    padding-bottom: 0px;
+  }
 }
 
 #top-container {

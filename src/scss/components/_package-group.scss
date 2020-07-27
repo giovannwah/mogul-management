@@ -1,11 +1,11 @@
 .package-container {
   width: 320px;
-  height: 450px;
+  height: 540px;
   margin: 10px;
   min-width: 320px;
   max-width: 320px;
-  min-height: 450px;
-  max-height: 450px;
+  min-height: 540px;
+  max-height: 540px;
 }
 
 .package-button {
@@ -40,9 +40,9 @@
 .package-selected {
   // border-color: #6fff55;
   border-color: $dark-money;
-  border-width: 10px;
+  border-width: 8px;
   border-style: solid;
-  border-radius: 8px;
+  border-radius: 3px;
 }
 
 .package-content {
@@ -54,12 +54,14 @@
 .package-price {
   font-size: 64px;
   font-weight: bold;
+  font-family: 'Crimson Text', serif;
   color: $money;
   margin-bottom: 0px;
 }
 
 .package-price-dollar {
   font-size: 64px;
+  font-family: 'Crimson Text', serif;
 }
 
 .package-flat-fee {
@@ -70,6 +72,7 @@
 
 .package-price-cents {
   font-size: 32px;
+  font-family: 'Crimson Text', serif;
 }
 
 .package-name {

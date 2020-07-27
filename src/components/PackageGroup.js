@@ -13,7 +13,7 @@ const Package = props => (
           <span className="package-flat-fee"> flat fee</span>
         </p>
         <p style={{ textAlign: 'left', color: '#333', paddingLeft: '15px' }}>Includes:</p>
-        <ul style={{ textAlign: 'left', fontSize: '13px', color: '#333' }}>
+        <ul style={{ textAlign: 'left', fontSize: '17px', color: '#333' }}>
           {
             props.package.list.map(item => (
               <li>{item}</li>
