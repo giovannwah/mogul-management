@@ -1,5 +1,5 @@
 const guid = process.env.NETLIFY_GOOGLE_ANALYTICS_ID;
-const TESTING = true;
+const TESTING = false;
 const TEST_EMAIL = 'darkyodd@gmail.com';
 // export const TEST_EMAIL = 'no-reply@mogulmanagement.net'
 module.exports = {
