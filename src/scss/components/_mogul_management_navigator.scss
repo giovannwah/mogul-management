@@ -80,6 +80,10 @@
   margin-top: 50px;
   font-weight: 300;
   font-family: 'Darker Grotesque', 'Helvetica Neue', serif;
+  padding-bottom: 40px;
+  @include media-breakpoint-up(lg) {
+    padding-bottom: 0px;
+  }
 }
 
 #payment-buttons {
