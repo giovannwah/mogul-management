@@ -218,7 +218,8 @@ class CreditConsulting extends React.Component {
             <hr />
             <div id="payment-buttons">
               <PayPalButton
-                amount={ this.getTesting() ? '0.05' : credit_consulting[selectedPackage].price }
+                amount={ this.getTesting() ? '0.05'
+                  : selectedPackage !== -1 ? credit_consulting[selectedPackage].price : '0.00'}
                 currency="USD"
                 shippingPreference="NO_SHIPPING"
                 onSuccess={(details, data) => {
@@ -226,16 +227,16 @@ class CreditConsulting extends React.Component {
                 }}
                 onError={(err) => {
                   // catch-all for generic errors
-                  console.log('onError....');
+                  console.log('onError');
                   console.log(err);
                 }}
                 catchError={(err) => {
                   // transaction errors
-                  console.log('catchError....');
+                  console.log('catchError');
                   console.log(err);
                 }}
                 onCancel={(data) => {
-                  console.log('onCancel....');
+                  console.log('onCancel');
                   console.log(data);
                 }}
                 options={{
