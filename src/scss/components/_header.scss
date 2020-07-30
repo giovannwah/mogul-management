@@ -1,11 +1,14 @@
 .header {
-  height: 80px;
+  height: 11vh;
   color: $primary;
   background-color: #ffffff;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  border-bottom: 1px; 
+  border-bottom: 1px;
+  @include media-breakpoint-up(lg) {
+    height: 80px;
+  }
 
   .container {
     display: flex;
