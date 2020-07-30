@@ -53,6 +53,7 @@ const MogulManagementNavigator = props => (
           />
         </div>
       </div>
+      <hr id="hr-home-sep" />
       <div id="mc-right-half">
         <div id="home-sep" />
         <div id="secondary-container">
