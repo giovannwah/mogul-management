@@ -1,19 +1,27 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { graphql, StaticQuery, Link } from 'gatsby';
 
 const MenuMobile = props => {
-  const { menuLinks } = props.data.site.siteMetadata;
+  const { altMenuLinks } = props.data.site.siteMetadata;
+
+  const getMenu = () => {
+    return (
+      altMenuLinks.map(link => (
+          <li key={link.name}>
+            <Link to={link.link}>{link.name}</Link>
+          </li>
+      )));
+  };
+
   return (
     <div
       id="main-menu-mobile"
       className={`main-menu-mobile ${props.active ? 'open' : ''}`}
     >
       <ul>
-        {menuLinks.map(link => (
-          <li key={link.name}>
-            <Link to={link.link}>{link.name}</Link>
-          </li>
-        ))}
+        {
+          getMenu()
+        }
       </ul>
     </div>
   );
@@ -25,7 +33,7 @@ export default props => (
       query MenuMobileQuery {
         site {
           siteMetadata {
-            menuLinks {
+            altMenuLinks {
               name
               link
             }

@@ -17,6 +17,28 @@ module.exports = {
         link: '/contact',
       },
     ],
+    altMenuLinks: [
+      {
+        name: 'Credit Repair',
+        link: '/consultations/credit-consulting',
+      },
+      {
+        name: 'Motivated Seller',
+        link: '/consultations/motivated-seller',
+      },
+      {
+        name: 'Investor Criteria',
+        link: '/consultations/investor-consulting',
+      },
+      {
+        name: 'Contact',
+        link: '/contact',
+      },
+      {
+        name: 'About',
+        link: '/about',
+      }
+    ],
     businessEmail: TESTING ? TEST_EMAIL : 'mogulmanagementus@gmail.com',
     // businessEmail:
   },

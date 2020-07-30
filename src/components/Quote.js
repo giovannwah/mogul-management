@@ -9,7 +9,6 @@ const renderQuote = (quote, quotee, keywords, skip) => {
         <span className="parens">"</span>
         {
           words.map((word, i) => {
-            console.log(word);
             if ((keywords.includes(word) && !skip.includes(word)) || skipped.includes(word)) {
               return (<span className="text-highlight">{ `${word}${i === words.length-1 ? '' : ' '}` }</span>);
             }
