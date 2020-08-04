@@ -7,7 +7,7 @@
         {
           "name": "Beginner's Package",
           "description": "Refer a friend and get $50 off your credit repair, and your friend only pays $75!",
-          "price": "150.00",
+          "price": "250.00",
           "rate": "Flat fee. Refer a friend and get $50 off your credit repair, and your friend only pays $75!",
           "list": [
             "Access to list of potential credit cards you can get approved for",
@@ -18,8 +18,8 @@
         {
           "name": "Package 2",
           "description": "Refer a friend and get $50 off your credit repair, and your friend only pays $75!",
-          "price": "300.00",
-          "rate": "Flat fee. Refer a friend and get $50 off your credit repair, and your friend only pays $75!",
+          "price": "250.00",
+          "rate": "Flat rate member fee + item removal fees. Refer a friend and get $50 off your credit repair, and your friend only pays $75!",
           "list": [
             "Removal of derogatory remarks on your credit report",
             "Access to list of potential credit cards you can get approved for",
