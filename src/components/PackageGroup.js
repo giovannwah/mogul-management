@@ -10,10 +10,10 @@ const Package = props => (
         <p className="package-price">
           <span className="package-price-dollar">${props.package.price.split('.')[0]}</span>
           <span className="package-price-cents">.{props.package.price.split('.')[1]}</span>
-          <span className="package-flat-fee"> flat fee</span>
+          <div className="package-flat-fee">{props.package.rate}</div>
         </p>
         <p style={{ textAlign: 'left', color: '#333', paddingLeft: '15px' }}>Includes:</p>
-        <ul style={{ textAlign: 'left', fontSize: '17px', color: '#333' }}>
+        <ul className="package-list" style={{ textAlign: 'left', fontSize: '17px', color: '#333' }}>
           {
             props.package.list.map(item => (
               <li>{item}</li>

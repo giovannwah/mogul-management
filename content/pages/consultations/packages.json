@@ -8,7 +8,7 @@
           "name": "Beginner's Package",
           "description": "Refer a friend and get $25 off your credit repair, and your friend only pays $75!",
           "price": "250.00",
-          "rate": "Flat fee. Refer a friend and get $25 off your credit repair, and your friend only pays $75!",
+          "rate": "One-time enrollment fee",
           "list": [
             "Access to list of potential credit cards you can get approved for",
             "Coaching on how to maintain and build credit",
@@ -18,10 +18,10 @@
         {
           "name": "Package 2",
           "description": "Refer a friend and get $50 off your credit repair, and your friend only pays $75!",
-          "price": "250.00",
-          "rate": "Flat rate member fee + item removal fees. Refer a friend and get $25 off your credit repair, and your friend only pays $75!",
+          "price": "350.00",
+          "rate": "Flat rate member fee + item removal fees",
           "list": [
-            "Removal of derogatory remarks on your credit report",
+            "Removal of derogatory remarks on your credit report ($25-$50 per item depending on what you want removed)",
             "Access to list of potential credit cards you can get approved for",
             "Coaching on how to maintain and build credit",
             "Money back with every referral (Get $25 back for everyone that signs up and uses your name as a referral)"
@@ -31,10 +31,10 @@
           "name": "Package 3",
           "description": "Refer a friend and get $25 off your credit repair, and your friend only pays $75!",
           "price": "400.00",
-          "rate": "Flat fee. Refer a friend and get $25 off your credit repair, and your friend only pays $75!",
+          "rate": "Flat rate member fee + item removal fees",
           "list": [
             "Learning business credit",
-            "Removal of derogatory remarks on your credit report",
+            "Removal of derogatory remarks on your credit report ($25-$50 per item depending on what you want removed)",
             "Access to list of potential credit cards you can get approved for",
             "Coaching on how to maintain and build credit",
             "Money back with every referral (Get $25 back for everyone that signs up and uses your name as a referral)"

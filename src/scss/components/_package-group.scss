@@ -1,11 +1,11 @@
 .package-container {
   width: 320px;
-  height: 540px;
+  height: 580px;
   margin: 10px;
   min-width: 320px;
   max-width: 320px;
-  min-height: 540px;
-  max-height: 540px;
+  min-height: 580px;
+  max-height: 580px;
 }
 
 .package-button {
@@ -49,6 +49,7 @@
   display: flex;
   flex-direction: column;
   margin: 5px;
+  font-size: 14px;
 }
 
 .package-price {
@@ -65,9 +66,15 @@
 }
 
 .package-flat-fee {
+  margin-top: -20px;
+  margin-bottom: 20px;
   font-size: 14px;
   color: #333;
   font-weight: normal;
+}
+
+.package-list {
+  font-size: 16px !important;
 }
 
 .package-price-cents {
