@@ -4,7 +4,6 @@ import Helmet from 'react-helmet';
 import SEO from '../components/SEO';
 import Layout from '../layouts/index';
 import MogulManagementNavigator from '../components/MogulManagementNavigator';
-import HomeContent from '../../content/pages/home/index';
 
 const Home = (props) => {
   return (
@@ -17,12 +16,6 @@ const Home = (props) => {
         />
       </Helmet>
       <div className="mogul-container">
-        {/*<div id="quote-container">*/}
-        {/*  <div id="quote-secondary-container">*/}
-        {/*    <p id="quote-main">"{HomeContent.content.quote}"</p>*/}
-        {/*    <b id="quotee">- {HomeContent.content.quote_by}</b>*/}
-        {/*  </div>*/}
-        {/*</div>*/}
         <MogulManagementNavigator />
       </div>
     </Layout>

@@ -3,7 +3,7 @@ import SEO from '../../components/SEO';
 import Layout from '../../layouts/index';
 import { Link } from 'gatsby';
 import JSONCreditContent from '../../../content/pages/consultations/credit-consulting';
-import JSONInvestorContent from '../../../content/pages/consultations/investor-criteria';
+import JSONFundingContent from '../../../content/pages/consultations/funding';
 import JSONSellerContent from '../../../content/pages/consultations/motivated-seller';
 
 const Consultations = props => (
@@ -44,9 +44,9 @@ const Consultations = props => (
               <div className="card service service-teaser">
                 <div className="card-content">
                   <h2>
-                    <Link to="consultations/investor-consulting">{ JSONInvestorContent.content.title }</Link>
+                    <Link to="consultations/funding">{ JSONFundingContent.content.title }</Link>
                   </h2>
-                  <p>{ JSONInvestorContent.content.paragraph }</p>
+                  <p>{ JSONFundingContent.content.paragraph }</p>
                 </div>
               </div>
             </div>

@@ -5,7 +5,7 @@ import { withStyles } from '@material-ui/core/styles';
 import Tooltip from '@material-ui/core/Tooltip';
 import Quote from './Quote';
 import HomeContent from '../../content/pages/home/index';
-import InvestorJSON from '../../content/pages/consultations/investor-criteria'
+import FundingJSON from '../../content/pages/consultations/funding'
 import CreditJSON from '../../content/pages/consultations/credit-consulting'
 import SellerJSON from '../../content/pages/consultations/motivated-seller'
 
@@ -59,9 +59,9 @@ const MogulManagementNavigator = props => (
         <div id="secondary-container">
           <div id="top-container">
             <div className="top-column">
-              <IconTooltip className="tooltip-div-bottom" arrow title={ InvestorJSON.content.title } placement="top">
-                <IconButton onClick={() => handleClick("consultations/investor-consulting")}>
-                  <img className="mogul-icon" id="mogul-logo-investor" src="../assets/Mogul-Management-Logo-04.svg" alt="Mogul Mangagement Investor Consulting"/>
+              <IconTooltip className="tooltip-div-bottom" arrow title={ FundingJSON.content.title } placement="top">
+                <IconButton onClick={() => handleClick("consultations/funding")}>
+                  <img className="mogul-icon" id="mogul-logo-investor" src="../assets/Mogul-Management-Logo-04.svg" alt="Mogul Mangagement Funding"/>
                 </IconButton>
               </IconTooltip>
             </div>

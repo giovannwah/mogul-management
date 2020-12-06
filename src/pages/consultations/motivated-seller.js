@@ -123,8 +123,8 @@ class MotivatedSeller extends React.Component {
     }
   }
 
-  stepContent = () => {
-
+  getTesting() {
+    return this.props.data.site.siteMetadata.testing;
   }
 
   validateForm = () => {
@@ -353,12 +353,19 @@ class MotivatedSeller extends React.Component {
 
   submitForm = () => {
     const submitData = this.generateSubmitData(JSONMotivatedSellerPageContent.content.title)
-    test(submitData, this.callback);
-    this.setState({ done: true });
+    if (this.getTesting()) {
+      test(submitData, this.callback);
+    }
+    else {
+      submitUserData(submitData, this.callback);
+    }
   }
 
   callback = (response) => {
-    let x = 10;
+    /**
+     * Called after form submission
+     */
+    this.setState({done: true});
   }
 
   generateSubmitData = (confirmationSubject) => {
@@ -502,6 +509,7 @@ export const query = graphql`
   query {
     site {
       siteMetadata {
+        testing
         businessEmail
       }
     }

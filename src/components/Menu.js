@@ -4,7 +4,7 @@ import MaterialMenu from '@material-ui/core/Menu';
 import Button from '@material-ui/core/Button';
 import MenuItem from '@material-ui/core/MenuItem';
 import JSONCreditContent from '../../content/pages/consultations/credit-consulting';
-import JSONInvestorContent from '../../content/pages/consultations/investor-criteria';
+import JSONFundingContent from '../../content/pages/consultations/funding';
 import JSONSellerContent from '../../content/pages/consultations/motivated-seller';
 
 
@@ -64,9 +64,9 @@ class Menu extends React.Component {
                             {JSONCreditContent.content.title}
                         </MenuItem>
                         <MenuItem onClick={() => {
-                          this.handleLink('consultations/investor-consulting');
+                          this.handleLink('consultations/funding');
                         }}>
-                            {JSONInvestorContent.content.title}
+                            {JSONFundingContent.content.title}
                         </MenuItem>
                         <MenuItem onClick={() => {
                           this.handleLink('consultations/motivated-seller');

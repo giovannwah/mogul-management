@@ -23,6 +23,7 @@
   font-weight: bolder !important;
   color: $money !important;
 }
+
 // menu
 .MuiMenuItem-root {
   font-family: 'Darker Grotesque', 'serif' !important;
@@ -39,6 +40,7 @@
 .MuiPopover-paper {
   outline-color: #333 !important;
   outline-width: 1px !important;
+  min-width: 200px !important;
 }
 .MuiMenu-paper {
   border-style: solid !important;

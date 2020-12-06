@@ -10,8 +10,8 @@ import Layout from '../../layouts/index';
 import SEO from '../../components/SEO';
 import Forms from '../../components/Forms';
 import JSONBasicForm from '../../../content/forms/basic-form';
-import JSONInvestorForm from '../../../content/forms/investor-form';
-import JSONInvestorPageContent from '../../../content/pages/consultations/investor-criteria';
+import JSONFundingForm from '../../../content/forms/funding-form';
+import JSONFundingPageContent from '../../../content/pages/consultations/funding';
 import { test, submitUserData } from '../../utils/api';
 
 const pStyle = {
@@ -35,7 +35,7 @@ const sumSpace = {
   marginBottom: '4px',
 }
 
-class InvestorConsulting extends React.Component {
+class Funding extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -54,12 +54,16 @@ class InvestorConsulting extends React.Component {
   }
 
   componentDidMount() {
-    const formData = this.mergeFormData([JSONBasicForm.content, JSONInvestorForm.content]);
+    const formData = this.mergeFormData([JSONBasicForm.content, JSONFundingForm.content]);
     this.setState({ formData: formData });
   }
 
   getBusinessPhone() {
     return JSONContact.content.phone;
+  }
+
+  getTesting() {
+    return this.props.data.site.siteMetadata.testing;
   }
 
   getBusinessEmail() {
@@ -348,13 +352,17 @@ class InvestorConsulting extends React.Component {
   }
 
   submitForm = () => {
-    const submitData = this.generateSubmitData(JSONInvestorPageContent.content.title)
-    test(submitData, this.callback);
-    this.setState({ done: true });
-  }
+    const submitData = this.generateSubmitData(JSONFundingPageContent.content.title)
+    if (this.getTesting()) {
+      test(submitData, this.callback);
+    }
+    else {
+      submitUserData(submitData, this.callback);
+    }
+  };
 
   callback = (response) => {
-    let x = 10;
+    this.setState({ done: true });
   }
 
   generateSubmitData = (confirmationSubject) => {
@@ -425,7 +433,7 @@ class InvestorConsulting extends React.Component {
     const { activeStep, completedSteps, done } = this.state;
     return (
       <Layout>
-        <SEO title="Investor Consulting" />
+        <SEO title="Funding" />
         {done ?
           <div style={{paddingTop: '100px', display: 'flex', flexDirection: 'column', width: '100%', height: 'auto', justifyContent: 'center', alignItems: 'center'}}>
             <div style={{display: 'flex', flexDirection: 'row', alignItems: 'center'}}>
@@ -441,7 +449,7 @@ class InvestorConsulting extends React.Component {
               <div className="container">
                 <div className="row">
                   <div className="col-12">
-                    <h1>{ JSONInvestorPageContent.content.title }</h1>
+                    <h1>{ JSONFundingPageContent.content.title }</h1>
                   </div>
                 </div>
               </div>
@@ -450,7 +458,7 @@ class InvestorConsulting extends React.Component {
               <div className="row">
                 <div className="col-12">
                   <div>
-                    <p className="page-paragraph">{ JSONInvestorPageContent.content.paragraph }</p>
+                    <p className="page-paragraph">{ JSONFundingPageContent.content.paragraph }</p>
                   </div>
                 </div>
               </div>
@@ -499,10 +507,11 @@ export const query = graphql`
   query {
     site {
       siteMetadata {
+        testing
         businessEmail
       }
     }
   }
 `;
 
-export default InvestorConsulting;
+export default Funding;

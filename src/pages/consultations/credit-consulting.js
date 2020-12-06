@@ -589,7 +589,6 @@ class CreditConsulting extends React.Component {
   submitForm = () => {
     /**
      * Submit form for processing
-     * TODO: Call submitUserData instead
      * @type {{businessEmail: *, businessSubject: *, userSubmittedData: *, userEmail: *, businessPhone: *, userName: *, userSubject: *}}
      */
     const submitData = this.generateSubmitData(JSONCreditPageContent.content.title);
@@ -605,8 +604,6 @@ class CreditConsulting extends React.Component {
   callback = (response) => {
     /**
      * Called after form submission
-     * TODO: Write an actual callback for the form submission
-     * @type {number}
      */
     this.setState({ done: true, loading: false });
   };
