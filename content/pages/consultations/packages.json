@@ -6,38 +6,28 @@
       "credit_consulting": [
         {
           "name": "Beginner's Package",
-          "description": "Refer a friend and get $25 off your credit repair, and your friend only pays $75!",
-          "price": "250.00",
+          "description": "",
+          "price": "119.00",
           "rate": "One-time enrollment fee",
           "list": [
-            "Access to list of potential credit cards you can get approved for",
-            "Coaching on how to maintain and build credit",
-            "Money back with every referral (Get $25 back for everyone that signs up and uses your name as a referral)"
+              "Credit consultation",
+              "Access to list of potential credit cards to apply for",
+              "Closed Accounts/Inquiry/Negative Item Removal",
+              "Tradeline Accessibility (TRADELINES HAVE THEIR OWN FEE ASIDE FROM PACKAGE PRICE: DISCUSSED DURING CONSULTATION)"
           ]
         },
         {
           "name": "Package 2",
-          "description": "Refer a friend and get $50 off your credit repair, and your friend only pays $75!",
-          "price": "350.00",
-          "rate": "Flat rate member fee + item removal fees",
+          "description": "$200 referral payment if you get someone through our funding system",
+          "price": "199.99",
+          "rate": "**$200 referral payment if you get someone through our funding system**",
           "list": [
-            "Removal of derogatory remarks on your credit report ($25-$50 per item depending on what you want removed)",
-            "Access to list of potential credit cards you can get approved for",
-            "Coaching on how to maintain and build credit",
-            "Money back with every referral (Get $25 back for everyone that signs up and uses your name as a referral)"
-          ]
-        },
-        {
-          "name": "Package 3",
-          "description": "Refer a friend and get $25 off your credit repair, and your friend only pays $75!",
-          "price": "400.00",
-          "rate": "Flat rate member fee + item removal fees",
-          "list": [
-            "Learning business credit",
-            "Removal of derogatory remarks on your credit report ($25-$50 per item depending on what you want removed)",
-            "Access to list of potential credit cards you can get approved for",
-            "Coaching on how to maintain and build credit",
-            "Money back with every referral (Get $25 back for everyone that signs up and uses your name as a referral)"
+            "Credit consultation",
+            "Access to list of potential credit cards to apply for",
+            "Closed Accounts/Inquiry/Negative Item Removal",
+            "Tradeline Accessibility (TRADELINES HAVE THEIR OWN FEE ASIDE FROM PACKAGE PRICE: DISCUSSED DURING CONSULTATION)",
+            "Lifelong funding membership with Mogul Management",
+            "List of business cards you can apply for"
           ]
         }
       ]

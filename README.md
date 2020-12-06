@@ -1,4 +1,4 @@
-# SAGE Management
+# Mogul Management
 ---
 SAGE Management is the application use by advisors and advising coordinators to manage relationships between advisors
 and students. This information then goes through the
