@@ -4,7 +4,7 @@ import Layout from '../../layouts/index';
 import { Link } from 'gatsby';
 import JSONCreditContent from '../../../content/pages/consultations/credit-consulting';
 import JSONFundingContent from '../../../content/pages/consultations/funding';
-import JSONSellerContent from '../../../content/pages/consultations/motivated-seller';
+// import JSONSellerContent from '../../../content/pages/consultations/motivated-seller';
 
 const Consultations = props => (
   <Layout bodyClass="page-contact">
@@ -34,9 +34,9 @@ const Consultations = props => (
               <div className="card service service-teaser">
                 <div className="card-content">
                   <h2>
-                    <Link to="consultations/motivated-seller">{ JSONSellerContent.content.title }</Link>
+                    <Link to="consultations/motivated-seller-investor">Motivated Sellers and Investors</Link>
                   </h2>
-                  <p>{ JSONSellerContent.content.paragraph }</p>
+                  <p></p>
                 </div>
               </div>
             </div>

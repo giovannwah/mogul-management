@@ -10,8 +10,8 @@ import Layout from '../../../layouts/index';
 import SEO from '../../../components/SEO';
 import Forms from '../../../components/Forms';
 import JSONBasicForm from '../../../../content/forms/basic-form';
-import JSONFundingForm from '../../../../content/forms/funding-form';
-import JSONFundingPageContent from '../../../../content/pages/consultations/funding';
+import JSONInvestorForm from '../../../../content/forms/investor-criteria-form';
+import JSONInvestorPageContent from '../../../../content/pages/consultations/investor-criteria';
 import { test, submitUserData } from '../../../utils/api';
 
 const pStyle = {
@@ -54,7 +54,7 @@ class InvestorCriteria extends React.Component {
   }
 
   componentDidMount() {
-    const formData = this.mergeFormData([JSONBasicForm.content, JSONFundingForm.content]);
+    const formData = this.mergeFormData([JSONBasicForm.content, JSONInvestorForm.content]);
     this.setState({ formData: formData });
   }
 
@@ -352,7 +352,7 @@ class InvestorCriteria extends React.Component {
   }
 
   submitForm = () => {
-    const submitData = this.generateSubmitData(JSONFundingPageContent.content.title)
+    const submitData = this.generateSubmitData(JSONInvestorPageContent.content.title)
     if (this.getTesting()) {
       test(submitData, this.callback);
     }
@@ -433,7 +433,7 @@ class InvestorCriteria extends React.Component {
     const { activeStep, completedSteps, done } = this.state;
     return (
       <Layout>
-        <SEO title="Funding" />
+        <SEO title="Investor Criteria" />
         {done ?
           <div style={{paddingTop: '100px', display: 'flex', flexDirection: 'column', width: '100%', height: 'auto', justifyContent: 'center', alignItems: 'center'}}>
             <div style={{display: 'flex', flexDirection: 'row', alignItems: 'center'}}>
@@ -449,7 +449,7 @@ class InvestorCriteria extends React.Component {
               <div className="container">
                 <div className="row">
                   <div className="col-12">
-                    <h1>{ JSONFundingPageContent.content.title }</h1>
+                    <h1>{ JSONInvestorPageContent.content.title }</h1>
                   </div>
                 </div>
               </div>
@@ -458,7 +458,7 @@ class InvestorCriteria extends React.Component {
               <div className="row">
                 <div className="col-12">
                   <div>
-                    <p className="page-paragraph">{ JSONFundingPageContent.content.paragraph }</p>
+                    <p className="page-paragraph">{ JSONInvestorPageContent.content.paragraph }</p>
                   </div>
                 </div>
               </div>

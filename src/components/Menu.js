@@ -59,19 +59,19 @@ class Menu extends React.Component {
                         transformOrigin={{ vertical: "top", horizontal: "center" }}
                       >
                         <MenuItem onClick={() => {
-                          this.handleLink('consultations/credit-consulting');
+                          this.handleLink('/consultations/credit-consulting');
                         }}>
                             {JSONCreditContent.content.title}
                         </MenuItem>
                         <MenuItem onClick={() => {
-                          this.handleLink('consultations/funding');
+                          this.handleLink('/consultations/funding');
                         }}>
                             {JSONFundingContent.content.title}
                         </MenuItem>
                         <MenuItem onClick={() => {
-                          this.handleLink('consultations/motivated-seller');
+                          this.handleLink('/consultations/motivated-seller-investor');
                         }}>
-                            {JSONSellerContent.content.title}
+                            {"Motivated Sellers and Investors"}
                         </MenuItem>
                       </MaterialMenu>
                     </div>

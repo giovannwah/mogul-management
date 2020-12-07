@@ -7,7 +7,7 @@ import Quote from './Quote';
 import HomeContent from '../../content/pages/home/index';
 import FundingJSON from '../../content/pages/consultations/funding'
 import CreditJSON from '../../content/pages/consultations/credit-consulting'
-import SellerJSON from '../../content/pages/consultations/motivated-seller'
+// import SellerJSON from '../../content/pages/consultations/motivated-seller'
 
 // Button animation
 const IconButton = posed.div({
@@ -60,22 +60,22 @@ const MogulManagementNavigator = props => (
           <div id="top-container">
             <div className="top-column">
               <IconTooltip className="tooltip-div-bottom" arrow title={ FundingJSON.content.title } placement="top">
-                <IconButton onClick={() => handleClick("consultations/funding")}>
+                <IconButton onClick={() => handleClick("/consultations/funding")}>
                   <img className="mogul-icon" id="mogul-logo-investor" src="../assets/Mogul-Management-Logo-04.svg" alt="Mogul Mangagement Funding"/>
                 </IconButton>
               </IconTooltip>
             </div>
             <div className="top-column">
               <IconTooltip className="tooltip-div-top" arrow title={ CreditJSON.content.title } placement="top">
-                <IconButton onClick={() => handleClick("consultations/credit-consulting")}>
+                <IconButton onClick={() => handleClick("/consultations/credit-consulting")}>
                   <img className="mogul-icon" id="mogul-logo-credit" src="../assets/Mogul-Management-Logo-02.svg" alt="Mogul Mangagement Credit Repair"/>
                 </IconButton>
               </IconTooltip>
             </div>
             <div className="top-column">
-              <IconTooltip className="tooltip-div-bottom" arrow title={ SellerJSON.content.title } placement="top">
-                <IconButton onClick={() => handleClick("consultations/motivated-seller")}>
-                  <img className="mogul-icon" id="mogul-logo-seller" src="../assets/Mogul-Management-Logo-03.svg" alt="Mogul Mangagement Motivated Seller"/>
+              <IconTooltip className="tooltip-div-bottom" arrow title="Motivated Sellers and Investors" placement="top">
+                <IconButton onClick={() => handleClick("/consultations/motivated-seller-investor")}>
+                  <img className="mogul-icon" id="mogul-logo-seller" src="../assets/Mogul-Management-Logo-03.svg" alt="Mogul Mangagement Motivated Seller Investor"/>
                 </IconButton>
               </IconTooltip>
             </div>
