@@ -464,38 +464,67 @@ class Funding extends React.Component {
               </div>
             </div>
             <div className="container">
-              <Stepper activeStep={ activeStep } orientation="vertical">
-                {steps.map((label, index) => (
-                  <Step key={label}>
-                    <StepLabel>{label}</StepLabel>
-                    <StepContent>
-                      { this.getStepContent(index) }
-                      <div style={navButtonsGroupStyle}>
-                        { activeStep > 0 &&
-                        <Button
-                          variant="contained"
-                          color="secondary"
-                          onClick={this.handleLastStep}
-                          style={fieldStyle}
-                        >
-                          Back
-                        </Button>
-                        }
-                        <Button
-                          disabled={ !completedSteps[`step${activeStep}`] }
-                          variant="contained"
-                          color="primary"
-                          onClick={this.handleNextStep}
-                          style={fieldStyle}
-                        >
-                          {activeStep === steps.length - 1 ? 'Submit' : 'Next'}
-                        </Button>
-                      </div>
-                    </StepContent>
-                  </Step>
-                ))}
-              </Stepper>
+              <div className="row">
+                <div className="col-12">
+                  <ul className="funding-list page-paragraph" id="funding-list-1">
+                    {
+                      JSONFundingPageContent.content.list.map((item) => (
+                          <li>{ item }</li>
+                        )
+                      )
+                    }
+                  </ul>
+                </div>
+              </div>
             </div>
+            <h3 className="funding-list-title">List of Products Offered to Our Clients</h3>
+            <div className="container">
+              <div className="row">
+                <div className="col-12">
+                  <ul className="funding-list page-paragraph" id="funding-list-2">
+                    {
+                      JSONFundingPageContent.content.list_2.map((item) => (
+                          <li>{ item }</li>
+                        )
+                      )
+                    }
+                  </ul>
+                </div>
+              </div>
+            </div>
+            {/*<div className="container">*/}
+            {/*  <Stepper activeStep={ activeStep } orientation="vertical">*/}
+            {/*    {steps.map((label, index) => (*/}
+            {/*      <Step key={label}>*/}
+            {/*        <StepLabel>{label}</StepLabel>*/}
+            {/*        <StepContent>*/}
+            {/*          { this.getStepContent(index) }*/}
+            {/*          <div style={navButtonsGroupStyle}>*/}
+            {/*            { activeStep > 0 &&*/}
+            {/*            <Button*/}
+            {/*              variant="contained"*/}
+            {/*              color="secondary"*/}
+            {/*              onClick={this.handleLastStep}*/}
+            {/*              style={fieldStyle}*/}
+            {/*            >*/}
+            {/*              Back*/}
+            {/*            </Button>*/}
+            {/*            }*/}
+            {/*            <Button*/}
+            {/*              disabled={ !completedSteps[`step${activeStep}`] }*/}
+            {/*              variant="contained"*/}
+            {/*              color="primary"*/}
+            {/*              onClick={this.handleNextStep}*/}
+            {/*              style={fieldStyle}*/}
+            {/*            >*/}
+            {/*              {activeStep === steps.length - 1 ? 'Submit' : 'Next'}*/}
+            {/*            </Button>*/}
+            {/*          </div>*/}
+            {/*        </StepContent>*/}
+            {/*      </Step>*/}
+            {/*    ))}*/}
+            {/*  </Stepper>*/}
+            {/*</div>*/}
           </div>
           }
       </Layout>

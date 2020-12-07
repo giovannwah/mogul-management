@@ -17,13 +17,6 @@
       },
       {
         "id": "question3",
-        "label": "Are you willing to list on MLS?",
-        "required": true,
-        "fullWidth": true,
-        "select": ["Yes", "No"]
-      },
-      {
-        "id": "question4",
         "label": "What is your asking price?",
         "required": true,
         "fullWidth": true
