@@ -4,15 +4,14 @@ import {
 } from '@material-ui/core';
 import CheckCircleOutlineIcon from '@material-ui/icons/CheckCircleOutline';
 import { Link, graphql } from 'gatsby';
-import Layout from '../../layouts/index';
-import SEO from '../../components/SEO';
-import Forms from '../../components/Forms';
-import JSONBasicForm from '../../../content/forms/basic-form';
-import JSONMotivatedSellerForm from '../../../content/forms/motivated-seller-form';
-import JSONMotivatedSellerPageContent from '../../../content/pages/consultations/motivated-seller'
-import JSONContact from '../../../content/pages/contact/index';
-import { test, submitUserData } from '../../utils/api';
-import FormTemplate from '../../components/FormTemplate';
+import Layout from '../../../layouts';
+import SEO from '../../../components/SEO';
+import Forms from '../../../components/Forms';
+import JSONBasicForm from '../../../../content/forms/basic-form';
+import JSONMotivatedSellerForm from '../../../../content/forms/motivated-seller-form';
+import JSONMotivatedSellerPageContent from '../../../../content/pages/consultations/motivated-seller'
+import JSONContact from '../../../../content/pages/contact';
+import { test, submitUserData } from '../../../utils/api';
 
 const pStyle = {
   width: '66%',

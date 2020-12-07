@@ -1,0 +1,69 @@
+{
+  "content": {
+    "Questions": [
+      {
+        "id": "question1",
+        "label": "What areas are you investing in?",
+        "required": true,
+        "fullWidth": true
+      },
+      {
+        "id": "question2",
+        "label": "What type of properties are you buying?",
+        "required": true,
+        "fullWidth": true
+      },
+      {
+        "id": "question3",
+        "label": "What is your maximum purchase price?",
+        "required": true,
+        "fullWidth": true
+      },
+      {
+        "id": "question4",
+        "label": "How much profit on average are you looking for?",
+        "required": true,
+        "fullWidth": true
+      },
+      {
+        "id": "question5",
+        "label": "How fast can you close on a deal?",
+        "required": true,
+        "fullWidth": true
+      },
+      {
+        "id": "question6",
+        "label": "How many deals can you handle a month?",
+        "required": true,
+        "fullWidth": true
+      },
+      {
+        "id": "question7",
+        "label": "Are you in need of a hard money lender?",
+        "required": true,
+        "fullWidth": true,
+        "select": ["Yes", "No"]
+      },
+      {
+        "id": "question8",
+        "label": "How much are you willing to spend on rehab?",
+        "required": true,
+        "fullWidth": true
+      },
+      {
+        "id": "question9",
+        "label": "Are tear-downs ok?",
+        "required": true,
+        "fullWidth": true,
+        "select": ["Yes", "No"]
+      },
+      {
+        "id": "question10",
+        "label": "Will you accept deals from the MLS?",
+        "required": true,
+        "fullWidth": true,
+        "select": ["Yes", "No"]
+      }
+    ]
+  }
+}
