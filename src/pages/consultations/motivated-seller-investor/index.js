@@ -2,31 +2,24 @@ import React from 'react';
 import SEO from '../../../components/SEO';
 import Layout from '../../../layouts/index';
 import { Link, navigate } from 'gatsby';
-import JSONSellerContent from '../../../../content/pages/consultations/motivated-seller';
-import JSONInvestorContent from '../../../../content/pages/consultations/investor-criteria';
-import JSONFundingPageContent from '../../../../content/pages/consultations/funding';
 
 const MotivatedSellerInvestor = props => (
   <Layout bodyClass="page-contact">
     <SEO title="Motivated Sellers and Investors" />
-    <div>
-      <div className="intro intro-small">
-        <div className="container">
-          <div className="row">
-            <div className="col-12">
-              <h1>I am a...</h1>
-            </div>
-          </div>
+    <div className="big-container">
+    <div className="motivated-seller-container">
+      <div className="motivated-seller-i-am">
+        <h1>I am</h1>
+      </div>
+      <div className="motivated-seller-link-container">
+        <div className="motivated-seller-link">
+          <Link to="/consultations/motivated-seller-investor/motivated-seller">a Motivated Seller</Link>
+        </div>
+        <div className="motivated-seller-link">
+          <Link to="/consultations/motivated-seller-investor/investor-criteria">an Investor</Link>
         </div>
       </div>
-      <div>
-        <div>
-          <Link to="/consultations/motivated-seller-investor/motivated-seller">Motivated Seller</Link>
-        </div>
-        <div>
-          <Link to="/consultations/motivated-seller-investor/investor-criteria">Investor</Link>
-        </div>
-      </div>
+    </div>
     </div>
   </Layout>
 );
