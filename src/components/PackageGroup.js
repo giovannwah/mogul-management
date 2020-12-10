@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 const Package = props => (
   <div className={`package-outer-container ${props.selected ? 'package-selected' : ''}`}>
     <div className="package-inner-container">
-      <button className={`package-button`} onClick={() => props.handleClick(props.index)} >
+      <button className="package-button" onClick={() => props.handleClick(props.index)} >
         <div className="package-content">
           <h2 className="package-name">{ props.package.name }</h2>
           <p className="package-price">

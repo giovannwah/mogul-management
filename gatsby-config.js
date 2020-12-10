@@ -1,5 +1,5 @@
+import { STRIPE_LIVE_SECRET_KEY, STRIPE_TEST_SECRET_KEY, TESTING } from './src/utils/constants';
 const guid = process.env.NETLIFY_GOOGLE_ANALYTICS_ID;
-const TESTING = false;
 const TEST_EMAIL = 'darkyodd@gmail.com';
 // export const TEST_EMAIL = 'no-reply@mogulmanagement.net'
 module.exports = {
@@ -47,6 +47,14 @@ module.exports = {
     'gatsby-transformer-json',
     'gatsby-transformer-remark',
     'gatsby-plugin-react-helmet',
+    {
+      resolve: 'gatsby-source-stripe',
+      options: {
+        objects: ["Price"],
+        secretKey: process.env.STRIPE_SECRET_KEY,
+        downloadFiles: false,
+      },
+    },
     {
       resolve: 'gatsby-plugin-env-variables',
       options: {

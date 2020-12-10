@@ -13,19 +13,7 @@ import JSONBasicForm from '../../../content/forms/basic-form';
 import JSONFundingForm from '../../../content/forms/funding-form';
 import JSONFundingPageContent from '../../../content/pages/consultations/funding';
 import { test, submitUserData } from '../../utils/api';
-
-const pStyle = {
-  width: '66%',
-};
-
-const fieldStyle = {
-  marginRight: '5px',
-  marginTop: '5px',
-}
-
-const navButtonsGroupStyle = {
-  marginTop: '20px',
-}
+// import TRIFOLD_MM from '../../../static/assets/TRIFOLD_MM.pdf';
 
 const bold = {
   fontWeight: 'bold',
