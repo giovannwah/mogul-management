@@ -39,7 +39,7 @@ module.exports = {
         link: '/about',
       }
     ],
-    businessEmail: TESTING ? TEST_EMAIL : 'mogulmanagementus@gmail.com',
+    businessEmail: TESTING ? TEST_EMAIL : 'info@kmmenterprise.net',
     // businessEmail:
   },
   plugins: [
@@ -47,14 +47,14 @@ module.exports = {
     'gatsby-transformer-json',
     'gatsby-transformer-remark',
     'gatsby-plugin-react-helmet',
-    {
-      resolve: 'gatsby-source-stripe',
-      options: {
-        objects: ["Price"],
-        secretKey: process.env.STRIPE_SECRET_KEY,
-        downloadFiles: false,
-      },
-    },
+    // {
+    //   resolve: 'gatsby-source-stripe',
+    //   options: {
+    //     objects: ["Price"],
+    //     secretKey: process.env.STRIPE_SECRET_KEY,
+    //     downloadFiles: false,
+    //   },
+    // },
     {
       resolve: 'gatsby-plugin-env-variables',
       options: {
