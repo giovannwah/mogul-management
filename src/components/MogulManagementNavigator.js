@@ -8,6 +8,7 @@ import HomeContent from '../../content/pages/home/index';
 import FundingJSON from '../../content/pages/consultations/funding'
 import CreditJSON from '../../content/pages/consultations/credit-consulting'
 // import SellerJSON from '../../content/pages/consultations/motivated-seller'
+import { TESTING } from '../utils/constants';
 
 // Button animation
 const IconButton = posed.div({
@@ -42,6 +43,7 @@ const handleClick = (path) => {
 
 const MogulManagementNavigator = props => (
   <div>
+
     <div id="main-container">
       <div id="mc-left-half">
         <div id="quote-container">

@@ -10,4 +10,4 @@ export const STRIPE_TEST_SECRET_KEY = process.env.STRIPE_TEST_SECRET_KEY;
 export const RECAPTCHA_SITE_KEY = process.env.RECAPTCHA_SITE_KEY;
 export const RECAPTCHA_SITE_SECRET = process.env.RECAPTCHA_SITE_SECRET;
 export const EMAIL_API_KEY = process.env.EMAIL_API_KEY;
-export const TESTING = false;
+export const TESTING = true;

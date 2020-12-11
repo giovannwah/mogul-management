@@ -4,6 +4,7 @@ import Helmet from 'react-helmet';
 import SEO from '../components/SEO';
 import Layout from '../layouts/index';
 import MogulManagementNavigator from '../components/MogulManagementNavigator';
+import { TESTING } from '../utils/constants';
 
 const Home = (props) => {
   return (
@@ -15,6 +16,10 @@ const Home = (props) => {
           content="Mogul Management"
         />
       </Helmet>
+      {
+        TESTING &&
+        <h6 style={{height: '30px', color: 'white', backgroundColor: 'red', paddingLeft: '30px'}}>TESTING MODE</h6>
+      }
       <div className="mogul-container">
         <MogulManagementNavigator />
       </div>
