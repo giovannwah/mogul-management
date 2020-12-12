@@ -9,7 +9,7 @@ const getStripe = () => {
   if (!stripePromise) {
     stripePromise = loadStripe(TESTING ? STRIPE_TEST_PUBLIC_KEY : STRIPE_LIVE_PUBLIC_KEY);
   }
-  return stripePromise
+  return stripePromise;
 };
 
 export default getStripe;
