@@ -8,6 +8,37 @@
 .funding-list {
   font-size: 18px;
 }
+.funding-buttons {
+  border-radius: 0 !important;
+  background-color: black;
+  color: white;
+}
+#funding-page-count {
+  color: white;
+  font-size: 18px;
+}
+#funding-pdf {
+  display: flex;
+  flex-direction: column;
+  background-color: dimgray;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  padding-top: 10px;
+  padding-bottom: -50px;
+  height: auto;
+}
+#funding-pdf-buttons {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  align-content: center;
+  padding: 20px;
+}
+#funding-page-count {
+  padding-left: 20px;
+  padding-right: 20px;
+}
 
 #funding-list-1 {
   list-style-type: square;

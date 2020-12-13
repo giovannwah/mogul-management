@@ -1,6 +1,6 @@
-import { STRIPE_LIVE_SECRET_KEY, STRIPE_TEST_SECRET_KEY, TESTING } from './src/utils/constants';
 const guid = process.env.NETLIFY_GOOGLE_ANALYTICS_ID;
 const TEST_EMAIL = 'darkyodd@gmail.com';
+const TESTING = true;
 // export const TEST_EMAIL = 'no-reply@mogulmanagement.net'
 module.exports = {
   siteMetadata: {
