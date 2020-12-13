@@ -8,7 +8,8 @@ import SEO from '../../components/SEO';
 import JSONFundingPageContent from '../../../content/pages/consultations/funding.json';
 import pdfFile from '../../../static/assets/TRIFOLD_MM.pdf';
 
-// specify source of pdf_worker.js to ensure it is added to the
+// specify source of pdf_worker.js to ensure it is added to the correct output directory at build tie, see
+// https://github.com/wojtekmaj/react-pdf
 pdfjs.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.js`;
 
 const MAX_PAGES = 2;
@@ -88,8 +89,10 @@ const Funding = props => {
           </h3>
         </div>
         <div id="funding-pdf">
+
           <Document
             file={pdfFile}
+            id="funding-doc"
           >
             <Page key="page" pageIndex={page}/>
           </Document>

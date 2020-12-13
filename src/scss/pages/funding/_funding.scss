@@ -21,6 +21,11 @@
   border-color: white !important;
   border-bottom: none !important;
 }
+.react-pdf__Page {
+  box-shadow: 1px 20px 60px -10px rgba(0,0,0,0.71) !important;
+  -webkit-box-shadow: 1px 20px 60px -10px rgba(0,0,0,0.71) !important;
+  -moz-box-shadow: 1px 20px 60px -10px rgba(0,0,0,0.71) !important;
+}
 #funding-pdf {
   display: flex;
   flex-direction: column;
