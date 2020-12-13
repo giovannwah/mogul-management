@@ -17,16 +17,23 @@
   color: white;
   font-size: 18px;
 }
+.funding-table {
+  border-color: white !important;
+  border-bottom: none !important;
+}
 #funding-pdf {
   display: flex;
   flex-direction: column;
-  background-color: dimgray;
+  background-color: #59626a;
   justify-content: center;
   align-items: center;
   align-content: center;
   padding-top: 10px;
   padding-bottom: -50px;
   height: auto;
+}
+#funding-consul-link {
+  margin-bottom: 30px;
 }
 #funding-pdf-buttons {
   display: flex;

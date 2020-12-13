@@ -7,7 +7,7 @@
         {
           "name": "Beginner's Package",
           "description": "",
-          "price": "119.00",
+          "price": "200.00",
           "rate": "One-time enrollment fee",
           "list": [
               "Credit consultation",
@@ -19,8 +19,8 @@
         {
           "name": "Package 2",
           "description": "$200 referral payment if you get someone through our funding system",
-          "price": "199.99",
-          "rate": "**$200 referral payment if you get someone through our funding system**",
+          "price": "300.00",
+          "rate": "$200 referral payment if you get someone through our funding system",
           "list": [
             "Credit consultation",
             "Access to list of potential credit cards to apply for",

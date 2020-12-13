@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import {
-  Button,
+  Button, Table, TableBody, TableRow, TableHead, TableCell, Collapse
 } from '@material-ui/core';
 import { Document, Page, pdfjs } from 'react-pdf';
 import Layout from '../../layouts/index';
@@ -12,11 +12,11 @@ import pdfFile from '../../../static/assets/TRIFOLD_MM.pdf';
 pdfjs.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.js`;
 
 const MAX_PAGES = 2;
-const NEXT_STYLE = 'funding-pdf-next-button';
-const PREV_STYLE = 'funding-pdf-prev-button';
 
 const Funding = props => {
   const [page, setPage] = useState(0);
+  const [open, setOpen] = useState(false);
+
   const nextPage = () => {
     if (page < MAX_PAGES) {
       setPage(page + 1);
@@ -62,47 +62,55 @@ const Funding = props => {
             </div>
           </div>
         </div>
-        <h3 className="funding-list-title">List of Products Offered to Our Clients</h3>
-        <div className="container">
-          <div className="row">
-            <div className="col-12">
-              <ul className="funding-list page-paragraph" id="funding-list-2">
-                {
-                  JSONFundingPageContent.content.list_2.map((item) => (
-                    <li>{item}</li>
-                  ))
-                }
-              </ul>
-            </div>
-          </div>
+        <Table className="funding-table">
+          <TableHead className="funding-table" onClick={() => setOpen(!open)}>
+            <h3 style={{cursor: "pointer"}} className="funding-list-title"><a>List of Products Offered to Our Clients</a></h3>
+          </TableHead>
+          <TableBody className="funding-table">
+            <TableRow className="funding-table">
+              <TableCell className="funding-table">
+                <Collapse in={open} timeout="auto" unmountOnExit className="funding-table">
+                  <ul className="funding-list page-paragraph" id="funding-list-2">
+                    {
+                      JSONFundingPageContent.content.list_2.map((item) => (
+                        <li>{item}</li>
+                      ))
+                    }
+                  </ul>
+                </Collapse>
+              </TableCell>
+            </TableRow>
+          </TableBody>
+        </Table>
+        <div id="funding-consul-link">
+          <h3 className="funding-list-title">
+            <a href="https://share.hsforms.com/1qnitGOUCQMa4mM4cgvF_SQ45jf7" target="_blank">Click here for your free consultation!</a>
+          </h3>
         </div>
-        <div>
-          <div id="funding-pdf">
-            <Document
-              // file="https://buildmedia.readthedocs.org/media/pdf/flask/stable/flask.pdf"
-              file={pdfFile}
-            >
-              <Page key="page" pageIndex={page}/>
-            </Document>
-            <div id="funding-pdf-buttons">
-              <Button
-                id="funding-prev-button"
-                className="funding-buttons"
-                onClick={prevPage}
-                disabled={page === 0}>
-                Back
-              </Button>
-              <div id="funding-page-count">
-                Page { page + 1 } of { MAX_PAGES + 1 }
-              </div>
-              <Button
-                id="funding-next-button"
-                className="funding-buttons"
-                onClick={nextPage}
-                disabled={page === MAX_PAGES}>
-                Next
-              </Button>
+        <div id="funding-pdf">
+          <Document
+            file={pdfFile}
+          >
+            <Page key="page" pageIndex={page}/>
+          </Document>
+          <div id="funding-pdf-buttons">
+            <Button
+              id="funding-prev-button"
+              className="funding-buttons"
+              onClick={prevPage}
+              disabled={page === 0}>
+              Back
+            </Button>
+            <div id="funding-page-count">
+              Page { page + 1 } of { MAX_PAGES + 1 }
             </div>
+            <Button
+              id="funding-next-button"
+              className="funding-buttons"
+              onClick={nextPage}
+              disabled={page === MAX_PAGES}>
+              Next
+            </Button>
           </div>
         </div>
       </div>
