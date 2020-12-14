@@ -23,20 +23,16 @@ module.exports = {
         link: '/consultations/credit-consulting',
       },
       {
-        name: 'Motivated Seller',
-        link: '/consultations/motivated-seller',
+        name: 'Funding',
+        link: '/consultations/funding',
       },
       {
-        name: 'Investor Criteria',
-        link: '/consultations/investor-consulting',
+        name: 'Motivated Sellers and Investors',
+        link: '/consultations/motivated-seller-investor',
       },
       {
         name: 'Contact',
         link: '/contact',
-      },
-      {
-        name: 'About',
-        link: '/about',
       }
     ],
     businessEmail: TESTING ? TEST_EMAIL : 'info@kmmenterprise.net',

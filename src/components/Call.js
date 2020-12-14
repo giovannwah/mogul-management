@@ -50,9 +50,6 @@ const Call = props => (
           <SocialIcon url={ content.social.linkedin } />
         </div>
         <div style={socialStyle}>
-          <SocialIcon url={ content.social.twitter } />
-        </div>
-        <div style={socialStyle}>
           <SocialIcon url={ content.social.instagram } />
         </div>
       </div>
