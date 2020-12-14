@@ -46,6 +46,14 @@
   border-style: solid !important;
 }
 
+// forms/stepper
+.MuiStepper-root {
+  padding: 0 !important;
+  @include media-breakpoint-up(lg) {
+    padding: 24px !important;
+  }
+}
+
 // react-scheduler
 .Cell-today-2363 {
   background-color: $blue !important;

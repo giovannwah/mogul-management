@@ -1,15 +1,22 @@
 .package-outer-container {
-  width: 380px;
-  height: 580px;
+  width: 250px;
+  min-width: 250px;
+  max-width: 250px;
+  overflow: hidden;
   border-color: #ccc;
   border-width: 1px;
   border-style: solid;
   margin-left: 20px;
   padding: 14px;
-  min-width: 380px;
-  max-width: 380px;
-  min-height: 580px;
-  max-height: 580px;
+  
+  @include media-breakpoint-up(lg) {
+    width: 380px;
+    height: 580px;
+    min-width: 380px;
+    max-width: 380px;
+    min-height: 580px;
+    max-height: 580px;
+  }
 }
 
 .package-selected {
