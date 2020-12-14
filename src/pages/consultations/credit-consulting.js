@@ -1,4 +1,4 @@
-import React, { createContext } from 'react';
+import React from 'react';
 import { Link, graphql } from 'gatsby';
 import {
   Stepper, Step, StepContent, StepLabel, Button,
@@ -6,6 +6,7 @@ import {
 // import ReCAPTCHA from "react-google-recaptcha";
 import CheckCircleOutlineIcon from '@material-ui/icons/CheckCircleOutline';
 import Loader from 'react-loader-spinner';
+import Cookies from 'js-cookie';
 import Layout from '../../layouts/index';
 import SEO from '../../components/SEO';
 import PackageGroup from '../../components/PackageGroup';
@@ -64,6 +65,7 @@ class CreditConsulting extends React.Component {
         step3: true, //TODO: recaptcha on last step
       },
       done: false,
+      submitData: {}
     };
     this.getFormValue = this.getFormValue.bind(this);
     this.onDateTimeChange = this.onDateTimeChange.bind(this);
@@ -178,6 +180,13 @@ class CreditConsulting extends React.Component {
     });
   }
 
+  stripePaymentOnClick = () => {
+    console.log('Stripe Payment on Click called....');
+    const data = this.generateSubmitData(JSONCreditPageContent.content.title);
+    // set up user submitted data cookie to expire in 8 hours
+    Cookies.set('submittedUserData', data, { expires: (1 / 3) });
+  };
+
   // eslint-disable-next-line class-methods-use-this
   getStepContent = (step) => {
     const { credit_consulting } = PackageJSON.content.packages;
@@ -218,7 +227,10 @@ class CreditConsulting extends React.Component {
             }
             <hr />
             <div id="payment-buttons">
-              <StripePayment price={packagePrice} email={userInfo['email']}/>
+              <StripePayment
+                price={packagePrice}
+                email={userInfo['email']}
+                onClick={this.stripePaymentOnClick}/>
             </div>
           </div>
         );
@@ -698,14 +710,13 @@ class CreditConsulting extends React.Component {
     return (
       <Layout>
         <SEO title="Credit Consultation" />
-        {
-          this.contentWithLoader()
-        }
+          {
+            this.contentWithLoader()
+          }
       </Layout>
     );
   }
 }
-
 
 export const query = graphql`
   query {

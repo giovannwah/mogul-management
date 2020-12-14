@@ -5,9 +5,12 @@ import { TESTING } from '../utils/constants';
 import getStripe from '../utils/stripe';
 
 const StripePayment = props => {
-  const { price, email } = props;
+  const { price, email, onClick } = props;
   const redirectToCheckout = async event => {
     event.preventDefault();
+    // call onClick prop immediately.
+    onClick();
+    // redirect to Stripe payment system.
     const stripe = await getStripe();
     const { error } = await stripe.redirectToCheckout({
       mode: 'payment',
@@ -26,8 +29,9 @@ const StripePayment = props => {
 
   return (
     <Button
+      id="stripe-payment-button"
       onClick={redirectToCheckout}>
-      Checkout
+      Checkout with Stripe
     </Button>
   );
 };

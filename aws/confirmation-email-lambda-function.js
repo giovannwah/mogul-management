@@ -7,8 +7,8 @@ const renderTemplate = (data, name, phone, email) => {
   let userData = '';
   data.map(info => userData += `<div><span><b>${info.label}:</b> ${info.value}</span></div>`);
   const greeting = `<div><p>Hello ${name},</p></div>`;
-  const body = `<div>Thank you for choosing Mogul Management for your financial needs! Here is a summary of the information we've received:</div><br /><div>${ userData }</div>`;
-  const conclusion = `<div>You will be contacted by someone from our team very soon. We look forward to doing business with you!</div><br /><div><div>Mogul Management</div><div>${phone}</div><div>${email}</div></div>`
+  const body = `<div>Thank you for choosing KMM Enterprise for your financial needs! Here is a summary of the information we've received:</div><br /><div>${ userData }</div>`;
+  const conclusion = `<div>You will be contacted by someone from our team very soon. We look forward to doing business with you!</div><br /><div><div><b>KMM Enterprise</b></div><div>${phone}</div><div>${email}</div></div>`
 
   return `<div>${ greeting }<br />${ body }<br />${ conclusion }</div>`
 }

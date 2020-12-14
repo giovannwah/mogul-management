@@ -5,8 +5,8 @@ const TESTING = true;
 module.exports = {
   siteMetadata: {
     testing: TESTING,
-    title: 'Mogul Management, LLC',
-    description: 'Mogul Management Website',
+    title: 'KMM Enterprise, LLC',
+    description: 'KMM Enterprise Website',
     menuLinks: [
       {
         name: 'Consultations',

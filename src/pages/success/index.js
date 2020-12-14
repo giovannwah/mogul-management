@@ -1,9 +1,20 @@
 import React from 'react';
 import { Link } from 'gatsby';
+import Cookies from 'js-cookie';
 import CheckCircleOutlineIcon from '@material-ui/icons/CheckCircleOutline';
 import Layout from '../../layouts/index';
+import { submitUserData } from '../../utils/api';
 
 class Success extends React.Component {
+  componentDidMount() {
+    const userData = Cookies.getJSON('submittedUserData');
+    if (userData) {
+      submitUserData(userData, null);
+      // remove user data from cookies
+      Cookies.remove('submittedUserData');
+    }
+  }
+
   render() {
     return (
     <Layout>
