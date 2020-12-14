@@ -3,11 +3,13 @@ import posed from 'react-pose';
 import { navigate, Link } from 'gatsby';
 import { withStyles } from '@material-ui/core/styles';
 import Tooltip from '@material-ui/core/Tooltip';
+import { ButtonGroup, Button } from '@material-ui/core';
 import HomeContent from '../../content/pages/home/index';
 import FundingJSON from '../../content/pages/consultations/funding';
 import CreditJSON from '../../content/pages/consultations/credit-consulting';
 import AboutJSON from '../../content/pages/about';
 
+const DISABLE_ICONS_ON_MOBILE = true;
 // Button animation
 const IconButton = posed.div({
   hoverable: true,
@@ -35,10 +37,6 @@ const IconTooltip = withStyles(theme => ({
   },
 }))(Tooltip);
 
-const handleClick = (path) => {
-  navigate(path);
-};
-
 const KMMNavigator = props => (
   <div>
     <div id="main-container">
@@ -47,21 +45,21 @@ const KMMNavigator = props => (
           <div id="top-container">
             <div className="top-column">
               <IconTooltip className="tooltip-div-bottom" arrow title={ FundingJSON.content.title } placement="top">
-                <IconButton onClick={() => handleClick("/consultations/funding")}>
+                <IconButton onClick={() => navigate("/consultations/funding")}>
                   <img className="mogul-icon" id="mogul-logo-investor" src="../assets/Mogul-Management-Logo-04.svg" alt="Mogul Mangagement Funding"/>
                 </IconButton>
               </IconTooltip>
             </div>
             <div className="top-column">
               <IconTooltip className="tooltip-div-top" arrow title={ CreditJSON.content.title } placement="top">
-                <IconButton onClick={() => handleClick("/consultations/credit-consulting")}>
+                <IconButton onClick={() => navigate("/consultations/credit-consulting")}>
                   <img className="mogul-icon" id="mogul-logo-credit" src="../assets/Mogul-Management-Logo-02.svg" alt="Mogul Mangagement Credit Repair"/>
                 </IconButton>
               </IconTooltip>
             </div>
             <div className="top-column">
               <IconTooltip className="tooltip-div-bottom" arrow title="Motivated Sellers and Investors" placement="top">
-                <IconButton onClick={() => handleClick("/consultations/motivated-seller-investor")}>
+                <IconButton onClick={() => navigate("/consultations/motivated-seller-investor")}>
                   <img className="mogul-icon" id="mogul-logo-seller" src="../assets/Mogul-Management-Logo-03.svg" alt="Mogul Mangagement Motivated Seller Investor"/>
                 </IconButton>
               </IconTooltip>
@@ -75,9 +73,15 @@ const KMMNavigator = props => (
         </div>
         <div id="home-sep" />
       </div>
+      {/*<div id="mobile-home-buttons">*/}
+      {/*  <Button onClick={() => navigate("/consultations/credit-consulting")} className="mobile-home-button">Credit Repair</Button>*/}
+      {/*  <Button onClick={() => navigate("/consultations/funding")} className="mobile-home-button">Funding</Button>*/}
+      {/*  <Button onClick={() => navigate("/consultations/motivated-seller-investor")} className="mobile-home-button">Motivated Sellers and Investors</Button>*/}
+      {/*</div>*/}
       <div id="mc-right-half">
         <p id="about-us-quote">{ AboutJSON.content.paragraph1 }</p>
       </div>
+
     </div>
     <div id="lower-quote">{ HomeContent.content.quote } -{HomeContent.content.quote_by}</div>
   </div>

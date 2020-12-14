@@ -215,5 +215,23 @@
     cursor: pointer;
   }
 }
+// Mobile only
+#mobile-home-buttons {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  align-content: center;
+  justify-content: center;
+  @include media-breakpoint-up(lg) {
+  }
+}
+
+.mobile-home-button {
+  width: 300px;
+  border-radius: 0px;
+  margin-bottom: 20px !important;
+  background-color: black !important;
+  color: white !important;
+}
 
 

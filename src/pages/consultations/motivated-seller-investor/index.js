@@ -1,7 +1,8 @@
 import React from 'react';
+import { Link, navigate } from 'gatsby';
+import { Button } from '@material-ui/core';
 import SEO from '../../../components/SEO';
 import Layout from '../../../layouts/index';
-import { Link, navigate } from 'gatsby';
 
 const MotivatedSellerInvestor = props => (
   <Layout bodyClass="page-contact">
@@ -9,15 +10,11 @@ const MotivatedSellerInvestor = props => (
     <div className="big-container">
     <div className="motivated-seller-container">
       <div className="motivated-seller-i-am">
-        <h1>I am</h1>
+        <p>Which option best describes you?</p>
       </div>
-      <div className="motivated-seller-link-container">
-        <div className="motivated-seller-link">
-          <Link to="/consultations/motivated-seller-investor/motivated-seller">a Motivated Seller</Link>
-        </div>
-        <div className="motivated-seller-link">
-          <Link to="/consultations/motivated-seller-investor/investor-criteria">an Investor</Link>
-        </div>
+      <div id="mobile-home-buttons">
+        <Button onClick={() => navigate("/consultations/motivated-seller-investor/motivated-seller")} className="mobile-home-button">Motivated Seller</Button>
+        <Button onClick={() => navigate("/consultations/motivated-seller-investor/investor-criteria")} className="mobile-home-button">Investor</Button>
       </div>
     </div>
     </div>
