@@ -64,7 +64,11 @@ module.exports = {
           'PAYPAL_LIVE_CLIENT_SECRET',
           'RECAPTCHA_SITE_KEY',
           'RECAPTCHA_SITE_SECRET',
-          'EMAIL_API_KEY'],
+          'EMAIL_API_KEY',
+          'STRIPE_LIVE_PUBLIC_KEY',
+          'STRIPE_TEST_PUBLIC_KEY',
+          'STRIPE_LIVE_SECRET_KEY',
+          'STRIPE_TEST_SECRET_KEY'],
       },
     },
     {

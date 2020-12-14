@@ -372,7 +372,7 @@ class MotivatedSeller extends React.Component {
     const userSubmittedData = this.consolidateUserInfo()
     const userEmail = userInfo['email']
     const userName = userInfo['firstName']
-    const userSubject = `Mogul Management - ${ confirmationSubject } Confirmation`
+    const userSubject = `KMM Enterprise - ${ confirmationSubject } Confirmation`
     const businessPhone = this.getBusinessPhone()
     const businessEmail = this.getBusinessEmail()
 

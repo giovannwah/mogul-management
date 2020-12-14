@@ -370,10 +370,10 @@ class InvestorCriteria extends React.Component {
     const userSubmittedData = this.consolidateUserInfo()
     const userEmail = userInfo['email']
     const userName = userInfo['firstName']
-    const userSubject = `Mogul Management - ${ confirmationSubject } Confirmation`
+    const userSubject = `KMM Enterprise - ${ confirmationSubject } Confirmation`
     const businessPhone = this.getBusinessPhone()
     const businessEmail = this.getBusinessEmail()
-    const businessSubject = `Mogul Management - New ${ confirmationSubject } Request`
+    const businessSubject = `KMM Enterprise - New ${ confirmationSubject } Request`
 
     return {
       // {id: 'firstName', label: 'First Name', value: 'Giovann'}

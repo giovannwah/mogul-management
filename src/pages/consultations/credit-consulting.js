@@ -1,11 +1,10 @@
-import React from 'react';
+import React, { createContext } from 'react';
 import { Link, graphql } from 'gatsby';
 import {
   Stepper, Step, StepContent, StepLabel, Button,
 } from '@material-ui/core';
 // import ReCAPTCHA from "react-google-recaptcha";
 import CheckCircleOutlineIcon from '@material-ui/icons/CheckCircleOutline';
-import { PayPalButton } from "react-paypal-button-v2";
 import Loader from 'react-loader-spinner';
 import Layout from '../../layouts/index';
 import SEO from '../../components/SEO';
@@ -18,12 +17,8 @@ import JSONCreditPageContent from '../../../content/pages/consultations/credit-c
 import PackageJSON from '../../../content/pages/consultations/packages';
 import { test, submitUserData } from '../../utils/api';
 import JSONContact from '../../../content/pages/contact/index';
-import {
-  PAYPAL_LIVE_CLIENT_SECRET,
-  PAYPAL_LIVE_CLIENT_ID,
-  PAYPAL_SANDBOX_CLIENT_SECRET,
-  PAYPAL_SANDBOX_CLIENT_ID
-} from '../../utils/constants';
+import { TESTING } from '../../utils/constants';
+import StripePayment from '../../components/StripePayment';
 
 const fieldStyle = {
   marginRight: '5px',
@@ -44,6 +39,11 @@ const sumSpace = {
 
 const MIN_HOUR = 7;
 const MAX_HOUR = 17;
+// hardcoded stripe ids for package prices
+const BEGINNERS_PACKAGE_TEST_PRICE = 'price_1HxHB6EdAyTp7XFSeNMfkY0z';
+const BEGINNERS_PACKAGE_LIVE_PRICE = 'price_1HwuYEEdAyTp7XFSoMMwlPk0';
+const PACKAGE2_TEST_PRICE = 'price_1HxH9tEdAyTp7XFS2W3iNLaM';
+const PACKAGE2_LIVE_PRICE = 'price_1HwudIEdAyTp7XFSHNBtwDX3';
 
 class CreditConsulting extends React.Component {
   constructor(props) {
@@ -52,6 +52,7 @@ class CreditConsulting extends React.Component {
       loading: false,
       activeStep: 0,
       selectedPackage: -1,
+      packagePrice: '',
       formData: {},
       userInfo: {},
       dateTime: null,
@@ -180,7 +181,7 @@ class CreditConsulting extends React.Component {
   // eslint-disable-next-line class-methods-use-this
   getStepContent = (step) => {
     const { credit_consulting } = PackageJSON.content.packages;
-    const { selectedPackage, formData, userInfoMeta, dateTime } = this.state;
+    const { selectedPackage, packagePrice, formData, userInfoMeta, dateTime, userInfo } = this.state;
     const errors = {};
     Object.keys(userInfoMeta).map((key) => {
       if (userInfoMeta[key] && userInfoMeta[key].error) {
@@ -217,33 +218,7 @@ class CreditConsulting extends React.Component {
             }
             <hr />
             <div id="payment-buttons">
-              <PayPalButton
-                amount={ this.getTesting() ? '0.05'
-                  : selectedPackage !== -1 ? credit_consulting[selectedPackage].price : '0.00'}
-                currency="USD"
-                shippingPreference="NO_SHIPPING"
-                onSuccess={(details, data) => {
-                  this.onPaymentSuccess(data);
-                }}
-                onError={(err) => {
-                  // catch-all for generic errors
-                  console.log('onError');
-                  console.log(err);
-                }}
-                catchError={(err) => {
-                  // transaction errors
-                  console.log('catchError');
-                  console.log(err);
-                }}
-                onCancel={(data) => {
-                  console.log('onCancel');
-                  console.log(data);
-                }}
-                options={{
-                  clientId: this.getPaypalClientId(),
-                  debug: this.getTesting(),
-                }}
-              />
+              <StripePayment price={packagePrice} email={userInfo['email']}/>
             </div>
           </div>
         );
@@ -253,10 +228,11 @@ class CreditConsulting extends React.Component {
   }
 
   generateSubmitData = (confirmationSubject) => {
-    const { userInfo, dateTime } = this.state;
+    const { userInfo, dateTime, selectedPackage } = this.state;
     const { credit_consulting } = PackageJSON.content.packages;
     const ex = [];
-    ex.push({ id: 'package', label: "Selected package", value: `${credit_consulting[0].name} ($${credit_consulting[0].price} fee)` });
+    const pkg = selectedPackage === -1 ? 0 : selectedPackage;
+    ex.push({ id: 'package', label: "Selected package", value: `${credit_consulting[pkg].name} ($${credit_consulting[pkg].price} fee)` });
     ex.push({ id: 'orderID', label: "Transaction ID", value: userInfo.orderID });
     ex.push({ id: 'time', label: "Selected appointment time", value: (dateTime ? this.formatDateString(dateTime) : null) });
     // consolidateUserInfo only joins together form elements from form data. If any data is in state thats needs to be consolidated, it
@@ -265,10 +241,10 @@ class CreditConsulting extends React.Component {
     const userSubmittedData = this.consolidateUserInfo(ex);
     const userEmail = userInfo['email'];
     const userName = userInfo['firstName'];
-    const userSubject = `Mogul Management - ${confirmationSubject} Confirmation`;
+    const userSubject = `KMM Enterprise - ${confirmationSubject} Confirmation`;
     const businessPhone = this.getBusinessPhone();
     const businessEmail = this.getBusinessEmail();
-    const businessSubject = `Mogul Management - New ${confirmationSubject} Request`;
+    const businessSubject = `KMM Enterprise - New ${confirmationSubject} Request`;
 
     return {
       userSubmittedData,
@@ -278,8 +254,8 @@ class CreditConsulting extends React.Component {
       businessPhone,
       businessEmail,
       businessSubject,
-    }
-  }
+    };
+  };
 
   consolidateUserInfo = (extraInfo) => {
     const { userInfo, formData } = this.state;
@@ -308,12 +284,13 @@ class CreditConsulting extends React.Component {
   }
 
   summary = () => {
-    const { dateTime } = this.state;
+    const { dateTime, selectedPackage } = this.state;
     const { credit_consulting } = PackageJSON.content.packages;
     const ex = []
-    ex.push({id: 'package', label: "Selected package", value: `${credit_consulting[0].name} ($${credit_consulting[0].price} fee)`})
-    ex.push({id: 'time', label: "Selected appointment time", value: (dateTime ? this.formatDateString(dateTime) : null)})
-    const disp = this.consolidateUserInfo(ex)
+    const pkg = selectedPackage === -1 ? 0 : selectedPackage;
+    ex.push({ id: 'package', label: "Selected package", value: `${credit_consulting[pkg].name} ($${credit_consulting[pkg].price} fee)` });
+    ex.push({ id: 'time', label: "Selected appointment time", value: (dateTime ? this.formatDateString(dateTime) : null) });
+    const disp = this.consolidateUserInfo(ex);
 
     return (
       <div>
@@ -348,8 +325,13 @@ class CreditConsulting extends React.Component {
   };
 
   onPackageSelect = (index) => {
+    const price = index === 0 ?
+      (TESTING ? BEGINNERS_PACKAGE_TEST_PRICE : BEGINNERS_PACKAGE_LIVE_PRICE) :
+      (TESTING ? PACKAGE2_TEST_PRICE : PACKAGE2_LIVE_PRICE);
+
     this.setState((prevState) => {
       return {
+        packagePrice: price,
         selectedPackage: index,
         completedSteps: {
           ...prevState.completedSteps,
