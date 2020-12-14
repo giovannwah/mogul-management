@@ -38,6 +38,12 @@ class SimpleCalendar extends React.Component {
     );
     const { minTime, maxTime } = this.props;
     const { currentDate } = this.state;
+    const sameDay = (day1, day2) => {
+      return day1.getFullYear() === day2.getFullYear() &&
+        day1.getMonth() === day2.getMonth() &&
+        day1.getDate() === day2.getDate();
+    };
+
     return (
       <DatePicker
         placeholderText="Click to select date/time"
