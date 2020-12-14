@@ -1,0 +1,216 @@
+.mogul-container {
+  //height: 100%;
+  //display: flex;
+  //flex-direction: column;
+  //justify-content: center;
+  @include media-breakpoint-up(lg) {
+    margin-top: 30px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    width: 100%;
+    max-width: 1600px;
+  }
+}
+
+#main-container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: 1;
+  @include media-breakpoint-up(lg) {
+    flex-direction: row;
+  }
+}
+
+#mc-left-half {
+  width: 100%;
+  height: 80vh;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  @include media-breakpoint-up(lg) {
+    height: 100%;
+    text-align: right;
+    align-items: flex-end;
+    width: 50%;
+  }
+}
+
+#mc-right-half {
+  width: 100%;
+  height: 89vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: left;
+  @include media-breakpoint-up(lg) {
+    height: 100%;
+    width: 50%;
+    justify-content: flex-start;
+    flex-direction: row;
+  }
+}
+
+#logo-container {
+  margin-top: 60px;
+  margin-bottom: 60px;
+  width: 100%;
+  // order: 3;
+  @include media-breakpoint-up(lg) {
+    width: 34%;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    // order: 2;
+  }
+}
+
+#mogul-logo-main {
+  max-width: 100%;
+  min-width: 380px;
+  @include media-breakpoint-up(lg) {
+    width: 380px;
+  }
+}
+
+#learn-about-us {
+  text-align: center;
+  font-size: 1.1rem;
+  height: 20vh;
+  letter-spacing: 1.2px;
+  // margin-top: 50px;
+  font-weight: 300;
+  font-family: 'Darker Grotesque', 'Helvetica Neue', serif;
+  // padding-bottom: 40px;
+  @include media-breakpoint-up(lg) {
+    // padding-bottom: 0px;
+    height: auto;
+  }
+}
+
+#lower-quote {
+  padding-right: 30px;
+  padding-left: 30px;
+  padding-bottom: 30px;
+  margin-top: 40px;
+  font-style: italic;
+  font-family: serif;
+  font-size: 20px;
+  letter-spacing: 1.1px;
+  opacity: 0.65;
+  @include media-breakpoint-up(lg) {
+    padding-bottom: 0px;
+  }
+}
+
+#about-us-quote {
+  padding-right: 30px;
+  padding-left: 30px;
+  font-family: serif;
+  font-size: 20px;
+  opacity: 0.95;
+  letter-spacing: 1.2px;
+  @include media-breakpoint-up(lg) {
+    padding-right: 30px;
+    padding-left: 0px;
+  }
+}
+
+#payment-buttons {
+  min-width: 500px;
+  max-width: 500px;
+}
+#home-sep {
+  display: none;
+  @include media-breakpoint-up(lg) {
+    display: block;
+    height: 275px;
+    width: 1px;
+    background-color: #ccc;
+    align-items: center;
+  }
+}
+
+#hr-home-sep {
+  display: block;
+  width: 80%;
+  background-color: #ccc;
+  align-items: center;
+  margin: 0;
+  @include media-breakpoint-up(lg) {
+    display: none;
+  }
+}
+
+#secondary-container {
+  padding-top: 40px;
+  padding-bottom: 40px;
+  @include media-breakpoint-up(lg) {
+    padding-right: 40px;
+    padding-top: 0px;
+    padding-bottom: 0px;
+  }
+}
+
+#top-container {
+  width: auto;
+  height: 150px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: -40px;
+  @include media-breakpoint-up(lg) {
+    height: 150px;
+  }
+}
+
+#bottom-container {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.top-column {
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.tooltip-div-top {
+  align-self: flex-start;
+}
+
+.tooltip-div-bottom {
+  align-self: flex-end;
+}
+#mogul-logo-investor {
+  // margin-bottom: -100px;
+}
+
+#mogul-logo-seller {
+  // margin-bottom: -100px;
+}
+
+#mogul-logo-credit {
+  // margin-bottom: 40px;
+}
+
+.mogul-icon {
+  width: 85px;
+  @include media-breakpoint-up(lg) {
+    width: 85px;
+  }
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+

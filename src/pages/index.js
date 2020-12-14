@@ -3,7 +3,7 @@ import { graphql } from 'gatsby';
 import Helmet from 'react-helmet';
 import SEO from '../components/SEO';
 import Layout from '../layouts/index';
-import MogulManagementNavigator from '../components/MogulManagementNavigator';
+import KMMNavigator from '../components/KMMEnterpriseNavigator';
 import { TESTING } from '../utils/constants';
 
 const Home = (props) => {
@@ -12,8 +12,8 @@ const Home = (props) => {
       <SEO title="Home" />
       <Helmet>
         <meta
-          name="Mogul Management"
-          content="Mogul Management"
+          name="KMM Enterprise"
+          content="KMM Enterprise"
         />
       </Helmet>
       {
@@ -21,7 +21,7 @@ const Home = (props) => {
         <h6 style={{height: '30px', color: 'white', backgroundColor: 'red', paddingLeft: '30px'}}>TESTING MODE</h6>
       }
       <div className="mogul-container">
-        <MogulManagementNavigator />
+        <KMMNavigator />
       </div>
     </Layout>
   );
