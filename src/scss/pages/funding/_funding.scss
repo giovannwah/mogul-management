@@ -41,6 +41,23 @@
 #funding-consul-link {
   margin-bottom: 30px;
 }
+#funding-pdf-container {
+  width: 100%;
+  max-width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+}
+.react-pdf__Page__canvas {
+  @include media-breakpoint-up(lg) {
+    width: 792px !important;
+    height: 611px !important;
+    margin: none;
+  }
+  width: 100% !important;
+  height: auto !important;
+}
 #funding-pdf-buttons {
   display: flex;
   flex-direction: row;

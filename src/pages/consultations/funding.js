@@ -95,12 +95,14 @@ const Funding = props => {
           </div>
         </div>
         <div id="funding-pdf">
-          <Document
-            file={pdfFile}
-            id="funding-doc"
-          >
-            <Page key="page" pageIndex={page}/>
-          </Document>
+          <div id="funding-pdf-container">
+            <Document
+              file={pdfFile}
+              id="funding-doc"
+            >
+              <Page key="page" pageIndex={page}/>
+            </Document>
+          </div>
           <div id="funding-pdf-buttons">
             <Button
               id="funding-prev-button"
