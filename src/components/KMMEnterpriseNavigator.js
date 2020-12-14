@@ -3,12 +3,10 @@ import posed from 'react-pose';
 import { navigate, Link } from 'gatsby';
 import { withStyles } from '@material-ui/core/styles';
 import Tooltip from '@material-ui/core/Tooltip';
-import Quote from './Quote';
 import HomeContent from '../../content/pages/home/index';
 import FundingJSON from '../../content/pages/consultations/funding';
 import CreditJSON from '../../content/pages/consultations/credit-consulting';
 import AboutJSON from '../../content/pages/about';
-import { TESTING } from '../utils/constants';
 
 // Button animation
 const IconButton = posed.div({
