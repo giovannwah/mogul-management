@@ -38,12 +38,19 @@ class SimpleCalendar extends React.Component {
     );
     const { minTime, maxTime } = this.props;
     const { currentDate } = this.state;
+
     const sameDay = (day1, day2) => {
       return day1.getFullYear() === day2.getFullYear() &&
         day1.getMonth() === day2.getMonth() &&
         day1.getDate() === day2.getDate();
     };
 
+    const getMinHour = (day) => {
+      const now = new Date();
+      let next = now.getHours();
+      if (next >= maxTime || next < minTime) return minTime;
+      return next + 1;
+    };
     return (
       <DatePicker
         placeholderText="Click to select date/time"
@@ -58,7 +65,14 @@ class SimpleCalendar extends React.Component {
         // customInput={<ExampleCustomInput />}
         // customInputRef="custom-input"
         minDate={new Date()}
-        minTime={new Date().setHours(minTime)}
+        minTime={() => {
+          // const now = new Date();
+          // if (sameDay(now, currentDate)) {
+          //   return getMinHour(now);
+          // }
+          // return minTime;
+          return new Date().setHours(minTime);
+        }}
         maxTime={new Date().setHours(maxTime)}/>
     );
   }

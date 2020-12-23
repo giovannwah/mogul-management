@@ -20,6 +20,7 @@ import { test, submitUserData } from '../../utils/api';
 import JSONContact from '../../../content/pages/contact/index';
 import { TESTING } from '../../utils/constants';
 import StripePayment from '../../components/StripePayment';
+import { mobileWidth } from '../../utils/utils';
 
 const fieldStyle = {
   marginRight: '5px',
@@ -65,7 +66,6 @@ class CreditConsulting extends React.Component {
         step3: true, //TODO: recaptcha on last step
       },
       done: false,
-      submitData: {}
     };
     this.getFormValue = this.getFormValue.bind(this);
     this.onDateTimeChange = this.onDateTimeChange.bind(this);
@@ -181,7 +181,6 @@ class CreditConsulting extends React.Component {
   }
 
   stripePaymentOnClick = () => {
-    console.log('Stripe Payment on Click called....');
     const data = this.generateSubmitData(JSONCreditPageContent.content.title);
     // set up user submitted data cookie to expire in 8 hours
     Cookies.set('submittedUserData', data, { expires: (1 / 3) });
@@ -638,7 +637,7 @@ class CreditConsulting extends React.Component {
           </div>
         </div>
         <div className="container">
-          <Stepper activeStep={activeStep} orientation="vertical">
+          <Stepper activeStep={activeStep} orientation={ mobileWidth() ? "horizontal" : "vertical"}>
             {steps.map((label, index) => (
               <Step key={label}>
                 <StepLabel>{label}</StepLabel>

@@ -2,15 +2,16 @@ import React, { useState } from 'react';
 import {
   Button, Table, TableBody, TableRow, TableHead, TableCell, Collapse
 } from '@material-ui/core';
-import { Document, Page, pdfjs } from 'react-pdf';
+import '../../../node_modules/video-react/dist/video-react.css';
+import { Player } from 'video-react';
+import youtubeVideo from '../../../static/assets/YouTube_copyright_free.mp4';
 import Layout from '../../layouts/index';
 import SEO from '../../components/SEO';
 import JSONFundingPageContent from '../../../content/pages/consultations/funding.json';
-import pdfFile from '../../../static/assets/TRIFOLD_MM.pdf';
 
 // specify source of pdf_worker.js to ensure it is added to the correct output directory at build tie, see
 // https://github.com/wojtekmaj/react-pdf
-pdfjs.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.js`;
+// pdfjs.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.js`;
 
 const MAX_PAGES = 2;
 
@@ -95,33 +96,9 @@ const Funding = props => {
           </div>
         </div>
         <div id="funding-pdf">
-          <div id="funding-pdf-container">
-            <Document
-              file={pdfFile}
-              id="funding-doc"
-            >
-              <Page key="page" pageIndex={page}/>
-            </Document>
-          </div>
-          <div id="funding-pdf-buttons">
-            <Button
-              id="funding-prev-button"
-              className="funding-buttons"
-              onClick={prevPage}
-              disabled={page === 0}>
-              Back
-            </Button>
-            <div id="funding-page-count">
-              Page { page + 1 } of { MAX_PAGES + 1 }
-            </div>
-            <Button
-              id="funding-next-button"
-              className="funding-buttons"
-              onClick={nextPage}
-              disabled={page === MAX_PAGES}>
-              Next
-            </Button>
-          </div>
+          <Player
+            src={youtubeVideo}
+          />
         </div>
       </div>
     </Layout>

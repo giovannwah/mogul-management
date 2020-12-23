@@ -1,0 +1,88 @@
+// material-ui
+.MuiButton-containedPrimary {
+  background-color: $primary !important;
+  border-radius: 0;
+  box-shadow: none;
+}
+.MuiButton-containedSecondary {
+  background-color: $secondary !important;
+  border-radius: 0;
+  box-shadow: none;
+}
+.MuiButton-root.Mui-disabled {
+  background-color: #ccc !important;
+}
+.MuiStepIcon-root.MuiStepIcon-completed {
+  color: $money !important;
+}
+.MuiStepIcon-root.MuiStepIcon-active {
+  color: $money !important;
+}
+.MuiStepLabel-label.MuiStepLabel-active {
+  font-size: 24px !important;
+  font-weight: bolder !important;
+  color: $money !important;
+}
+
+// menu
+.MuiMenuItem-root {
+  font-family: 'Darker Grotesque', 'serif' !important;
+  text-transform: uppercase !important;
+  letter-spacing: 1.2px !important;
+  font-size: 16px !important;
+}
+.MuiPaper-elevation8 {
+  box-shadow: none !important;
+}
+.MuiPaper-rounded {
+  border-radius: 0px !important;
+}
+.MuiPopover-paper {
+  outline-color: #333 !important;
+  outline-width: 1px !important;
+  min-width: 200px !important;
+}
+.MuiMenu-paper {
+  border-style: solid !important;
+}
+
+// forms/stepper
+.MuiStepper-root {
+  padding: 0 !important;
+  @include media-breakpoint-up(lg) {
+    padding: 24px !important;
+  }
+}
+
+// react-scheduler
+.Cell-today-2363 {
+  background-color: $blue !important;
+}
+.Cell-highlight-2364 {
+  color: $blue !important;
+}
+
+// react-datepicker
+.react-datepicker__input-container > input {
+  width: 276px !important;
+}
+.react-datepicker-ignore-onclickoutside {
+  width: 276px !important;
+}
+
+// video-react
+.video-react.video-react-fluid, .video-react.video-react-16-9, .video-react.video-react-4-3 {
+  @include media-breakpoint-up(lg) {
+    max-width: 800px !important;
+    max-height: 450px !important;
+    min-width: 800px !important;
+    min-height: 450px !important;
+    padding-top: 0 !important;
+  }
+}
+
+.video-react-big-play-button {
+  transform: translateX(-50%) !important;
+  left: 50% !important;
+  top: 45% !important;
+}

@@ -44,7 +44,9 @@
     "react-pdf": "^4.2.0",
     "react-pose": "^4.0.10",
     "react-social-icons": "^4.1.0",
-    "stripe": "^8.127.0"
+    "redux": "^4.0.5",
+    "stripe": "^8.127.0",
+    "video-react": "^0.14.1"
   },
   "devDependencies": {
     "babel-eslint": "^9.0.0",
