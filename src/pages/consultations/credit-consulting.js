@@ -20,7 +20,6 @@ import { test, submitUserData } from '../../utils/api';
 import JSONContact from '../../../content/pages/contact/index';
 import { TESTING } from '../../utils/constants';
 import StripePayment from '../../components/StripePayment';
-import { mobileWidth } from '../../utils/utils';
 
 const fieldStyle = {
   marginRight: '5px',
@@ -637,7 +636,7 @@ class CreditConsulting extends React.Component {
           </div>
         </div>
         <div className="container">
-          <Stepper activeStep={activeStep} orientation={ mobileWidth() ? "horizontal" : "vertical"}>
+          <Stepper activeStep={activeStep} orientation={"horizontal"}>
             {steps.map((label, index) => (
               <Step key={label}>
                 <StepLabel>{label}</StepLabel>
