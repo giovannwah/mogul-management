@@ -28,6 +28,7 @@ const fieldStyle = {
 
 const navButtonsGroupStyle = {
   marginTop: '20px',
+  marginBottom: '20px',
 }
 
 const bold = {
@@ -636,7 +637,7 @@ class CreditConsulting extends React.Component {
           </div>
         </div>
         <div className="container">
-          <Stepper activeStep={activeStep} orientation={"horizontal"}>
+          <Stepper activeStep={activeStep} orientation="vertical">
             {steps.map((label, index) => (
               <Step key={label}>
                 <StepLabel>{label}</StepLabel>
@@ -694,7 +695,7 @@ class CreditConsulting extends React.Component {
                 width="100"/>
       </div>
     );
-  }
+  };
 
   contentWithLoader = () => {
     const { loading } = this.state;
@@ -702,7 +703,7 @@ class CreditConsulting extends React.Component {
       return this.getLoader();
     }
     return this.creditConsultingContent();
-  }
+  };
 
   render() {
     return (
